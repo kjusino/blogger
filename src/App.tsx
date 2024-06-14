@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Blog from '../src/components/Blog';
+import data from './content/data';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let routes = [];
+    for (let blog of data) {
+        const component = (
+            <Blog
+                route={blog.route}
+                title={blog.title}
+                abstract={blog.abstract}
+                pic={blog.pic}
+                caption={blog.caption}
+                content={blog.content}
+            />
+        );
+        routes.push(<Route path={blog.route} element={component} />);
+    }
+    return (
+        <header className="App-header">
+            <BrowserRouter>
+                <Routes>{routes}</Routes>
+            </BrowserRouter>
+        </header>
+    );
 }
 
 export default App;
