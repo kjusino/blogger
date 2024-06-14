@@ -21,7 +21,7 @@ function Blog({
                 <em className="Abstract">{abstract}</em>
                 <figure>
                     <img src={img} className="App-logo" alt={caption} />
-                    <figcaption>{caption}</figcaption>
+                    <figcaption className="Caption">{caption}</figcaption>
                 </figure>
             </header>
             <article className="Content">{content}</article>

@@ -6,10 +6,11 @@ const data: ArticleProps = {
     pic: 'profilepic.png',
     caption: 'Boston University, May 2019',
     content: [
-        <h2> Hi, I'm Kenneth! 👋🏽 </h2>,
+        <h2> Hi! 👋🏽 </h2>,
         <p>
-            I'm interested in mathematics, computer science, physics, and
-            culture. I could talk your {''}
+            Hey there, <a href="/about"> I'm Kenneth! </a> I'm interested in
+            mathematics, computer science, physics, and culture. I could talk
+            your {''}
             <em>ear off</em> about:
         </p>,
         <ul>

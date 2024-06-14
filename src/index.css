@@ -45,7 +45,7 @@ a {
     text-decoration: none;
     /* Changing the color */
     &:hover {
-        color: gray;
+        color: brown;
     }
 }
 
@@ -60,6 +60,9 @@ a {
         text-align: left;
         font-size: 1.2rem;
     }
+    .Caption {
+        font-size: 1.3rem;
+    }
 }
 /* mobile */
 @media only screen and (max-width: 800px) {
@@ -71,5 +74,8 @@ a {
     .Abstract {
         text-align: left;
         font-size: 0.7rem;
+    }
+    .Caption {
+        font-size: 0.8rem;
     }
 }
