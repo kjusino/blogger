@@ -1,18 +1,30 @@
-name: Docker Image CI
+name: BuildAndDeployDockerImageToAzureAppService
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    push:
+        branches: ['master']
+    pull_request:
+        branches: ['master']
 
 jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
 
-  build:
+        steps:
+            - uses: actions/checkout@v2
 
-    runs-on: ubuntu-latest
+            - uses: azure/docker-login@v1
+              with:
+                  login-server: blogger.azurecr.io
+                  username: ${{ secrets.USERNAME }}
+                  password: ${{ secrets.PASSWORD }}
 
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag latest:$(date +%s)
+            - run: |
+                  docker build . -t blogger.azurecr.io/blogger:${{ github.sha }}
+                  docker push blogger.azurecr.io/blogger:${{ github.sha }}
+
+            - uses: azure/webapps-deploy@v2
+              with:
+                  app-name: 'kennethjusino-client'
+                  publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+                  images: 'blogger.azurecr.io/blogger:${{ github.sha }}'
