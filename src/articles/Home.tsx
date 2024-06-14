@@ -2,14 +2,14 @@ import { ArticleProps } from '../components/ArticleProps';
 const data: ArticleProps = {
     route: '/',
     title: "Kenneth Jusino's Website",
-    abstract: 'Science, Math, Programming, Culture.',
+    abstract: 'Science, Mathematics, Programming, Culture',
     pic: 'profilepic.png',
     caption: 'Boston University, May 2019',
     content: [
-        <h2> Introduction </h2>,
+        <h2> Hi, I'm Kenneth! 👋🏽 </h2>,
         <p>
-            Hi, I'm Kenneth! 👋🏽 I'm interested in mathematics, computer science,
-            physics, and culture. I could talk your {''}
+            I'm interested in mathematics, computer science, physics, and
+            culture. I could talk your {''}
             <em>ear off</em> about:
         </p>,
         <ul>
@@ -18,6 +18,13 @@ const data: ArticleProps = {
             <li> Hamiltonian mechanics</li>
             <li> hip-hop/reggaetón</li>
         </ul>,
+        <p>
+            So instead of just yapping to my friends and family, I created a
+            simple React App using Typescript to host my thoughts on my own
+            platform. This UI will act as the entrypoint for all software
+            projects I build in the future. It is containerized with Docker and
+            deployed using Github Actions onto the Azure App Service.{' '}
+        </p>,
         <h2> Senior Software Engineer & Tech Lead</h2>,
         <h3>Software Engineer</h3>,
         <p>
