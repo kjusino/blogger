@@ -1,7 +1,7 @@
 import { ArticleProps } from '../components/ArticleProps';
 const data: ArticleProps = {
     route: '/',
-    title: "Kenneth's Blog",
+    title: "Kenneth Jusino's Website",
     abstract: 'Science, Math, Programming, Culture.',
     pic: 'profilepic.png',
     caption: 'Boston University, May 2019',
