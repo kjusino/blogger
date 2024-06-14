@@ -13,7 +13,7 @@ function Blog({
     caption: string;
     content: JSX.Element[];
 }) {
-    const img = require(`../content/${pic}`);
+    const img = require(`../articles/pics/${pic}`);
     return (
         <div className="Article">
             <header className="Article-header">

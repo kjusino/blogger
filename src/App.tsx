@@ -1,11 +1,11 @@
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Blog from '../src/components/Blog';
-import data from './content/data';
+import allData from './articles/allData';
 
 function App() {
     let routes = [];
-    for (let blog of data) {
+    for (let blog of allData) {
         const component = (
             <Blog
                 route={blog.route}
