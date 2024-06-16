@@ -8,15 +8,15 @@ const data: ArticleProps = {
     content: [
         <h2>Maunabo, PR</h2>,
         <p>
-            My father, Luis, was born and raised in the rural mountain town of
-            Maunabo, Puerto Rico. He and his five siblings were raised by a
-            single mother, with the help of Luis' grandmother who lived nearby
-            on a farm. Pa grew up only speaking spanish, as most poor Puerto
-            Ricans do on the island. He and his siblings used to have to climb
-            down the mountain with large buckets to fill them up with freshwater
-            before carrying them back up to the house to be used. Pa used to
-            tell us stories of him skipping school with his cousins so they all
-            could go to the nearby beaches to cool off.
+            My father, Luis, was born in Rio Piedras and raised in the rural
+            mountain town of Maunabo, Puerto Rico. He and his five siblings were
+            raised by a single mother, with the help of Luis' grandmother who
+            lived nearby on a farm. Pa grew up only speaking Spanish, as most
+            poor Puerto Ricans do on the island. He and his siblings used to
+            have to climb down the mountain with large buckets to fill them up
+            with freshwater before carrying them back up to the house to be
+            used. Pa used to tell us stories of him skipping school with his
+            cousins so they all could go to the nearby beaches to cool off.
         </p>,
         <p>
             Pa distinctly remembers his grandmother on her farm, living off of
@@ -51,8 +51,8 @@ const data: ArticleProps = {
             Chicago, IL and Lawrence, MA. He even worked removing Asbestos from
             the Prudential Tower in downtown Boston in the 90's. Somehow, my
             father found his way to Providence, RI, where he worked in the
-            textile factories famous at the time. It was grueling work, and took
-            a toll on him physically.
+            factories famous at the time. It was grueling work, and took a toll
+            on him physically.
         </p>,
         <p>
             He met my mother at Rhode Island College, where they both attended
