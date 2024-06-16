@@ -28,11 +28,6 @@ function Blog({
                 </figure>
             </header>
             <article className="Content">{content}</article>
-            {img2 && (
-                <figure>
-                    <img src={img2} className="App-logo" alt={caption} />
-                </figure>
-            )}
         </div>
     );
 }
