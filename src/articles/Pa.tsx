@@ -28,7 +28,7 @@ const data: ArticleProps = {
             feathers in her hair as she'd care for the animals.
         </p>,
         <p>
-            At 18 years old, Luis joined the United States Military. This is
+            At 20 years old, Luis joined the United States Military. This is
             very common, especially of the poorest Puerto Rican's, who's only
             real shot of getting out of poverty is through the military
             industrial complex. It usually includes a free ticket to the
