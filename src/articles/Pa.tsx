@@ -3,7 +3,7 @@ const data: ArticleProps = {
     route: 'pa',
     title: 'Happy Fathers Day, Papi!',
     abstract: 'The Man, The Myth, The Legend',
-    pics: ['pa.png'],
+    pics: ['pa.png', 'pa2.png'],
     caption: 'The Worlds Greatest Father, middle',
     content: [
         <h2>Maunabo, PR</h2>,
