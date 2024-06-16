@@ -3,7 +3,7 @@ const data: ArticleProps = {
     route: '/about',
     title: 'About Me',
     abstract: 'Young Caribbean Boy Grinding',
-    pic: 'caribbeanSea.png',
+    pics: ['caribbeanSea.png'],
     caption: '🇩🇴 Dominican Mother & 🇵🇷 Puerto Rican Father',
     content: [
         <h2> The Beginning </h2>,

@@ -3,7 +3,7 @@ const data: ArticleProps = {
     route: '/',
     title: "Kenneth Jusino's Website",
     abstract: 'Science, Mathematics, Programming, Culture',
-    pic: 'profilepic.png',
+    pics: ['profilepic.png'],
     caption: 'Boston University, May 2019',
     content: [
         <h2> Hi! 👋🏽 </h2>,

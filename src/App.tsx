@@ -11,7 +11,7 @@ function App() {
                 route={blog.route}
                 title={blog.title}
                 abstract={blog.abstract}
-                pic={blog.pic}
+                pics={blog.pics}
                 caption={blog.caption}
                 content={blog.content}
             />

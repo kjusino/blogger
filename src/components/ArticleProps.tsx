@@ -2,7 +2,7 @@ export interface ArticleProps {
     route: string;
     title: string;
     abstract: string;
-    pic: string;
+    pics: string[];
     caption: string;
     content: JSX.Element[];
 }

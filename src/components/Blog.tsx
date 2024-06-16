@@ -2,18 +2,21 @@ function Blog({
     route,
     title,
     abstract,
-    pic,
+    pics,
     caption,
     content,
 }: {
     route: string;
     title: string;
     abstract: string;
-    pic: string;
+    pics: string[];
     caption: string;
     content: JSX.Element[];
 }) {
-    const img = require(`../articles/pics/${pic}`);
+    const img = require(`../articles/pics/${pics[0]}`);
+
+    const img2 =
+        pics.length > 1 ? require(`../articles/pics/${pics[1]}`) : undefined;
     return (
         <div className="Article">
             <header className="Article-header">
@@ -25,6 +28,11 @@ function Blog({
                 </figure>
             </header>
             <article className="Content">{content}</article>
+            {img2 && (
+                <figure>
+                    <img src={img2} className="App-logo" alt={caption} />
+                </figure>
+            )}
         </div>
     );
 }
