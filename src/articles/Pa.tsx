@@ -32,9 +32,9 @@ const data: ArticleProps = {
             very common, especially of the poorest Puerto Rican's, who's only
             real shot of getting out of poverty is through the military
             industrial complex. It usually includes a free ticket to the
-            mainland, which he had never visited, shelter, and steady pay. So my
-            dad packed his bags, said goodbye to his home, and went off seeking
-            a better life in the United States.
+            mainland, shelter, and steady pay. So my dad packed his bags, said
+            goodbye to his home, and went off seeking a better life in the
+            United States.
         </p>,
         <h2> El Hombre</h2>,
         <p>
