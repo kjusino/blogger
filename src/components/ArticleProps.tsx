@@ -4,5 +4,7 @@ export interface ArticleProps {
     abstract: string;
     pics: string[];
     caption: string;
+    backgroundColor?: string;
+    textColor?: string;
     content: JSX.Element[];
 }
