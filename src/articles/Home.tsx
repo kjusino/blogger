@@ -1,30 +1,37 @@
 import { ArticleProps } from '../components/ArticleProps';
 const data: ArticleProps = {
     route: '/',
-    title: "Kenneth Jusino's Website",
-    abstract: 'Science, Mathematics, Programming, Culture',
+    title: 'Quantum Information, Computation & Algorithms',
+    abstract: 'NSF Funded Prospective CS PhD Student',
     pics: ['profilepic.png'],
-    caption: 'Boston University, May 2019',
+    caption: 'Kenneth, Boston University, May 2019',
     content: [
-        <h2> Hi! 👋🏽 </h2>,
+        <h2> Prospective CS PhD Student</h2>,
         <p>
-            Hey there, <a href="/about"> I'm Kenneth! </a> I'm interested in
-            mathematics, computer science, physics, and culture. I could talk
-            your {''}
-            <em>ear off</em> about:
+            Hello Professor, <a href="/about"> I'm Kenneth Jusino. </a> Thank
+            you for visiting my portfolio website.
         </p>,
-        <ul>
-            <li> partial differential equations</li>
-            <li> backend software engineering</li>
-            <li> Hamiltonian mechanics</li>
-            <li> hip-hop/reggaetón</li>
-        </ul>,
         <p>
-            So instead of just yapping to my friends and family, I created a
-            simple React App using Typescript to host my thoughts on my own
-            platform. This UI will act as the entrypoint for all software
-            projects I build in the future. It is containerized with Docker and
-            deployed using Github Actions onto the Azure App Service.{' '}
+            I'm a prospective quantum computer scientist interested in
+            researching the intersection of mathematics, computation, and
+            physics in a CS PhD program.
+        </p>,
+        <p>
+            The National Science Foundation awarded me the CSGrad4US Fellowship
+            in 2024, which comes with three years financial support totaling
+            $159,000 for my studies.
+        </p>,
+        <p>
+            I am broadly interested in researching the quantum computing "stack"
+            in its entirety. More specifically, I'm interested in quantum-
+            <ul>
+                <li>algorithms</li>
+                <li>complexity theory</li>
+                <li>programming languages</li>
+                <li>computer architecture</li>
+                <li>error correcting codes</li>{' '}
+                <li>software/hardware co-design</li>
+            </ul>
         </p>,
         <h2> Senior Software Engineer & Tech Lead</h2>,
         <h3>Software Engineer</h3>,
