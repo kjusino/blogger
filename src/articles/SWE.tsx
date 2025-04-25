@@ -1,11 +1,11 @@
-import { ArticleProps } from '../components/ArticleProps';
-import { Tags } from '../enums/Tags';
+import { ArticleProps } from '../resources/interfaces/ArticleProps';
+import { Tags } from '../resources/enums/Tags';
 const sweData: ArticleProps = {
     route: '/swe',
-    title: 'Software Engineering',
+    title: 'My Software Engineering Journey',
     pics: ['profilepic.png'],
     caption: 'Me Graduating Boston University, 2019',
-    tags: [Tags.CS],
+    tags: [Tags.Computation],
     content: [
         <h2>My SWE Journey</h2>,
         <h3>

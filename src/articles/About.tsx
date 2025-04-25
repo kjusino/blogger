@@ -1,5 +1,5 @@
-import { ArticleProps } from '../components/ArticleProps';
-import { Tags } from '../enums/Tags';
+import { ArticleProps } from '../resources/interfaces/ArticleProps';
+import { Tags } from '../resources/enums/Tags';
 const data: ArticleProps = {
     route: '/about',
     title: 'About Me',

@@ -1,4 +1,4 @@
-import { ArticleProps } from '../components/ArticleProps';
+import { ArticleProps } from '../resources/interfaces/ArticleProps';
 const introData: ArticleProps = {
     route: '/',
     title: 'Math ∩ Programming ∩ Science ∩ Culture',
@@ -10,10 +10,13 @@ const introData: ArticleProps = {
         </h2>,
         <p>
             I am interested in many topics, and plan to write short articles
-            with some of my learnings here. I'm primarily driven by a deep
-            curiosity of the world around me, and my desire to share my findings
-            with others. I created this blog to publish some of my personal
-            thoughts and opinions on my own platform.
+            with some of my learnings here.
+        </p>,
+        <p>
+            I'm primarily driven by a deep curiosity for the world around me,
+            and my desire to communicate with others. I created this blog to
+            publish some of my personal thoughts and opinions on my own
+            platform.
         </p>,
         <p>
             I've studied mathematics at{' '}

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Blog from '../src/components/Blog';
 import allData from './articles/allData';
 import NavBar from './components/NavBar';
+import Articles from './components/Articles';
 
 function App() {
     let routes = [];
@@ -19,6 +20,7 @@ function App() {
         );
         routes.push(<Route path={blog.route} element={component} />);
     }
+    routes.push(<Route path="articles" element={<Articles />} />);
     return (
         <header className="App-header">
             <BrowserRouter>

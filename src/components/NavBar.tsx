@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { Tags } from '../resources/enums/Tags';
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => setMenuOpen((prev) => !prev);
     const closeMenu = () => setMenuOpen(false);
+    const mathRoute = `/articles?tag=${Tags.Math}`;
+    const physicsRoute = `/articles?tag=${Tags.Physics}`;
+    const computationRoute = `/articles?tag=${Tags.Computation}`;
+    const cultureRoute = `/articles?tag=${Tags.Culture}`;
 
     return (
         <header className="navbar">
@@ -13,16 +18,16 @@ const NavBar = () => {
             </div>
 
             <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
-                <a href="/articles?tags=math" onClick={closeMenu}>
+                <a href={mathRoute} onClick={closeMenu}>
                     Math
                 </a>
-                <a href="/articles?tags=physics" onClick={closeMenu}>
+                <a href={physicsRoute} onClick={closeMenu}>
                     Physics
                 </a>
-                <a href="/articles?tags=computation" onClick={closeMenu}>
+                <a href={computationRoute} onClick={closeMenu}>
                     Computation
                 </a>
-                <a href="/articles?tags=culture" onClick={closeMenu}>
+                <a href={cultureRoute} onClick={closeMenu}>
                     Culture
                 </a>
             </nav>

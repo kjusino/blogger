@@ -1,6 +1,6 @@
 export enum Tags {
-    Math = 'Mathematics',
+    Math = 'Math',
     Physics = 'Physics',
-    CS = 'Computation',
+    Computation = 'Computation',
     Culture = 'Culture',
 }

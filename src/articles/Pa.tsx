@@ -1,4 +1,4 @@
-import { ArticleProps } from '../components/ArticleProps';
+import { ArticleProps } from '../resources/interfaces/ArticleProps';
 const data: ArticleProps = {
     route: 'pa',
     title: 'Happy Fathers Day, Papi!',

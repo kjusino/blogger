@@ -1,4 +1,4 @@
-import { Tags } from '../enums/Tags';
+import { Tags } from '../resources/enums/Tags';
 
 function Blog({
     route,
