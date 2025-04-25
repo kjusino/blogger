@@ -14,8 +14,96 @@ body {
     align-items: center;
     justify-content: left;
     font-size: calc(10px + 2vmin);
-    color: whitesmoke;
+    color: white;
     text-align: center;
+}
+.navbar {
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Nav links default (desktop) */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #1e90ff;
+}
+
+/* Hamburger icon - hidden by default */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.hamburger.open .top {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open .middle {
+    opacity: 0;
+}
+.hamburger.open .bottom {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+/* ===== Responsive styles ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: black;
+        flex-direction: column;
+        width: 100%;
+        text-align: right;
+        padding: 1rem 2rem;
+        display: none;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
 }
 
 .Article-header {

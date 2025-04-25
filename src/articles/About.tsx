@@ -1,10 +1,12 @@
-import { ArticleProps } from '../components/ArticleProps';
+import { ArticleProps } from '../resources/interfaces/ArticleProps';
+import { Tags } from '../resources/enums/Tags';
 const data: ArticleProps = {
     route: '/about',
     title: 'About Me',
     abstract: 'Young Caribbean Boy Grinding',
     pics: ['caribbeanSea.png'],
     caption: '🇩🇴 Dominican Mother & 🇵🇷 Puerto Rican Father',
+    tags: [Tags.Culture],
     content: [
         <h2> The Beginning </h2>,
         <p>
@@ -39,8 +41,8 @@ const data: ArticleProps = {
             </a>
             , the charter school I graduated high school from before attending
             college. Growing up in Providence was a unique experience,
-            surrounded by the children of minorities from the Caribbean, Central
-            and South America, and Africa.
+            surrounded by the children of minorities from the Caribbean, Africa,
+            Central America, and South America.
         </p>,
         <p>
             Living in a city and attending a school where the majority of people

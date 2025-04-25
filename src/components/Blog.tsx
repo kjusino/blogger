@@ -1,3 +1,5 @@
+import { Tags } from '../resources/enums/Tags';
+
 function Blog({
     route,
     title,
@@ -5,6 +7,7 @@ function Blog({
     pics,
     caption,
     content,
+    tags,
 }: {
     route: string;
     title: string;
@@ -12,6 +15,7 @@ function Blog({
     pics: string[];
     caption: string;
     content: JSX.Element[];
+    tags?: Tags[];
 }) {
     const img = require(`../articles/pics/${pics[0]}`);
 
