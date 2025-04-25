@@ -2,6 +2,7 @@ import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Blog from '../src/components/Blog';
 import allData from './articles/allData';
+import NavBar from './components/NavBar';
 
 function App() {
     let routes = [];
@@ -10,7 +11,7 @@ function App() {
             <Blog
                 route={blog.route}
                 title={blog.title}
-                abstract={blog.abstract}
+                abstract={blog.abstract ?? ''}
                 pics={blog.pics}
                 caption={blog.caption}
                 content={blog.content}
@@ -21,6 +22,7 @@ function App() {
     return (
         <header className="App-header">
             <BrowserRouter>
+                <NavBar />
                 <Routes>{routes}</Routes>
             </BrowserRouter>
         </header>
