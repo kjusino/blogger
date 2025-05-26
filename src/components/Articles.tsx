@@ -11,20 +11,24 @@ const Articles = () => {
 
     return (
         <div className="articles-page">
-            <h2>{tagForThisPage}</h2>
             {filteredArticles.length === 0 ? (
                 <p>No articles found for this tag.</p>
             ) : (
-                <ul className="article-list">
-                    {filteredArticles.map(({ title, abstract, route }) => (
-                        <div>
-                            <h3>
-                                <a href={route}>{title}</a>
-                            </h3>
-                            <p>{abstract}</p>
-                        </div>
-                    ))}
-                </ul>
+                <div>
+                    <h2>
+                        <u>{tagForThisPage} Articles</u>
+                    </h2>
+                    <ul className="article-list">
+                        {filteredArticles.map(({ title, abstract, route }) => (
+                            <div>
+                                <h3>
+                                    <a href={route}>{title}</a>
+                                </h3>
+                                <p>{abstract}</p>
+                            </div>
+                        ))}
+                    </ul>
+                </div>
             )}
         </div>
     );
