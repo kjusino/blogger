@@ -249,9 +249,9 @@ fn get_user_from_request(request: &str) -> Result<User, serde_json::Error> {
 const Rust: ArticleProps = {
     route: '/rust',
     title: 'Getting Rusty',
-    pics: ['pa.png'],
+    pics: ['rustLogo.png'],
     caption:
-        'Im learning Rust, a programming language with guaranteed memory safety, speed, and high concurrency.',
+        'Rust, a programming language with guaranteed memory safety, speed, and high concurrency.',
     createdDate: '2025-05-21',
     tags: [Tags.Computation],
     content: [
@@ -261,22 +261,26 @@ const Rust: ArticleProps = {
             love the programming language's guaranteed memory safety and borrow
             checker features. I, a math geek, love that those beloved features
             of the language are guaranteed by the mathematics of the TCS
-            research field known as "formal methods".
+            research field known as{' '}
+            <a href="https://shemesh.larc.nasa.gov/fm/fm-what.html">
+                formal methods
+            </a>
+            .
         </p>,
         <p>
             At Roche Inc, I've built software systems that implement formal
-            methods onto the software engineering lifecycle. I automated
-            compliance to FDA standards for Software as a Medical Device using
-            formal verification methods embedded into our SDLC, with my system
-            authorizing the final go/no-go designations for new releases going
-            out to patients around the world. I've found it to be rigorous and
-            challenging work, and the experience made me curious about Rust's
-            implementation of formal methods to mathematically (read{' '}
-            <i>"provably"</i>) guarantee memory safety when running in
-            production. NullPointerException, who??
+            methods to the software engineering lifecycle for Software as a
+            Medical Device. I automated compliance to FDA standards using formal
+            verification methods embedded into our SDLC, with my system
+            authorizing the final go/no-go designations for new software
+            releases going out to patients around the world. I've found it to be
+            rigorous and challenging work, and the experience made me curious
+            about Rust's implementation of formal methods to mathematically
+            (read <i>"provably"</i>) guarantee memory safety in production.
+            NullPointerException, who??
         </p>,
         <p>
-            To learn the Rust basics, Im going to make a simple CRUD API with
+            To learn the Rust basics, I'm going to make a simple CRUD API with
             Rust, a task I have done at work for years. To get started with
             Rust, I followed these steps:
         </p>,
@@ -544,10 +548,11 @@ const Rust: ArticleProps = {
         <p>
             I then tested the GET endpoint again, and this time it returned my
             name and email. To update my information, I used the PUT endpoint
-            with my user ID and a new email, which also a successful message.
-            Finally, I tested the DELETE endpoint to remove my user from the DB,
-            which also returned 200 OK. The API was now working as expected, and
-            I created, read, updated, and deleted resources successfully.
+            with my user ID and a new email, which also returned a successful
+            message. Finally, I tested the DELETE endpoint to remove my user
+            from the DB, which also returned 200 OK. The API was now working as
+            expected, and I created, read, updated, and deleted resources
+            successfully.
         </p>,
         <img
             src={require(`../articles/pics/getUserWithPostman.png`)}
@@ -587,9 +592,9 @@ const Rust: ArticleProps = {
         <p>
             Overall, I really enjoyed getting into the nitty-gritty details of
             Rust, and can see how the language's features can help engineers
-            write safer and more efficient (concurrent) code. Although I have no
-            plans on using the language professionally, I appreciate the
-            learning experience.
+            write safer and more efficient (concurrent) code. I have no plans on
+            using the language professionally yet, but I appreciate the learning
+            experience from a curious developer.
         </p>,
     ],
 };
