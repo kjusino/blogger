@@ -4,7 +4,9 @@ import Pa from './Pa';
 import Netflix from './Netflix';
 import PhD from './PhD';
 import SWE from './SWE';
+import Rust from './Rust';
+import Lean from './Lean';
 
-const allData = [Home, About, Pa, Netflix, PhD, SWE];
+const allData = [Home, About, Pa, Netflix, PhD, SWE, Rust];
 
 export default allData;

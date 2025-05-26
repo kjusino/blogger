@@ -10,4 +10,5 @@ export interface ArticleProps {
     textColor?: string;
     tags?: Tags[];
     content: JSX.Element[];
+    createdDate?: string;
 }
