@@ -452,7 +452,7 @@ const Rust: ArticleProps = {
         >
             {rustAppString}
         </SyntaxHighlighter>,
-        <h2>4. Docker time</h2>,
+        <h2>4. Docker Time</h2>,
         <p>
             The CRUD api lives completely inside the main.rs file, but thats not
             everything that is needed. API's require long term storage solutions
