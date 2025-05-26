@@ -594,7 +594,7 @@ const Rust: ArticleProps = {
             Rust, and can see how the language's features can help engineers
             write safer and more efficient (concurrent) code. I have no plans on
             using the language professionally yet, but I appreciate the learning
-            experience from a curious developer.
+            experience as a curious developer.
         </p>,
     ],
 };
