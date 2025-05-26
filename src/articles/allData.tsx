@@ -7,6 +7,6 @@ import SWE from './SWE';
 import Rust from './Rust';
 import Lean from './Lean';
 
-const allData = [Home, About, Pa, Netflix, PhD, SWE, Rust, Lean];
+const allData = [Home, About, Pa, Netflix, PhD, SWE, Rust];
 
 export default allData;
