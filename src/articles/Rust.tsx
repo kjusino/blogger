@@ -252,7 +252,7 @@ const Rust: ArticleProps = {
     pics: ['rustLogo.png'],
     caption:
         'Rust, a programming language with guaranteed memory safety, speed, and high concurrency.',
-    createdDate: '2025-05-21',
+    createdDate: '2025-05-25',
     tags: [Tags.Computation],
     content: [
         <h2>Learning Rust</h2>,

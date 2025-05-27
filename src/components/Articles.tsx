@@ -5,9 +5,11 @@ const Articles = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const tagForThisPage = queryParams.get('tag') ?? '';
-    const filteredArticles = allData.filter((article) => {
-        return article.tags?.toLocaleString().includes(tagForThisPage);
-    });
+    const filteredArticles = allData
+        .filter((article) => {
+            return article.tags?.toLocaleString().includes(tagForThisPage);
+        })
+        .reverse();
 
     return (
         <div className="articles-page">
