@@ -18,14 +18,14 @@ const NavBar = () => {
             </div>
 
             <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
-                <a href={mathRoute} onClick={closeMenu}>
+                <a href={computationRoute} onClick={closeMenu}>
+                    Computation
+                 </a>
+                 <a href={mathRoute} onClick={closeMenu}>
                     Math
                 </a>
                 <a href={physicsRoute} onClick={closeMenu}>
                     Physics
-                </a>
-                <a href={computationRoute} onClick={closeMenu}>
-                    Computation
                 </a>
                 <a href={cultureRoute} onClick={closeMenu}>
                     Culture
