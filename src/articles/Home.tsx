@@ -6,7 +6,7 @@ const introData: ArticleProps = {
     caption: 'Me Visiting San Juan, Puerto Rico, 2021',
     content: [
         <h2>
-            👋🏽 <a href="/about">I'm Kenneth</a>
+            👋🏽 <a href="/resume">I'm Kenneth</a>
         </h2>,
         <p>
             I am interested in many topics, and plan to write short articles

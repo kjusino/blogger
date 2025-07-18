@@ -3,10 +3,10 @@ import About from './About';
 import Pa from './Pa';
 import Netflix from './Netflix';
 import PhD from './PhD';
-import SWE from './SWE';
+import Resume from './Resume';
 import Rust from './Rust';
 import Lean from './Lean';
 
-const allData = [Home, About, Pa, Netflix, PhD, SWE, Rust];
+const allData = [Home, About, Pa, Netflix, PhD, Resume, Rust];
 
 export default allData;
