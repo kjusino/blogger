@@ -1,0 +1,106 @@
+[
+  {
+    "route": "/lean",
+    "title": "Lean Theorem Prover",
+    "abstract": "",
+    "pics": [
+      "pa.png"
+    ],
+    "caption": "Lets discover new mathematics with Lean!",
+    "backgroundColor": "",
+    "textColor": "",
+    "tags": [
+      "Computation",
+      "Math"
+    ],
+    "createdDate": "2025-05-26T00:00:00.000Z",
+    "content": "## Leaning\n\ntools like the [Lean Programming Language and Theorem Prover](https://lean-lang.org/) and projects using it to formalize mathematics and physics like [PhysLean](https://physlean.com/)."
+  },
+  {
+    "route": "/pa",
+    "title": "Happy Fathers Day, Papi!",
+    "abstract": "The Man, The Myth, The Legend",
+    "pics": [
+      "pa.png",
+      "pa2.png"
+    ],
+    "caption": "The Worlds Greatest Father, middle",
+    "backgroundColor": "",
+    "textColor": "",
+    "tags": [
+      "Culture"
+    ],
+    "createdDate": "2024-06-16T00:00:00.000Z",
+    "content": "## Maunabo, PR\n\nMy father, Luis, was born in Rio Piedras and raised in the rural mountain town of Maunabo, Puerto Rico. He and his five siblings were raised by a single mother, with the help of Luis' grandmother who lived nearby on a farm. Pa grew up only speaking Spanish, as most poor Puerto Ricans do on the island. He and his siblings used to have to climb down the mountain with large buckets to fill them up with freshwater before carrying them back up to the house to be used. Pa used to tell us stories of him skipping school with his cousins so they all could go to the nearby beaches to cool off.\n\nPa distinctly remembers his grandmother on her farm, living off of the land and animals she cared for. He even recalls her grabbing tobacco leaves off of nearby greenery and rolling her own cigars, exactly how the native Tainos had done for thousands of years on the island. After a 23&Me test, my father was found to be ~20% native Taino, even further supporting his claim of his grandmother placing feathers in her hair as she'd care for the animals.\n\nAt 20 years old, Luis joined the United States Military. This is very common, especially of the poorest Puerto Rican's, who's only real shot of getting out of poverty is through the military industrial complex. It usually includes a free ticket to the mainland, shelter, and steady pay. So my dad packed his bags, said goodbye to his home, and went off seeking a better life in the United States.\n\n## El Hombre\n\nUpon joining the military, my dad was shipped to Texas for basic training. He told us of the grueling drill sergeants, and horrible desert conditions: 110 degrees during the day, and sub 50 degrees at night. And at any time, they could be asked to drop everything they were doing and run 5 miles, rain or shine.\n\nDuring his leave, my father needed to work to support himself. He had family members living around the country, so he would visit them and work whatever jobs he could find. He visited cities like Chicago, IL and Lawrence, MA. He even worked removing Asbestos from the Prudential Tower in downtown Boston in the 90's. Somehow, my father found his way to Providence, RI, where he worked in the factories famous at the time. It was grueling work, and took a toll on him physically.\n\nHe met my mother at Rhode Island College, where they both attended English as a Second Language classes at night after working all day in the textile factories. It wasnt love at first sight, but it was close. After an accident at the factory cost him his right hands' index finger, my father realized he did not want to continue struggling through life working odd jobs that hurt him physically. He knew he was intelligent, and should put that to use. So he did.\n\n## El Biólogo\n\nWith dreams of understanding life and the nature he had been raised surrounded by, my father enrolled in undergraduate Biology classes at Rhode Island College before transferring to the University of Rhode Island. There, he declared his major in Biology and minor in Nutrition. My father learned about mitochondria, cytoplasms, golgi apparatus and all parts of the cell, with interests in diseases and proteins. He was in love. My mother was ill for a few months after my birth, so my dad used to take me to class with him at URI, where I would sit strapped to his chest while he was taking notes.\n\nHis determination to be the first in his entire family to get a college degree and his desire for a stable life drove him to accomplish what no one thought was possible, to graduation. My father used his biologicial interests and newly gained skills to create his own consuling firm, where he worked as a Nutritionist to those seeking a healthier lifestyle. While we lived in the Dominican Republic, he would advise strangers, friends, and family on the effects of our Caribbean diets on a persons long term health, the dangers of a sedentary lifestyle, and the lifechanging benefits of regular physical activity, even appearing on the front page of Santo Domingo's largest newspaper as \"The Nutrionist\". He especially made sure his children learned the lessons he had spent his lifetime learning so they would not have to struggle like he did. He emphasized the importance of health and education, and continues to do so to this day.\n\n## El Papá\n\nMy father was raised by a single mother, with no father figures except a few uncles. I have always greatly admired my father, because he has been the best father in the world to his children, unlike the father he never had. So its even more impressive how great of a father he has been my entire life, purely driven by love for his kids and his wife. He taught me how to be a man, a good man, and how to get shit done. My father never waited for anybody to do something for him. He wanted something done? He did it himself at that very moment and would take us with him to home depot to get the tools and pieces for whatever project he was working on.\n\nHe built the house we lived in for the majority of my life, and fixed almost everything broken or not working himself. He did homework with us every day until he could no longer help with the material. He taught me how to ride a bike, and would go on long rides with my brother and I on bike paths near the house. He didnt even get mad at me when I dumbly crossed in front of him and knocked his bike off balance, throwing him to the ground and bleeding from his arm. He was patient, and loved us more than he was mad. He took us to Roger Williams Park to play baseball and eat pizza, and watched the SciFi channel with us for hours. He'd make dinner on school nights after working long days at the Diocese, and he'd stay up late helping us with school projects due the next day (sorry for the late notice). He was one of my participants in my science fair projects, and he was always who I asked my science questions to. He almost always knew the answer, and when he didnt know, he would say he didnt know and encourage me to find out the answer for both of us.\n\nHe taught me to follow my passions, even when what I was interested in was \"nerdy\". He was estatic when I went to and graduated from college, and taught me to never stop learning. He made me curious about the world and how it works, and I am the man I am today because of his example. I was raised by a real man, who was never afraid of letting his kids know he loved them and would be there for anything. I dont know where I would be without my father in my life, and I will love him for the rest of mine.\n\nThank you for being the best father in the world, and for raising us in your image. Thank you for teaching me science and math, and encouraging me to go after my dreams. I will do the same, and encourage you to chase your dreams too. Return to school, learn more, change careers, go on vacations, eat food (and then exercise), and enjoy everything life has to offer. My father is my best friend, and I wish him a Happy Fathers Day! I love you, Pa!"
+  },
+  {
+    "route": "/phd",
+    "title": "Quantum Computation",
+    "abstract": "",
+    "pics": [
+      "quantumCircuit.png",
+      "quantumGap.png",
+      "quantumStack.png"
+    ],
+    "caption": "Quantum circuit progressing through time",
+    "backgroundColor": "",
+    "textColor": "",
+    "tags": [
+      "Math",
+      "Computation",
+      "Physics"
+    ],
+    "createdDate": "2024-03-01T00:00:00.000Z",
+    "content": "## Quantum Computer Scientist Soon🔜\n\nI'm a prospective quantum computer scientist interested in researching the intersection of mathematics, computation, and physics in a CS PhD program.\n\nThe National Science Foundation awarded me the CSGrad4US Fellowship in 2024, which comes with three years financial support totaling $159,000 for my studies.\n\nI am broadly interested in researching the quantum computing \"stack\" in its entirety. More specifically, I'm interested in quantum-\n\n- algorithms\n- complexity theory\n- programming languages\n- computer architecture\n- error correcting codes\n- software/hardware co-design"
+  },
+  {
+    "route": "/netflix",
+    "title": "I Want To Build For Netflix",
+    "abstract": "Specifically, Scalable Back-End Distributed Systems in Java",
+    "pics": [
+      "netflix2.png",
+      "netflix.png"
+    ],
+    "caption": "Because I Want To Learn How Its Done at Global Scale",
+    "backgroundColor": "",
+    "textColor": "",
+    "tags": [
+      "Computation",
+      "Culture"
+    ],
+    "createdDate": "2024-02-10T00:00:00.000Z",
+    "content": "## Why Netflix?\n\nBecause I\n\n- received my first dvd in the mail in 2008, and have been a grateful customer since\n- am a self-taught backend software engineer with 6 years of professional experience, and am always in awe of what Netflix Engineering is capable of accomplishing\n- watched Netflix's first original series *\"House of Cards\"* the day it came out while I was in High School, with my jaw on the ground during the opening monologue\n- want to learn about Netflix's implementation of Adaptive Streaming and individualized/dynamic bitrate and its effects on Quality of Experience (QoE)\n\n## Why Me?\n\nBecause I\n\n- have an undergraduate background in pure and applied mathematics and could think about problems all day\n- am an incredibly curious person who is constantly searching for better solutions to problems\n- will never start writing code until I fully understand the problem and have a provably scalable algorithm designed\n- care immensely about code quality and testing algorithms rigorously for edge cases and inefficiencies\n\n## What Have I Done To Prepare?\n\nEvery piece of software I have written has been developed because of its necessity across engineering organizations and I have learned through trial and error. My software systems and solutions have successfully transformed all of the enterprises I have ever been a part of for the better. Thus far, I've saved my current engineering organization at Roche, Inc 64,000 human-hours in idle time per year, with yearly savings of over $4.5 million. At the same time, standardizing and enforcing higher standards of quality, security, and compliance across the company. At previous employers, I've developed new methods of securely communicating with servers to perform automated testing of global cloud provider IBM.\n\nI want to apply my skill sets at Netflix, and grow as an engineer. If it sounds like your engineering team at Netflix would benefit from someone like me, please let me know, it would be my pleasure :)"
+  },
+  {
+    "route": "/about",
+    "title": "About Me",
+    "abstract": "Young Caribbean Boy Grinding",
+    "pics": [
+      "caribbeanSea.png"
+    ],
+    "caption": "🇩🇴 Dominican Mother & 🇵🇷 Puerto Rican Father",
+    "backgroundColor": "",
+    "textColor": "",
+    "tags": [
+      "Culture"
+    ],
+    "createdDate": "2024-01-20T00:00:00.000Z",
+    "content": "## The Beginning\n\nI was born in Providence, RI to a Dominican mother and a Puerto Rican father. They met in the 1990's while enrolled in English-as-a-Second Language night classes offered by Rhode Island College. After my younger brother was born, our family moved to Santo Domingo, Dominican Republic, so my parents could leverage their familial support network back in the Caribbean during my childhood. It was an amazing way to grow up, surrounded by *hundreds* of family members and friends, all gathered for even the smallest occasions.\n\nI learned Spanish as my first language, and we practiced our English at home. After my seventh birthday and fifth year in Santo Domingo, my parents made the difficult decision to return to Rhode Island after economic harships began to affect everyday life in DR. I didnt even know what a coat was, let alone what awaited us in the United States.\n\n## PVD Born and Raised\n\nUpon returning to Providence, I began attending [Alfred Lima Elementary](https://www.usnews.com/education/k12/rhode-island/alfred-lima-sr-elementary-school-278884), a bilingual public school where many first generation students in Providence pass through. I later arrived at [Times Squared Academy](https://www.usnews.com/education/best-high-schools/rhode-island/districts/providence-public-schools/times2-middle-high-school-409586), the charter school I graduated high school from before attending college. Growing up in Providence was a unique experience, surrounded by the children of minorities from the Caribbean, Africa, Central America, and South America.\n\nLiving in a city and attending a school where the majority of people are minorities built a perspective within me to look at situations from the eyes of those who have just arrived to the United States. We learned the customs and the language, and partook in American traditions while still being nestled in Providence's community bubble.\n\n## BOS 4L"
+  },
+  {
+    "route": "/",
+    "title": "Math ∩ Programming ∩ Science ∩ Culture",
+    "abstract": "",
+    "pics": [
+      "muralPic.png"
+    ],
+    "caption": "Me Visiting San Juan, Puerto Rico, 2021",
+    "backgroundColor": "",
+    "textColor": "",
+    "tags": [
+      "Culture"
+    ],
+    "createdDate": "2024-01-15T00:00:00.000Z",
+    "content": "## 👋🏽 [I'm Kenneth](/resume)\n\nI am interested in many topics, and plan to write short articles with some of my learnings here.\n\nI'm primarily driven by a deep curiosity for the world around me, and my desire to communicate with others. I created this blog to publish some of my personal thoughts and opinions on my own platform.\n\nI've studied mathematics at [Boston University](https://www.bu.edu/math/), physics with [The Perimeter Institute](https://perimeterinstitute.ca), and computer science while working as a Software Engineer at [IBM](https://www.ibm.com/) and [Foundation Medicine](https://www.foundationmedicine.com/), a subsidiary of [Roche, Inc.](https://www.roche.com/)"
+  }
+]

@@ -1,31 +1,45 @@
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Blog from '../src/components/Blog';
-import allData from './articles/allData';
+import { lazy, Suspense } from 'react';
 import NavBar from './components/NavBar';
 import Articles from './components/Articles';
+import { loadAllArticles } from './utils/articleLoader';
+
+// Lazy load the Blog component for better performance
+const Blog = lazy(() => import('./components/Blog'));
 
 function App() {
-    let routes = [];
-    for (let blog of allData) {
-        const component = (
-            <Blog
-                route={blog.route}
-                title={blog.title}
-                abstract={blog.abstract ?? ''}
-                pics={blog.pics}
-                caption={blog.caption}
-                content={blog.content}
-            />
-        );
-        routes.push(<Route path={blog.route} element={component} />);
-    }
-    routes.push(<Route path="articles" element={<Articles />} />);
+    // Auto-discover all markdown articles from generated JSON
+    const articles = loadAllArticles();
+
     return (
         <header className="App-header">
             <BrowserRouter>
                 <NavBar />
-                <Routes>{routes}</Routes>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Routes>
+                        {/* Dynamically generate routes from markdown articles */}
+                        {articles.map((article) => (
+                            <Route
+                                key={article.route}
+                                path={article.route}
+                                element={
+                                    <Blog
+                                        route={article.route}
+                                        title={article.title}
+                                        abstract={article.abstract}
+                                        pics={article.pics}
+                                        caption={article.caption}
+                                        content={article.content}
+                                        tags={article.tags}
+                                    />
+                                }
+                            />
+                        ))}
+                        {/* Articles listing page */}
+                        <Route path="articles" element={<Articles />} />
+                    </Routes>
+                </Suspense>
             </BrowserRouter>
         </header>
     );
