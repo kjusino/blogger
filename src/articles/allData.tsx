@@ -6,7 +6,8 @@ import PhD from './PhD';
 import Resume from './Resume';
 import Rust from './Rust';
 import Lean from './Lean';
+import Research from './Research';
 
-const allData = [Home, About, Pa, Netflix, PhD, Resume, Rust];
+const allData = [Home, About, Pa, Netflix, PhD, Resume, Rust, Research];
 
 export default allData;
