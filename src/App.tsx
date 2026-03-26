@@ -4,6 +4,7 @@ import Blog from '../src/components/Blog';
 import allData from './articles/allData';
 import NavBar from './components/NavBar';
 import Articles from './components/Articles';
+import Blogs from './components/Blogs';
 
 function App() {
     let routes = [];
@@ -21,6 +22,7 @@ function App() {
         routes.push(<Route path={blog.route} element={component} />);
     }
     routes.push(<Route path="articles" element={<Articles />} />);
+    routes.push(<Route path="blogs" element={<Blogs />} />);
     return (
         <header className="App-header">
             <BrowserRouter>
