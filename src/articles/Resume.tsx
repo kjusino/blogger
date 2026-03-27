@@ -441,9 +441,9 @@ const resume: ArticleProps = {
                 }}
             >
                 <a
-                    href={require('./Principal-Engineer-KJ.pdf')}
-                    download="Principal-Engineer-KJ.pdf"
-                    aria-label="Download PDF Resume"
+                    href={require('./Kenneth_Jusino_CV.pdf')}
+                    download="Kenneth_Jusino_CV.pdf"
+                    aria-label="Download PDF"
                     style={{
                         textDecoration: 'none',
                         display: 'flex',
