@@ -2,7 +2,7 @@ import { ArticleProps } from '../resources/interfaces/ArticleProps';
 
 // ── shared style tokens ──────────────────────────────────────────────────────
 const sh = {
-    borderBottom: '2px solid #1976d2',
+    borderBottom: '2px solid #1e90ff',
     display: 'inline-block' as const,
     paddingBottom: 4,
     marginBottom: 18,
@@ -28,13 +28,14 @@ const resume: ArticleProps = {
     route: '/cv',
     title: 'Kenneth Jusino',
     pics: ['profilepic.png'],
-    caption: 'PhD Candidate · NSF CSGrad4US Fellow · AI × Formal Methods',
+    caption: 'CS PhD Candidate · NSF CSGrad4US Fellow · AI × Formal Methods',
     content: [
         <div
             style={{
                 maxWidth: '700px',
                 margin: '0 auto 40px auto',
-                fontFamily: 'Segoe UI, Arial, sans-serif',
+                fontFamily:
+                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
                 fontSize: '16px',
                 color: '#e0e0e0',
             }}
@@ -52,13 +53,13 @@ const resume: ArticleProps = {
                     <div style={degree}>Ph.D. in Computer Science</div>
                     <div style={detail}>
                         Advisor: Stavros Tripakis · Focus: AI-Assisted Formal Methods,
-                        Specification Synthesis, Verified Software Engineering
+                        Formalized Mathematics, Verified Software Engineering
                     </div>
                     <div style={detail}>Funded by NSF CSGrad4US Fellowship</div>
                 </div>
 
                 {/* BU */}
-                <div style={{ marginBottom: 22 }}>
+                <div style={{ marginBottom: 4 }}>
                     <div style={rowSB}>
                         <span style={instName}>Boston University</span>
                         <span style={meta}>Boston, MA · 2015–2019</span>
@@ -70,27 +71,6 @@ const resume: ArticleProps = {
                     <div style={detail}>
                         Graduate-Level Coursework: Partial Differential Equations I–II,
                         Real Analysis I–II, Logic, Differential Geometry
-                    </div>
-                </div>
-
-                {/* Perimeter — styled as additional credential */}
-                <div
-                    style={{
-                        borderLeft: '2px solid #333',
-                        paddingLeft: 12,
-                        marginLeft: 2,
-                    }}
-                >
-                    <div style={rowSB}>
-                        <span style={{ fontWeight: 500, fontSize: 14, color: '#bbb' }}>
-                            Perimeter Institute for Theoretical Physics
-                        </span>
-                        <span style={{ color: '#666', fontSize: 12 }}>
-                            June 2022 – May 2023
-                        </span>
-                    </div>
-                    <div style={{ color: '#888', fontSize: 13, marginTop: 2 }}>
-                        PSI Start &amp; PSI Bridge Scholar · Waterloo, ON
                     </div>
                 </div>
             </section>
@@ -128,7 +108,13 @@ const resume: ArticleProps = {
                             letterSpacing: '-0.01em',
                         }}
                     >
-                        NSF CSGrad4US Fellowship
+                        <a
+                            href="https://www.nsf.gov/funding/opportunities/dcl-computer-information-science-engineering-graduate"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            National Science Foundation CSGrad4US Fellowship
+                        </a>
                     </div>
                     <p style={{ margin: '0 0 6px 0', fontSize: 14, color: '#bbb', lineHeight: 1.65 }}>
                         Selective fellowship — $159,000 stipend covering the first three
@@ -136,10 +122,18 @@ const resume: ArticleProps = {
                         with significant industry experience.
                     </p>
                     <p style={{ margin: 0, fontSize: 13, color: '#999', lineHeight: 1.65 }}>
-                        Awarded for proposed research in AI-assisted formal specification
-                        synthesis, trustworthy AI for safety-critical systems, and
-                        neurosymbolic approaches to software verification.
+                        Awarded for proposed research in AI-assisted formal methods,
+                        trustworthy AI, formalized mathematics, and neurosymbolic software
+                        verification.
                     </p>
+                </div>
+
+                {/* Perimeter */}
+                <div style={{ fontSize: 13, color: '#888', lineHeight: 1.9, paddingLeft: 4, marginBottom: 6 }}>
+                    <div>
+                        · PSI Start &amp; PSI Bridge Scholar — Perimeter Institute for
+                        Theoretical Physics | 2023
+                    </div>
                 </div>
 
                 <div style={{ fontSize: 13, color: '#888', lineHeight: 1.9, paddingLeft: 4 }}>
@@ -157,14 +151,17 @@ const resume: ArticleProps = {
             <section style={{ marginBottom: 40 }}>
                 <h2 style={sh}>Research Interests</h2>
                 <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.75, color: '#ccc' }}>
-                    My research sits at the intersection of AI and formal methods, with the
-                    goal of making rigorous software verification more practical and
-                    accessible. I'm particularly interested in LLM-assisted proof
-                    synthesis, generating formal specifications from natural-language
-                    requirements, and applying programming language theory to build tools
-                    that help engineers write correct software by construction. Broader
-                    themes: AI for Software Engineering, Formal Methods &amp; Verification,
-                    Formal Specification, Programming Language Theory.
+                    My research sits at the intersection of trustworthy AI, scalable formal
+                    methods, formalized mathematics, and provably correct software
+                    engineering. I am drawn to the challenge of making mechanically verified
+                    reasoning practical at scale — through AI-assisted theorem proving,
+                    neurosymbolic methods, and constrained LLM decoding that produces
+                    outputs checkable by proof assistants. I am particularly interested in
+                    autoformalization: transforming natural-language mathematical and
+                    computational artifacts into formal representations amenable to
+                    machine-checkable verification. Broader themes: lattice-theoretic
+                    semantics, proof assistant tooling (Lean 4), and the theoretical
+                    foundations connecting language models to deductive systems.
                 </p>
             </section>
 
@@ -172,18 +169,7 @@ const resume: ArticleProps = {
             <section style={{ marginBottom: 40 }}>
                 <h2 style={sh}>Industry Experience</h2>
 
-                {/* Company header */}
-                <div style={{ marginBottom: 14 }}>
-                    <div style={rowSB}>
-                        <span style={instName}>Roche / Foundation Medicine</span>
-                        <span style={meta}>Cambridge, MA · 2020–Present</span>
-                    </div>
-                    <div style={{ ...detail, marginTop: 2 }}>
-                        (preceded by IBM · Littleton, MA · 2019–2020)
-                    </div>
-                </div>
-
-                {/* Vertical career timeline */}
+                {/* Vertical career timeline — most recent → oldest */}
                 <div
                     style={{
                         position: 'relative',
@@ -205,15 +191,15 @@ const resume: ArticleProps = {
 
                     {[
                         {
-                            title: 'Software Developer, NextGen Cloud',
-                            org: 'IBM',
-                            years: '2019–2020',
-                            current: false,
+                            title: 'Senior Manager of Software Engineering, R&D',
+                            org: 'Roche',
+                            years: '2024–Present',
+                            current: true,
                         },
                         {
-                            title: 'Software Engineer & Technical Lead, R&D',
+                            title: 'Manager of Software Engineering, R&D',
                             org: 'Roche',
-                            years: '2020–2022',
+                            years: '2023–2024',
                             current: false,
                         },
                         {
@@ -223,16 +209,16 @@ const resume: ArticleProps = {
                             current: false,
                         },
                         {
-                            title: 'Manager of Software Engineering, R&D',
+                            title: 'Software Engineer & Technical Lead, R&D',
                             org: 'Roche',
-                            years: '2023–2024',
+                            years: '2020–2022',
                             current: false,
                         },
                         {
-                            title: 'Senior Manager of Software Engineering, R&D',
-                            org: 'Roche',
-                            years: '2024–Present',
-                            current: true,
+                            title: 'Software Developer, NextGen Cloud',
+                            org: 'IBM',
+                            years: '2019–2020',
+                            current: false,
                         },
                     ].map(({ title, org, years, current }) => (
                         <div
@@ -288,93 +274,6 @@ const resume: ArticleProps = {
                     ))}
                 </div>
 
-                {/* Key accomplishments */}
-                <div
-                    style={{
-                        borderTop: '1px solid #222',
-                        paddingTop: 16,
-                    }}
-                >
-                    <div
-                        style={{
-                            fontSize: 11,
-                            fontWeight: 600,
-                            letterSpacing: '0.08em',
-                            textTransform: 'uppercase',
-                            color: '#666',
-                            marginBottom: 12,
-                        }}
-                    >
-                        Key Accomplishments
-                    </div>
-                    <ul
-                        style={{
-                            margin: 0,
-                            paddingLeft: 18,
-                            fontSize: 14,
-                            color: '#aaa',
-                            lineHeight: 1.75,
-                        }}
-                    >
-                        <li style={{ marginBottom: 8 }}>
-                            <span style={{ color: '#e0e0e0', fontWeight: 500 }}>AIRE</span>{' '}
-                            — Designed an agentic system that synthesizes formal
-                            specifications from natural-language requirements using
-                            fine-tuned LLMs, reducing cross-functional coordination overhead
-                            by 67%
-                        </li>
-                        <li style={{ marginBottom: 8 }}>
-                            <span style={{ color: '#e0e0e0', fontWeight: 500 }}>
-                                Release Manager
-                            </span>{' '}
-                            — Designed LTL-based system modeling FDA-compliant software
-                            delivery as a temporal logic spec, reducing non-conformance
-                            reports from monthly to two annually
-                        </li>
-                        <li style={{ marginBottom: 8 }}>
-                            Led formal methods integration achieving{' '}
-                            <strong style={{ color: '#e0e0e0' }}>~$4.5M annual savings</strong>{' '}
-                            and 88% reduction in delivery timelines for a 500+ person R&amp;D
-                            org
-                        </li>
-                        <li>
-                            <span style={{ color: '#e0e0e0', fontWeight: 500 }}>
-                                ASM Validation Platform
-                            </span>{' '}
-                            — Developed formal verification platform for fault-tolerant
-                            distributed medical device microservices using Abstract State
-                            Machines
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* ── Formal Logic & Verification Background ───────────────── */}
-            <section style={{ marginBottom: 40 }}>
-                <h2 style={sh}>Formal Logic &amp; Verification Background</h2>
-                <ul
-                    style={{
-                        margin: '10px 0 0 0',
-                        paddingLeft: 18,
-                        fontSize: 14,
-                        color: '#bbb',
-                        lineHeight: 1.85,
-                    }}
-                >
-                    <li>Currently learning Lean 4</li>
-                    <li>
-                        Applied formal logic (propositional, first-order, temporal)
-                        extensively in industry for 7 years; graduate coursework in
-                        mathematical logic at BU
-                    </li>
-                    <li>
-                        Hands-on LTL model checking and ASM specification/refinement for
-                        reactive and distributed systems
-                    </li>
-                    <li>
-                        Experience constraining LLM outputs to formal grammars via AIRE
-                    </li>
-                </ul>
             </section>
 
             {/* ── Technical Skills ─────────────────────────────────────── */}
@@ -399,7 +298,7 @@ const resume: ArticleProps = {
                         },
                         {
                             label: 'AI & ML',
-                            value: 'LangChain, LangGraph, RAG Systems, Fine-Tuned LLMs for Specification Synthesis, Constrained Decoding, Agentic AI Systems',
+                            value: 'LangChain, LangGraph, RAG Systems, Agentic AI Systems',
                         },
                         {
                             label: 'Programming',
