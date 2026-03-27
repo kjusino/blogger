@@ -48,12 +48,15 @@ const resume: ArticleProps = {
                 <div style={{ marginBottom: 22 }}>
                     <div style={rowSB}>
                         <span style={instName}>Northeastern University</span>
-                        <span style={meta}>Boston, MA · Incoming Fall 2026</span>
+                        <span style={meta}>
+                            Boston, MA · Incoming Fall 2026
+                        </span>
                     </div>
                     <div style={degree}>Ph.D. in Computer Science</div>
                     <div style={detail}>
-                        Advisor: Stavros Tripakis · Focus: AI-Assisted Formal Methods,
-                        Formalized Mathematics, Verified Software Engineering
+                        Advisor: Stavros Tripakis · Focus: AI-Assisted Formal
+                        Methods, Formalized Mathematics, Verified Software
+                        Engineering
                     </div>
                     <div style={detail}>Funded by NSF CSGrad4US Fellowship</div>
                 </div>
@@ -69,8 +72,9 @@ const resume: ArticleProps = {
                     </div>
                     <div style={detail}>Minors: Physics, Computer Science</div>
                     <div style={detail}>
-                        Graduate-Level Coursework: Partial Differential Equations I–II,
-                        Real Analysis I–II, Logic, Differential Geometry
+                        Graduate-Level Coursework: Partial Differential
+                        Equations I–II, Real Analysis I–II, Logic, Differential
+                        Geometry
                     </div>
                 </div>
             </section>
@@ -116,33 +120,64 @@ const resume: ArticleProps = {
                             National Science Foundation CSGrad4US Fellowship
                         </a>
                     </div>
-                    <p style={{ margin: '0 0 6px 0', fontSize: 16, color: 'var(--text-body)', lineHeight: 1.65 }}>
-                        Selective fellowship — $159,000 stipend covering the first three
-                        years of a CISE doctorate, awarded to prospective graduate students
-                        with significant industry experience.
+                    <p
+                        style={{
+                            margin: '0 0 6px 0',
+                            fontSize: 16,
+                            color: 'var(--text-body)',
+                            lineHeight: 1.65,
+                        }}
+                    >
+                        Selective fellowship — $159,000 stipend covering the
+                        first three years of a CISE doctorate, awarded to
+                        prospective graduate students with significant industry
+                        experience.
                     </p>
-                    <p style={{ margin: 0, fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.65 }}>
-                        Awarded for proposed research in AI-assisted formal methods,
-                        trustworthy AI, formalized mathematics, and neurosymbolic software
-                        verification.
+                    <p
+                        style={{
+                            margin: 0,
+                            fontSize: 15,
+                            color: 'var(--text-muted)',
+                            lineHeight: 1.65,
+                        }}
+                    >
+                        Awarded for proposed research in AI-assisted formal
+                        methods, trustworthy AI, formalized mathematics, and
+                        neurosymbolic software verification.
                     </p>
                 </div>
 
                 {/* Perimeter */}
-                <div style={{ fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.9, paddingLeft: 4, marginBottom: 6 }}>
+                <div
+                    style={{
+                        fontSize: 15,
+                        color: 'var(--text-muted)',
+                        lineHeight: 1.9,
+                        paddingLeft: 4,
+                        marginBottom: 6,
+                    }}
+                >
                     <div>
-                        · PSI Start &amp; PSI Bridge Scholar — Perimeter Institute for
-                        Theoretical Physics | 2023
+                        · PSI Start &amp; PSI Bridge Scholar — Perimeter
+                        Institute for Theoretical Physics | 2023
                     </div>
                 </div>
 
-                <div style={{ fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.9, paddingLeft: 4 }}>
+                <div
+                    style={{
+                        fontSize: 15,
+                        color: 'var(--text-muted)',
+                        lineHeight: 1.9,
+                        paddingLeft: 4,
+                    }}
+                >
                     <div>
-                        · Boston Hacks 2018 — First Place, Home Automation Track ($500)
+                        · Boston Hacks 2018 — First Place, Home Automation Track
+                        ($500)
                     </div>
                     <div>
-                        · Rhode Island Math League 2015 — Top in School, Most Points
-                        ($1,000 scholarship)
+                        · Rhode Island Math League 2015 — Top in School, Most
+                        Points ($1,000 scholarship)
                     </div>
                 </div>
             </section>
@@ -150,18 +185,24 @@ const resume: ArticleProps = {
             {/* ── Research Interests ───────────────────────────────────── */}
             <section style={{ marginBottom: 40 }}>
                 <h2 style={sh}>Research Interests</h2>
-                <p style={{ marginTop: 10, fontSize: 17, lineHeight: 1.75, color: 'var(--text-body)' }}>
-                    My research sits at the intersection of trustworthy AI, scalable formal
-                    methods, formalized mathematics, and provably correct software
-                    engineering. I am drawn to the challenge of making mechanically verified
-                    reasoning practical at scale — through AI-assisted theorem proving,
-                    neurosymbolic methods, and constrained LLM decoding that produces
-                    outputs checkable by proof assistants. I am particularly interested in
-                    autoformalization: transforming natural-language mathematical and
-                    computational artifacts into formal representations amenable to
-                    machine-checkable verification. Broader themes: lattice-theoretic
-                    semantics, proof assistant tooling (Lean 4), and the theoretical
-                    foundations connecting language models to deductive systems.
+                <p
+                    style={{
+                        marginTop: 10,
+                        fontSize: 17,
+                        lineHeight: 1.75,
+                        color: 'var(--text-body)',
+                    }}
+                >
+                    My research interests sit at the intersection of{' '}
+                    <b>
+                        trustworthy AI, scalable formal methods, formalized
+                        mathematics, and provably correct software engineering
+                    </b>
+                    . I am drawn to the challenge of making mechanically
+                    verified reasoning practical at scale — through AI-assisted
+                    theorem proving, neurosymbolic methods, and constrained LLM
+                    decoding that produces outputs checkable by proof
+                    assistants.
                 </p>
             </section>
 
@@ -259,7 +300,9 @@ const resume: ArticleProps = {
                                     style={{
                                         fontSize: 16,
                                         fontWeight: current ? 600 : 400,
-                                        color: current ? 'var(--text)' : 'var(--text-body)',
+                                        color: current
+                                            ? 'var(--text)'
+                                            : 'var(--text-body)',
                                     }}
                                 >
                                     {title}
@@ -267,7 +310,9 @@ const resume: ArticleProps = {
                                 <span
                                     style={{
                                         fontSize: 14,
-                                        color: current ? 'var(--text-muted)' : 'var(--text-dim)',
+                                        color: current
+                                            ? 'var(--text-muted)'
+                                            : 'var(--text-dim)',
                                         whiteSpace: 'nowrap',
                                     }}
                                 >
@@ -277,7 +322,6 @@ const resume: ArticleProps = {
                         </div>
                     ))}
                 </div>
-
             </section>
 
             {/* ── Technical Skills ─────────────────────────────────────── */}
@@ -293,28 +337,41 @@ const resume: ArticleProps = {
                 >
                     {[
                         {
+                            label: 'Programming Languages',
+                            value: 'Java, TypeScript, Python, Golang, Rust (learning)',
+                        },
+                        {
+                            label: 'Tools & Infrastructure',
+                            value: 'Kafka, PostgreSQL, Docker, Git, AWS, Github Actions, Jenkins',
+                        },
+                        {
                             label: 'Formal Methods',
-                            value: 'LTL, ASMs, Model Checking, Temporal Logic Specification & Verification, Formal Refinement',
+                            value: 'LTL, ASMs, Model Checking, Temporal Logic Specification & Verification',
                         },
                         {
                             label: 'Proof Assistants',
                             value: 'Lean 4 (learning)',
                         },
                         {
-                            label: 'AI & ML',
+                            label: 'AI',
                             value: 'LangChain, LangGraph, RAG Systems, Agentic AI Systems',
                         },
                         {
-                            label: 'Programming',
-                            value: 'Java, TypeScript, Python, Golang, Rust · SpringBoot, Kafka, PostgreSQL, Docker, AWS',
+                            label: 'ML',
+                            value: 'Pytorch (learning)',
                         },
                         {
-                            label: 'Languages',
+                            label: 'Spoken Languages',
                             value: 'English (native), Spanish (native)',
                         },
                     ].map(({ label, value }) => (
                         <div key={label} style={{ marginBottom: 6 }}>
-                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
+                            <span
+                                style={{
+                                    color: 'var(--text)',
+                                    fontWeight: 500,
+                                }}
+                            >
                                 {label}:
                             </span>{' '}
                             {value}
@@ -336,26 +393,36 @@ const resume: ArticleProps = {
                 >
                     <div style={{ marginBottom: 10 }}>
                         <div style={rowSB}>
-                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
+                            <span
+                                style={{
+                                    color: 'var(--text)',
+                                    fontWeight: 500,
+                                }}
+                            >
                                 Industry Panelist — CS Careers
                             </span>
                             <span style={meta}>Feb 2024</span>
                         </div>
                         <div>
-                            Spoke to 20+ CS majors at Rhode Island College on formal methods
-                            in industry
+                            Spoke to 20+ CS majors at Rhode Island College on
+                            formal methods in industry
                         </div>
                     </div>
                     <div>
                         <div style={rowSB}>
-                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
+                            <span
+                                style={{
+                                    color: 'var(--text)',
+                                    fontWeight: 500,
+                                }}
+                            >
                                 Industry Panelist — STEM Careers
                             </span>
                             <span style={meta}>June 2023</span>
                         </div>
                         <div>
-                            Spoke to 100+ high school students via Skills for Rhode Island's
-                            Future
+                            Spoke to 100+ high school students via Skills for
+                            Rhode Island's Future
                         </div>
                     </div>
                 </div>
@@ -427,7 +494,14 @@ const resume: ArticleProps = {
                     style={{ textDecoration: 'none' }}
                 >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="4" width="20" height="16" rx="2" fill="#EA4335" />
+                        <rect
+                            x="2"
+                            y="4"
+                            width="20"
+                            height="16"
+                            rx="2"
+                            fill="#EA4335"
+                        />
                         <polyline
                             points="22,6 12,13 2,6"
                             fill="none"
