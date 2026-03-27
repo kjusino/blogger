@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import { Tags } from '../resources/enums/Tags';
+import { useTheme } from '../context/ThemeContext';
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { isDark, toggleTheme } = useTheme();
 
     const toggleMenu = () => setMenuOpen((prev) => !prev);
     const closeMenu = () => setMenuOpen(false);
-    const mathRoute = `/articles?tag=${Tags.Math}`;
-    const physicsRoute = `/articles?tag=${Tags.Physics}`;
-    const computationRoute = `/articles?tag=${Tags.Computation}`;
-    const cultureRoute = `/articles?tag=${Tags.Culture}`;
 
     return (
         <header className="navbar">
@@ -17,20 +14,25 @@ const NavBar = () => {
                 <a href="/">Kasike Kéne</a>
             </div>
 
-            <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
-                <a href={computationRoute} onClick={closeMenu}>
-                    Computation
-                 </a>
-                 <a href={mathRoute} onClick={closeMenu}>
-                    Math
-                </a>
-                <a href={physicsRoute} onClick={closeMenu}>
-                    Physics
-                </a>
-                <a href={cultureRoute} onClick={closeMenu}>
-                    Culture
-                </a>
-            </nav>
+            <div className="nav-right">
+                <button
+                    className="theme-toggle"
+                    onClick={toggleTheme}
+                    aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                    title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                    {isDark ? '☀️' : '🌙'}
+                </button>
+
+                <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                    <a href="/blogs" onClick={closeMenu}>
+                        Blogs
+                    </a>
+                    <a href="/cv" onClick={closeMenu}>
+                        CV
+                    </a>
+                </nav>
+            </div>
 
             <button
                 className={`hamburger ${menuOpen ? 'open' : ''}`}

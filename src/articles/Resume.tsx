@@ -1,365 +1,378 @@
 import { ArticleProps } from '../resources/interfaces/ArticleProps';
 
-const resumeCaption =
-    'Principal Software Engineer | Tech Lead | Senior Engineering Manager';
+// ── shared style tokens ──────────────────────────────────────────────────────
+const sh = {
+    borderBottom: '2px solid var(--accent)',
+    display: 'inline-block' as const,
+    paddingBottom: 4,
+    marginBottom: 18,
+    fontSize: 24,
+    fontWeight: 700,
+    marginTop: 0,
+};
+
+const rowSB = {
+    display: 'flex' as const,
+    justifyContent: 'space-between' as const,
+    alignItems: 'baseline' as const,
+    flexWrap: 'wrap' as const,
+    gap: 6,
+};
+
+const instName = { fontWeight: 600, fontSize: 18 };
+const degree = { color: 'var(--text-body)', fontSize: 17, marginTop: 3 };
+const detail = { color: 'var(--text-muted)', fontSize: 15, marginTop: 2 };
+const meta = { color: 'var(--text-dim)', fontSize: 14 };
 
 const resume: ArticleProps = {
-    route: '/resume',
+    route: '/cv',
     title: 'Kenneth Jusino',
     pics: ['profilepic.png'],
-    caption: resumeCaption,
+    caption: 'CS PhD Candidate · NSF CSGrad4US Fellow · AI × Formal Methods',
     content: [
         <div
             style={{
                 maxWidth: '700px',
-                margin: '40px auto',
-                background: 'black',
-                borderRadius: '18px',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-                padding: '32px 32px 40px 32px',
-                fontFamily: 'Segoe UI, Arial, sans-serif',
-                fontSize: '20px', // increased base font size by 2pt
+                margin: '0 auto 40px auto',
+                fontFamily:
+                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+                fontSize: '18px',
+                color: 'var(--text)',
             }}
         >
-            {/* Consistent font and sizing for all sections */}
-            <section style={{ marginBottom: 32, marginTop: 0 }}>
-                <h2
+            {/* ── Education ───────────────────────────────────────────── */}
+            <section style={{ marginBottom: 40 }}>
+                <h2 style={sh}>Education</h2>
+
+                {/* PhD */}
+                <div style={{ marginBottom: 22 }}>
+                    <div style={rowSB}>
+                        <span style={instName}>Northeastern University</span>
+                        <span style={meta}>Boston, MA · Incoming Fall 2026</span>
+                    </div>
+                    <div style={degree}>Ph.D. in Computer Science</div>
+                    <div style={detail}>
+                        Advisor: Stavros Tripakis · Focus: AI-Assisted Formal Methods,
+                        Formalized Mathematics, Verified Software Engineering
+                    </div>
+                    <div style={detail}>Funded by NSF CSGrad4US Fellowship</div>
+                </div>
+
+                {/* BU */}
+                <div style={{ marginBottom: 4 }}>
+                    <div style={rowSB}>
+                        <span style={instName}>Boston University</span>
+                        <span style={meta}>Boston, MA · 2015–2019</span>
+                    </div>
+                    <div style={degree}>
+                        Bachelor of Arts — Pure &amp; Applied Mathematics
+                    </div>
+                    <div style={detail}>Minors: Physics, Computer Science</div>
+                    <div style={detail}>
+                        Graduate-Level Coursework: Partial Differential Equations I–II,
+                        Real Analysis I–II, Logic, Differential Geometry
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Fellowships & Awards ─────────────────────────────────── */}
+            <section style={{ marginBottom: 40 }}>
+                <h2 style={sh}>Fellowships &amp; Awards</h2>
+
+                {/* NSF — typography-only callout */}
+                <div
                     style={{
-                        borderBottom: '2px solid #1976d2',
-                        display: 'inline-block',
-                        paddingBottom: 4,
-                        marginBottom: 16,
-                        fontSize: 30, // was 28
-                        fontWeight: 700,
-                        fontFamily: 'inherit',
-                        marginTop: 0,
+                        borderLeft: '3px solid var(--callout-border)',
+                        padding: '14px 18px',
+                        marginBottom: 18,
                     }}
                 >
-                    Profile
-                </h2>
-                <p
-                    style={{
-                        fontSize: 19, // was 17
-                        marginTop: 12,
-                        fontFamily: 'inherit',
-                        fontWeight: 400,
-                    }}
-                >
-                    Principal Software Engineer and Engineering Manager with 7+
-                    years of experience solving business-critical problems by
-                    developing performant, resilient, high-quality backend
-                    distributed systems.
+                    <div
+                        style={{
+                            fontSize: 11,
+                            fontWeight: 700,
+                            letterSpacing: '0.1em',
+                            textTransform: 'uppercase',
+                            color: 'var(--text-muted)',
+                            marginBottom: 6,
+                        }}
+                    >
+                        NSF Fellowship · May 2024
+                    </div>
+                    <div
+                        style={{
+                            fontSize: 20,
+                            fontWeight: 700,
+                            color: 'var(--text)',
+                            marginBottom: 8,
+                            letterSpacing: '-0.01em',
+                        }}
+                    >
+                        <a
+                            href="https://www.nsf.gov/funding/opportunities/dcl-computer-information-science-engineering-graduate"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            National Science Foundation CSGrad4US Fellowship
+                        </a>
+                    </div>
+                    <p style={{ margin: '0 0 6px 0', fontSize: 16, color: 'var(--text-body)', lineHeight: 1.65 }}>
+                        Selective fellowship — $159,000 stipend covering the first three
+                        years of a CISE doctorate, awarded to prospective graduate students
+                        with significant industry experience.
+                    </p>
+                    <p style={{ margin: 0, fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.65 }}>
+                        Awarded for proposed research in AI-assisted formal methods,
+                        trustworthy AI, formalized mathematics, and neurosymbolic software
+                        verification.
+                    </p>
+                </div>
+
+                {/* Perimeter */}
+                <div style={{ fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.9, paddingLeft: 4, marginBottom: 6 }}>
+                    <div>
+                        · PSI Start &amp; PSI Bridge Scholar — Perimeter Institute for
+                        Theoretical Physics | 2023
+                    </div>
+                </div>
+
+                <div style={{ fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.9, paddingLeft: 4 }}>
+                    <div>
+                        · Boston Hacks 2018 — First Place, Home Automation Track ($500)
+                    </div>
+                    <div>
+                        · Rhode Island Math League 2015 — Top in School, Most Points
+                        ($1,000 scholarship)
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Research Interests ───────────────────────────────────── */}
+            <section style={{ marginBottom: 40 }}>
+                <h2 style={sh}>Research Interests</h2>
+                <p style={{ marginTop: 10, fontSize: 17, lineHeight: 1.75, color: 'var(--text-body)' }}>
+                    My research sits at the intersection of trustworthy AI, scalable formal
+                    methods, formalized mathematics, and provably correct software
+                    engineering. I am drawn to the challenge of making mechanically verified
+                    reasoning practical at scale — through AI-assisted theorem proving,
+                    neurosymbolic methods, and constrained LLM decoding that produces
+                    outputs checkable by proof assistants. I am particularly interested in
+                    autoformalization: transforming natural-language mathematical and
+                    computational artifacts into formal representations amenable to
+                    machine-checkable verification. Broader themes: lattice-theoretic
+                    semantics, proof assistant tooling (Lean 4), and the theoretical
+                    foundations connecting language models to deductive systems.
                 </p>
             </section>
-            <section style={{ marginBottom: 32 }}>
-                <h2
+
+            {/* ── Industry Experience ──────────────────────────────────── */}
+            <section style={{ marginBottom: 40 }}>
+                <h2 style={sh}>Industry Experience</h2>
+
+                {/* Vertical career timeline — most recent → oldest */}
+                <div
                     style={{
-                        borderBottom: '2px solid #1976d2',
-                        display: 'inline-block',
-                        paddingBottom: 4,
-                        marginBottom: 16,
-                        fontSize: 30, // was 28
-                        fontWeight: 700,
-                        fontFamily: 'inherit',
+                        position: 'relative',
+                        paddingLeft: 22,
+                        marginBottom: 22,
                     }}
                 >
-                    Experience
-                </h2>
-                <div style={{ marginTop: 12 }}>
-                    <h4
+                    {/* vertical spine */}
+                    <div
                         style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
+                            position: 'absolute',
+                            left: 5,
+                            top: 8,
+                            bottom: 8,
+                            width: 2,
+                            background: 'var(--timeline-spine)',
                         }}
-                    >
-                        Senior Manager of Software Engineering, Roche Inc,
-                        Remote{' '}
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 16,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Saved $5M annually by automating SDLC artifact
-                        verification and document generation complying with IEC
-                        62304 for Software as a Medical Device
-                    </p>
-                    <h4
-                        style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
-                        }}
-                    >
-                        Senior Software Engineer, Roche Inc, Remote{' '}
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 16,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Manager of seven engineering direct reports in CE.
-                        Designed technical strategy, executed, and drove user
-                        adoption. Java, Kafka, Typescript, Prisma, PostgreSQL,
-                        AWS, Docker, Jenkins, Git
-                    </p>
-                    <h4
-                        style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
-                        }}
-                    >
-                        Software Engineer 3, Roche Inc, Remote{' '}
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 16,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Technical lead of Compliance Engineering and senior back
-                        end engineer
-                    </p>
-                    <h4
-                        style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
-                        }}
-                    >
-                        Software Engineer 2, Roche Inc, Boston MA{' '}
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 16,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Back end engineer for Quality Engineering building web
-                        API’s
-                    </p>
-                    <h4
-                        style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
-                        }}
-                    >
-                        Software Developer, IBM Cloud, Littleton MA{' '}
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 0,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        SDET for IBM’s Kubernetes control plane. Built novel
-                        protocol for local-to-server manual testing. Python,
-                        PyTest, Jenkins, IBM Cloud, Kubernetes
-                    </p>
+                    />
+
+                    {[
+                        {
+                            title: 'Senior Manager of Software Engineering, R&D',
+                            org: 'Roche',
+                            years: '2024–Present',
+                            current: true,
+                        },
+                        {
+                            title: 'Manager of Software Engineering, R&D',
+                            org: 'Roche',
+                            years: '2023–2024',
+                            current: false,
+                        },
+                        {
+                            title: 'Senior Software Engineer & Technical Lead, R&D',
+                            org: 'Roche',
+                            years: '2022–2023',
+                            current: false,
+                        },
+                        {
+                            title: 'Software Engineer & Technical Lead, R&D',
+                            org: 'Roche',
+                            years: '2020–2022',
+                            current: false,
+                        },
+                        {
+                            title: 'Software Developer, NextGen Cloud',
+                            org: 'IBM',
+                            years: '2019–2020',
+                            current: false,
+                        },
+                    ].map(({ title, org, years, current }) => (
+                        <div
+                            key={years}
+                            style={{
+                                position: 'relative',
+                                marginBottom: 10,
+                                paddingLeft: 16,
+                            }}
+                        >
+                            {/* dot */}
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    left: -17,
+                                    top: 5,
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: '50%',
+                                    background: current
+                                        ? 'var(--timeline-dot-active)'
+                                        : 'var(--timeline-dot-inactive)',
+                                    border: current
+                                        ? '2px solid var(--timeline-dot-active)'
+                                        : '2px solid var(--timeline-dot-inactive)',
+                                }}
+                            />
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'baseline',
+                                    flexWrap: 'wrap',
+                                    gap: 6,
+                                }}
+                            >
+                                <span
+                                    style={{
+                                        fontSize: 16,
+                                        fontWeight: current ? 600 : 400,
+                                        color: current ? 'var(--text)' : 'var(--text-body)',
+                                    }}
+                                >
+                                    {title}
+                                </span>
+                                <span
+                                    style={{
+                                        fontSize: 14,
+                                        color: current ? 'var(--text-muted)' : 'var(--text-dim)',
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                >
+                                    {org} · {years}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+            </section>
+
+            {/* ── Technical Skills ─────────────────────────────────────── */}
+            <section style={{ marginBottom: 40 }}>
+                <h2 style={sh}>Technical Skills</h2>
+                <div
+                    style={{
+                        marginTop: 10,
+                        fontSize: 16,
+                        color: 'var(--text-body)',
+                        lineHeight: 1.85,
+                    }}
+                >
+                    {[
+                        {
+                            label: 'Formal Methods',
+                            value: 'LTL, ASMs, Model Checking, Temporal Logic Specification & Verification, Formal Refinement',
+                        },
+                        {
+                            label: 'Proof Assistants',
+                            value: 'Lean 4 (learning)',
+                        },
+                        {
+                            label: 'AI & ML',
+                            value: 'LangChain, LangGraph, RAG Systems, Agentic AI Systems',
+                        },
+                        {
+                            label: 'Programming',
+                            value: 'Java, TypeScript, Python, Golang, Rust · SpringBoot, Kafka, PostgreSQL, Docker, AWS',
+                        },
+                        {
+                            label: 'Languages',
+                            value: 'English (native), Spanish (native)',
+                        },
+                    ].map(({ label, value }) => (
+                        <div key={label} style={{ marginBottom: 6 }}>
+                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
+                                {label}:
+                            </span>{' '}
+                            {value}
+                        </div>
+                    ))}
                 </div>
             </section>
-            <section style={{ marginBottom: 32 }}>
-                <h2
+
+            {/* ── Mentorship & Outreach ────────────────────────────────── */}
+            <section style={{ marginBottom: 40 }}>
+                <h2 style={sh}>Mentorship &amp; Outreach</h2>
+                <div
                     style={{
-                        borderBottom: '2px solid #1976d2',
-                        display: 'inline-block',
-                        paddingBottom: 4,
-                        marginBottom: 16,
-                        fontSize: 30, // was 28
-                        fontWeight: 700,
-                        fontFamily: 'inherit',
+                        marginTop: 10,
+                        fontSize: 16,
+                        color: 'var(--text-body)',
+                        lineHeight: 1.85,
                     }}
                 >
-                    Education
-                </h2>
-                <div style={{ marginTop: 12 }}>
-                    <h4
-                        style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
-                        }}
-                    >
-                        Perimeter Institute for Theoretical Physics, Remote
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 16,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Certificate of Completion - PSI Start Scholar and PSI
-                        Bridge Program
-                    </p>
-                    <h4
-                        style={{
-                            marginBottom: 4,
-                            fontSize: 22, // was 20
-                            fontWeight: 600,
-                            fontFamily: 'inherit',
-                        }}
-                    >
-                        Boston University, MA{' '}
-                    </h4>
-                    <p
-                        style={{
-                            marginTop: 0,
-                            marginBottom: 0,
-                            fontSize: 18, // was 16
-                            fontFamily: 'inherit',
-                            fontWeight: 400,
-                        }}
-                    >
-                        B.S. in Pure & Applied Mathematics, Minors in Computer
-                        Science & Physics
-                    </p>
+                    <div style={{ marginBottom: 10 }}>
+                        <div style={rowSB}>
+                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
+                                Industry Panelist — CS Careers
+                            </span>
+                            <span style={meta}>Feb 2024</span>
+                        </div>
+                        <div>
+                            Spoke to 20+ CS majors at Rhode Island College on formal methods
+                            in industry
+                        </div>
+                    </div>
+                    <div>
+                        <div style={rowSB}>
+                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
+                                Industry Panelist — STEM Careers
+                            </span>
+                            <span style={meta}>June 2023</span>
+                        </div>
+                        <div>
+                            Spoke to 100+ high school students via Skills for Rhode Island's
+                            Future
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section style={{ marginBottom: 32 }}>
-                <h2
-                    style={{
-                        borderBottom: '2px solid #1976d2',
-                        display: 'inline-block',
-                        paddingBottom: 4,
-                        marginBottom: 16,
-                        fontSize: 30, // was 28
-                        fontWeight: 700,
-                        fontFamily: 'inherit',
-                    }}
-                >
-                    Skills
-                </h2>
-                <ul
-                    style={{
-                        marginTop: 12,
-                        marginBottom: 0,
-                        paddingLeft: 20,
-                        fontSize: 18, // was 16
-                        fontFamily: 'inherit',
-                        fontWeight: 400,
-                        listStyle: 'disc',
-                    }}
-                >
-                    <li>
-                        <span style={{ fontWeight: 600 }}>
-                            Programming Languages:
-                        </span>{' '}
-                        Java, Typescript, Python, Golang, Rust, Javascript,
-                        Bash/Shell
-                    </li>
-                    <li>
-                        <span style={{ fontWeight: 600 }}>Frameworks:</span>{' '}
-                        Springboot, Node, FastAPI, Gin, Express, React, NestJS
-                    </li>
-                    <li>
-                        <span style={{ fontWeight: 600 }}>
-                            Databases/ Infra:
-                        </span>{' '}
-                        PostgreSQL, Prisma ORM, MongoDB, Cloudformation,
-                        Terraform
-                    </li>
-                    <li>
-                        <span style={{ fontWeight: 600 }}>
-                            Tooling/ Platforms:
-                        </span>{' '}
-                        Docker, Git, Kafka, Jenkins, AWS, Jira, qTest, LogzIO,
-                        TestNG
-                    </li>
-                    <li>
-                        <span style={{ fontWeight: 600 }}>AI & Quantum:</span>{' '}
-                        LangChain, LangGraph, Browseruse, Pydantic, Copilot,
-                        Qiskit, Ollama
-                    </li>
-                </ul>
-            </section>
-            <section style={{ marginBottom: 16 }}>
-                <h2
-                    style={{
-                        borderBottom: '2px solid #1976d2',
-                        display: 'inline-block',
-                        paddingBottom: 4,
-                        marginBottom: 16,
-                        fontSize: 30, // was 28
-                        fontWeight: 700,
-                        fontFamily: 'inherit',
-                    }}
-                >
-                    Awards
-                </h2>
-                <ul
-                    style={{
-                        marginTop: 12,
-                        marginBottom: 0,
-                        paddingLeft: 20,
-                        fontSize: 18, // was 16
-                        fontFamily: 'inherit',
-                        fontWeight: 400,
-                        listStyle: 'disc',
-                    }}
-                >
-                    <li>
-                        <span style={{ fontWeight: 600 }}>
-                            National Science Foundation, D.C. May 2024:
-                        </span>{' '}
-                        NSF CSGrad4US Fellowship Recipient- quantum software,
-                        $159,000 award over 3 years
-                    </li>
-                    <li>
-                        <span style={{ fontWeight: 600 }}>
-                            Boston Hacks, MA April 2018:
-                        </span>{' '}
-                        First Place, $500 award, Home Automation Track
-                    </li>
-                    <li>
-                        <span style={{ fontWeight: 600 }}>
-                            Rhode Island Math League, R.I. May 2015:
-                        </span>{' '}
-                        Top in School - Most Points, $1000 scholarship for
-                        college
-                    </li>
-                </ul>
-            </section>
+
+            {/* ── Footer ───────────────────────────────────────────────── */}
             <footer
                 style={{
-                    marginTop: 40,
-                    paddingTop: 24,
-                    borderTop: '1px solid #222',
+                    marginTop: 32,
+                    paddingTop: 20,
+                    borderTop: '1px solid var(--border)',
                     display: 'flex',
                     justifyContent: 'center',
-                    gap: 32,
+                    gap: 28,
                     alignItems: 'center',
                 }}
             >
-                {/* PDF Resume */}
                 <a
                     href={require('./Principal-Engineer-KJ.pdf')}
                     download="Principal-Engineer-KJ.pdf"
@@ -373,10 +386,9 @@ const resume: ArticleProps = {
                     <img
                         src={require('./pics/pdf.png')}
                         alt="PDF Resume"
-                        style={{ width: 28, height: 28, display: 'block' }}
+                        style={{ width: 24, height: 24, display: 'block' }}
                     />
                 </a>
-                {/* GitHub */}
                 <a
                     href="https://github.com/kjusino"
                     target="_blank"
@@ -384,7 +396,7 @@ const resume: ArticleProps = {
                     aria-label="GitHub"
                     style={{ textDecoration: 'none' }}
                 >
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <circle cx="12" cy="12" r="12" fill="#181717" />
                         <path
                             d="M12 2C6.48 2 2 6.58 2 12.26c0 4.48 2.87 8.28 6.84 9.63.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48C19.13 20.54 22 16.74 22 12.26 22 6.58 17.52 2 12 2Z"
@@ -392,7 +404,6 @@ const resume: ArticleProps = {
                         />
                     </svg>
                 </a>
-                {/* LinkedIn */}
                 <a
                     href="https://www.linkedin.com/in/kenneth-jusino/"
                     target="_blank"
@@ -407,24 +418,16 @@ const resume: ArticleProps = {
                     <img
                         src={require('./pics/LI-In-Bug.png')}
                         alt="LinkedIn"
-                        style={{ width: 28, height: 28, display: 'block' }}
+                        style={{ width: 24, height: 24, display: 'block' }}
                     />
                 </a>
-                {/* Email */}
                 <a
                     href="mailto:kennethjusino@hotmail.com"
                     aria-label="Email"
                     style={{ textDecoration: 'none' }}
                 >
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                        <rect
-                            x="2"
-                            y="4"
-                            width="20"
-                            height="16"
-                            rx="2"
-                            fill="#EA4335"
-                        />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="4" width="20" height="16" rx="2" fill="#EA4335" />
                         <polyline
                             points="22,6 12,13 2,6"
                             fill="none"

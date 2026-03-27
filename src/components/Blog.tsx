@@ -1,3 +1,4 @@
+import '../blog.css';
 import { Tags } from '../resources/enums/Tags';
 
 function Blog({
@@ -8,6 +9,7 @@ function Blog({
     caption,
     content,
     tags,
+    isBlogPost,
 }: {
     route: string;
     title: string;
@@ -16,13 +18,17 @@ function Blog({
     caption: string;
     content: JSX.Element[];
     tags?: Tags[];
+    isBlogPost?: boolean;
 }) {
     const img = require(`../articles/pics/${pics[0]}`);
 
     const img2 =
         pics.length > 1 ? require(`../articles/pics/${pics[1]}`) : undefined;
+
+    const articleClass = isBlogPost ? 'Article blog-page' : 'Article';
+
     return (
-        <div className="Article">
+        <div className={articleClass}>
             <header className="Article-header">
                 <h1>{title}</h1>
                 <em className="Abstract">{abstract}</em>

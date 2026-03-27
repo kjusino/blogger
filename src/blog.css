@@ -1,0 +1,167 @@
+/* ── Theme-aware blog article page styles ─────────────────────────────────── */
+
+.blog-page {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Article header */
+.blog-page .Article-header {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 2.5rem;
+}
+
+/* Category label — the abstract becomes an ALL-CAPS editorial label */
+.blog-page .Abstract {
+    display: block;
+    font-style: normal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+}
+
+/* Main title */
+.blog-page h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.18;
+    color: var(--text-bright);
+    letter-spacing: -0.025em;
+    margin: 0 0 0.6rem 0;
+}
+
+/* Caption */
+.blog-page .Caption {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.6rem;
+}
+
+/* Section headings within articles */
+.blog-page .Content h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border-subtle);
+    letter-spacing: -0.01em;
+}
+
+.blog-page .Content h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Body text */
+.blog-page .Content p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text-body);
+    margin-bottom: 1.25rem;
+}
+
+/* Links inside blog content */
+.blog-page .Content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30, 144, 255, 0.3);
+    transition: border-color 0.2s;
+}
+
+.blog-page .Content a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Inline code */
+.blog-page .Content code {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 0.875em;
+    color: var(--text);
+}
+
+/* Code blocks */
+.blog-page .Content pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.blog-page .Content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+    color: var(--text);
+}
+
+/* Lists */
+.blog-page .Content ul,
+.blog-page .Content ol {
+    color: var(--text-body);
+    line-height: 1.85;
+    margin: 1rem 0 1.25rem 1.5rem;
+}
+
+.blog-page .Content li {
+    margin-bottom: 0.3rem;
+}
+
+/* Strong / em */
+.blog-page .Content strong {
+    color: var(--text-bright);
+    font-weight: 600;
+}
+
+.blog-page .Content em {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Horizontal rules */
+.blog-page .Content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+}
+
+/* Iframe embeds */
+.blog-page .Content iframe {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    max-width: 100%;
+}
+
+/* Mobile adjustments */
+@media only screen and (max-width: 800px) {
+    .blog-page h1 {
+        font-size: 1.7rem;
+    }
+
+    .blog-page .Content h2 {
+        font-size: 1.2rem;
+    }
+}
