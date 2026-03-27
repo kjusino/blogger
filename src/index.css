@@ -1,5 +1,51 @@
+/* ── Theme variables ───────────────────────────────────────────────────────── */
+
+[data-theme="dark"] {
+    --bg: #0d0d0d;
+    --nav-bg: #000000;
+    --text: #e8e8e8;
+    --text-bright: #f0f0f0;
+    --text-body: #c8c8c8;
+    --text-muted: #888888;
+    --text-dim: #666666;
+    --card-bg: #1a1a1a;
+    --border: #2a2a2a;
+    --border-subtle: #1e1e1e;
+    --accent: #1e90ff;
+    --code-bg: #111111;
+    --timeline-spine: #2e2e2e;
+    --timeline-dot-active: #e0e0e0;
+    --timeline-dot-inactive: #333333;
+    --callout-border: #666666;
+    --link-color: whitesmoke;
+    --link-hover: brown;
+    --hamburger-bar: white;
+}
+
+[data-theme="light"] {
+    --bg: #f8f8f5;
+    --nav-bg: #ffffff;
+    --text: #1a1a1a;
+    --text-bright: #0d0d0d;
+    --text-body: #333333;
+    --text-muted: #666666;
+    --text-dim: #888888;
+    --card-bg: #ffffff;
+    --border: #e0e0e0;
+    --border-subtle: #d0d0d0;
+    --accent: #1e90ff;
+    --code-bg: #f0f0ed;
+    --timeline-spine: #d0d0d0;
+    --timeline-dot-active: #1a1a1a;
+    --timeline-dot-inactive: #aaaaaa;
+    --callout-border: #aaaaaa;
+    --link-color: #1a1a1a;
+    --link-hover: #1e90ff;
+    --hamburger-bar: #1a1a1a;
+}
+
 body {
-    background-color: #000000;
+    background-color: var(--bg);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
         'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
         'Helvetica Neue', sans-serif;
@@ -14,13 +60,13 @@ body {
     align-items: center;
     justify-content: left;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: var(--text);
     text-align: center;
 }
 .navbar {
     width: 100%;
-    background-color: #000000;
-    color: white;
+    background-color: var(--nav-bg);
+    color: var(--text);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,14 +87,40 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #1e90ff;
+    color: var(--accent);
+}
+
+/* Right-side nav group: toggle + links */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Theme toggle pill */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 12px;
+    color: var(--text);
+    transition: opacity 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.theme-toggle:hover {
+    opacity: 0.7;
 }
 
 /* Hamburger icon - hidden by default */
@@ -58,7 +130,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: black;
+    background-color: var(--nav-bg);
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -70,7 +142,7 @@ body {
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--hamburger-bar);
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -89,7 +161,7 @@ body {
         position: absolute;
         top: 100%;
         right: 0;
-        background-color: black;
+        background-color: var(--nav-bg);
         flex-direction: column;
         width: 100%;
         text-align: right;
@@ -102,6 +174,11 @@ body {
     }
 
     .hamburger {
+        display: flex;
+    }
+
+    .theme-toggle {
+        /* always visible, even on mobile */
         display: flex;
     }
 }
@@ -129,11 +206,11 @@ p {
 }
 
 a {
-    color: whitesmoke;
+    color: var(--link-color);
     text-decoration: none;
     /* Changing the color */
     &:hover {
-        color: brown;
+        color: var(--link-hover);
     }
 }
 

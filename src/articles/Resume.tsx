@@ -2,11 +2,11 @@ import { ArticleProps } from '../resources/interfaces/ArticleProps';
 
 // ── shared style tokens ──────────────────────────────────────────────────────
 const sh = {
-    borderBottom: '2px solid #1e90ff',
+    borderBottom: '2px solid var(--accent)',
     display: 'inline-block' as const,
     paddingBottom: 4,
     marginBottom: 18,
-    fontSize: 21,
+    fontSize: 24,
     fontWeight: 700,
     marginTop: 0,
 };
@@ -19,10 +19,10 @@ const rowSB = {
     gap: 6,
 };
 
-const instName = { fontWeight: 600, fontSize: 16 };
-const degree = { color: '#ccc', fontSize: 15, marginTop: 3 };
-const detail = { color: '#888', fontSize: 13, marginTop: 2 };
-const meta = { color: '#666', fontSize: 12 };
+const instName = { fontWeight: 600, fontSize: 18 };
+const degree = { color: 'var(--text-body)', fontSize: 17, marginTop: 3 };
+const detail = { color: 'var(--text-muted)', fontSize: 15, marginTop: 2 };
+const meta = { color: 'var(--text-dim)', fontSize: 14 };
 
 const resume: ArticleProps = {
     route: '/cv',
@@ -36,8 +36,8 @@ const resume: ArticleProps = {
                 margin: '0 auto 40px auto',
                 fontFamily:
                     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-                fontSize: '16px',
-                color: '#e0e0e0',
+                fontSize: '18px',
+                color: 'var(--text)',
             }}
         >
             {/* ── Education ───────────────────────────────────────────── */}
@@ -82,18 +82,18 @@ const resume: ArticleProps = {
                 {/* NSF — typography-only callout */}
                 <div
                     style={{
-                        borderLeft: '3px solid #666',
+                        borderLeft: '3px solid var(--callout-border)',
                         padding: '14px 18px',
                         marginBottom: 18,
                     }}
                 >
                     <div
                         style={{
-                            fontSize: 10,
+                            fontSize: 11,
                             fontWeight: 700,
                             letterSpacing: '0.1em',
                             textTransform: 'uppercase',
-                            color: '#888',
+                            color: 'var(--text-muted)',
                             marginBottom: 6,
                         }}
                     >
@@ -101,9 +101,9 @@ const resume: ArticleProps = {
                     </div>
                     <div
                         style={{
-                            fontSize: 18,
+                            fontSize: 20,
                             fontWeight: 700,
-                            color: '#e0e0e0',
+                            color: 'var(--text)',
                             marginBottom: 8,
                             letterSpacing: '-0.01em',
                         }}
@@ -116,12 +116,12 @@ const resume: ArticleProps = {
                             National Science Foundation CSGrad4US Fellowship
                         </a>
                     </div>
-                    <p style={{ margin: '0 0 6px 0', fontSize: 14, color: '#bbb', lineHeight: 1.65 }}>
+                    <p style={{ margin: '0 0 6px 0', fontSize: 16, color: 'var(--text-body)', lineHeight: 1.65 }}>
                         Selective fellowship — $159,000 stipend covering the first three
                         years of a CISE doctorate, awarded to prospective graduate students
                         with significant industry experience.
                     </p>
-                    <p style={{ margin: 0, fontSize: 13, color: '#999', lineHeight: 1.65 }}>
+                    <p style={{ margin: 0, fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.65 }}>
                         Awarded for proposed research in AI-assisted formal methods,
                         trustworthy AI, formalized mathematics, and neurosymbolic software
                         verification.
@@ -129,14 +129,14 @@ const resume: ArticleProps = {
                 </div>
 
                 {/* Perimeter */}
-                <div style={{ fontSize: 13, color: '#888', lineHeight: 1.9, paddingLeft: 4, marginBottom: 6 }}>
+                <div style={{ fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.9, paddingLeft: 4, marginBottom: 6 }}>
                     <div>
                         · PSI Start &amp; PSI Bridge Scholar — Perimeter Institute for
                         Theoretical Physics | 2023
                     </div>
                 </div>
 
-                <div style={{ fontSize: 13, color: '#888', lineHeight: 1.9, paddingLeft: 4 }}>
+                <div style={{ fontSize: 15, color: 'var(--text-muted)', lineHeight: 1.9, paddingLeft: 4 }}>
                     <div>
                         · Boston Hacks 2018 — First Place, Home Automation Track ($500)
                     </div>
@@ -150,7 +150,7 @@ const resume: ArticleProps = {
             {/* ── Research Interests ───────────────────────────────────── */}
             <section style={{ marginBottom: 40 }}>
                 <h2 style={sh}>Research Interests</h2>
-                <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.75, color: '#ccc' }}>
+                <p style={{ marginTop: 10, fontSize: 17, lineHeight: 1.75, color: 'var(--text-body)' }}>
                     My research sits at the intersection of trustworthy AI, scalable formal
                     methods, formalized mathematics, and provably correct software
                     engineering. I am drawn to the challenge of making mechanically verified
@@ -185,7 +185,7 @@ const resume: ArticleProps = {
                             top: 8,
                             bottom: 8,
                             width: 2,
-                            background: '#2e2e2e',
+                            background: 'var(--timeline-spine)',
                         }}
                     />
 
@@ -238,8 +238,12 @@ const resume: ArticleProps = {
                                     width: 10,
                                     height: 10,
                                     borderRadius: '50%',
-                                    background: current ? '#e0e0e0' : '#333',
-                                    border: `2px solid ${current ? '#e0e0e0' : '#555'}`,
+                                    background: current
+                                        ? 'var(--timeline-dot-active)'
+                                        : 'var(--timeline-dot-inactive)',
+                                    border: current
+                                        ? '2px solid var(--timeline-dot-active)'
+                                        : '2px solid var(--timeline-dot-inactive)',
                                 }}
                             />
                             <div
@@ -253,17 +257,17 @@ const resume: ArticleProps = {
                             >
                                 <span
                                     style={{
-                                        fontSize: 14,
+                                        fontSize: 16,
                                         fontWeight: current ? 600 : 400,
-                                        color: current ? '#e0e0e0' : '#bbb',
+                                        color: current ? 'var(--text)' : 'var(--text-body)',
                                     }}
                                 >
                                     {title}
                                 </span>
                                 <span
                                     style={{
-                                        fontSize: 12,
-                                        color: current ? '#aaa' : '#666',
+                                        fontSize: 14,
+                                        color: current ? 'var(--text-muted)' : 'var(--text-dim)',
                                         whiteSpace: 'nowrap',
                                     }}
                                 >
@@ -282,8 +286,8 @@ const resume: ArticleProps = {
                 <div
                     style={{
                         marginTop: 10,
-                        fontSize: 14,
-                        color: '#bbb',
+                        fontSize: 16,
+                        color: 'var(--text-body)',
                         lineHeight: 1.85,
                     }}
                 >
@@ -310,7 +314,7 @@ const resume: ArticleProps = {
                         },
                     ].map(({ label, value }) => (
                         <div key={label} style={{ marginBottom: 6 }}>
-                            <span style={{ color: '#e0e0e0', fontWeight: 500 }}>
+                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
                                 {label}:
                             </span>{' '}
                             {value}
@@ -325,14 +329,14 @@ const resume: ArticleProps = {
                 <div
                     style={{
                         marginTop: 10,
-                        fontSize: 14,
-                        color: '#bbb',
+                        fontSize: 16,
+                        color: 'var(--text-body)',
                         lineHeight: 1.85,
                     }}
                 >
                     <div style={{ marginBottom: 10 }}>
                         <div style={rowSB}>
-                            <span style={{ color: '#e0e0e0', fontWeight: 500 }}>
+                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
                                 Industry Panelist — CS Careers
                             </span>
                             <span style={meta}>Feb 2024</span>
@@ -344,7 +348,7 @@ const resume: ArticleProps = {
                     </div>
                     <div>
                         <div style={rowSB}>
-                            <span style={{ color: '#e0e0e0', fontWeight: 500 }}>
+                            <span style={{ color: 'var(--text)', fontWeight: 500 }}>
                                 Industry Panelist — STEM Careers
                             </span>
                             <span style={meta}>June 2023</span>
@@ -362,7 +366,7 @@ const resume: ArticleProps = {
                 style={{
                     marginTop: 32,
                     paddingTop: 20,
-                    borderTop: '1px solid #2a2a2a',
+                    borderTop: '1px solid var(--border)',
                     display: 'flex',
                     justifyContent: 'center',
                     gap: 28,
