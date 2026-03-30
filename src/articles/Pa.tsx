@@ -5,7 +5,6 @@ const data: ArticleProps = {
     abstract: 'The Man, The Myth, The Legend',
     pics: ['pa.png', 'pa2.png'],
     caption: 'The Worlds Greatest Father, middle',
-    graphThemes: ['culture'],
     content: [
         <h2>Maunabo, PR</h2>,
         <p>

@@ -254,7 +254,6 @@ const Rust: ArticleProps = {
         'Rust, a programming language with guaranteed memory safety, speed, and high concurrency.',
     createdDate: '2025-05-25',
     tags: [Tags.Computation],
-    graphThemes: ['cs'],
     content: [
         <h2>Learning Rust</h2>,
         <p>

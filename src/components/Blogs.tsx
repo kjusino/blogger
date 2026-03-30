@@ -80,29 +80,39 @@ const STATIC_LINKS: RawLink[] = [
     { source: 'kenneth', target: 'culture' },
 ];
 
+const TAG_TO_THEME: Record<string, string> = {
+    Math: 'math',
+    Physics: 'physics',
+    Computation: 'cs',
+    Culture: 'culture',
+};
+
 // Derive a stable node id from a route (e.g. '/ai-engineering' → 'ai_engineering')
 function routeToId(route: string): string {
     return route.replace(/^\//, '').replace(/-/g, '_') || 'home';
 }
 
-// Dynamically build post nodes and links from allData entries that declare graphThemes
+// Dynamically build post nodes and links from allData entries that have tags
 const POST_NODES: GraphNode[] = allData
-    .filter((a) => a.graphThemes && a.graphThemes.length > 0)
-    .map((a) => ({
-        id: routeToId(a.route),
-        label: a.title,
-        type: 'post' as const,
-        route: a.route,
-        r: 11,
-        color: THEME_COLORS[a.graphThemes![0]] ?? '#888888',
-        theme: a.graphThemes![0],
-    }));
+    .filter((a) => a.tags && a.tags.length > 0)
+    .map((a) => {
+        const firstTheme = TAG_TO_THEME[a.tags![0]] ?? 'cs';
+        return {
+            id: routeToId(a.route),
+            label: a.title,
+            type: 'post' as const,
+            route: a.route,
+            r: 11,
+            color: THEME_COLORS[firstTheme] ?? '#888888',
+            theme: firstTheme,
+        };
+    });
 
 const POST_LINKS: RawLink[] = allData
-    .filter((a) => a.graphThemes && a.graphThemes.length > 0)
+    .filter((a) => a.tags && a.tags.length > 0)
     .flatMap((a) =>
-        a.graphThemes!.map((theme) => ({
-            source: theme,
+        a.tags!.map((tag) => ({
+            source: TAG_TO_THEME[tag] ?? tag,
             target: routeToId(a.route),
         })),
     );
