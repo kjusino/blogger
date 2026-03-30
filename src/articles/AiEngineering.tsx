@@ -173,6 +173,7 @@ const AiEngineering: ArticleProps = {
     createdDate: '2026-03-28',
     tags: [Tags.Computation],
     content: [
+        <h2>Deterministic vs Stochastic Software</h2>,
         <p>
             Since the beginning of software, developers could only build systems
             that are, by their physical nature, inherently deterministic. This
