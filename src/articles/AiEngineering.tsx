@@ -167,9 +167,9 @@ app.listen(PORT, () => {
 const AiEngineering: ArticleProps = {
     route: '/ai-engineering',
     title: 'AI Engineering',
-    pics: ['graph.png'],
+    pics: ['legos.png'],
     caption:
-        'Wiring deterministic and stochastic systems together with LangChain, LangGraph, and Ollama.',
+        'Building deterministic and stochastic software with LangChain, LangGraph, and Ollama.',
     createdDate: '2026-03-28',
     tags: [Tags.Computation],
     content: [
@@ -212,8 +212,16 @@ const AiEngineering: ArticleProps = {
             In other cases, the randomness is disastrous. Ask an LLM to count
             the R's in "strawberry," perform basic arithmetic, or write
             syntactically correct code (tasks with objectively correct answers)
-            and any deviation is simply wrong. The stochastic nature of LLMs is
-            a liability here.
+            and any deviation is simply wrong. This is most important in
+            correctness-critical domains, like in Software as Medical Device (
+            <a
+                href="https://www.fda.gov/medical-devices/digital-health-center-excellence/software-medical-device-samd"
+                target="_blank"
+            >
+                SaMD
+            </a>
+            ) or autonomous vehicles. The stochastic nature of LLMs is a
+            liability here.
         </p>,
         <p>
             As software systems begin mixing deterministic and stochastic
@@ -315,6 +323,20 @@ const AiEngineering: ArticleProps = {
             cloud provider.
         </p>,
         <h2>A real example</h2>,
+        <div
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+            }}
+        >
+            <img
+                src={require(`../articles/pics/graph.png`)}
+                style={{ width: '40%', height: 'auto' }}
+                alt={'LangGraph visualized'}
+            />
+        </div>,
         <p>
             To make this concrete, here's a small API built with TypeScript,
             LangChain, LangGraph, and Ollama. It exposes a single endpoint,{' '}
