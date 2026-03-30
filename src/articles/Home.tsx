@@ -20,16 +20,27 @@ const introData: ArticleProps = {
         </p>,
         <p>
             I've studied mathematics at{' '}
-            <a href="https://www.bu.edu/math/">Boston University</a>, physics
-            with{' '}
-            <a href="https://perimeterinstitute.ca">The Perimeter Institute </a>
+            <a href="https://www.bu.edu/math/" target="_blank">
+                Boston University
+            </a>
+            , physics with{' '}
+            <a href="https://perimeterinstitute.ca" target="_blank">
+                The Perimeter Institute{' '}
+            </a>
             , and computer science while working as a Software Engineer at{' '}
-            <a href="https://www.ibm.com/"> IBM </a> and
-            <a href="https://www.foundationmedicine.com/">
+            <a href="https://www.ibm.com/" target="_blank">
+                {' '}
+                IBM{' '}
+            </a>{' '}
+            and
+            <a href="https://www.foundationmedicine.com/" target="_blank">
                 {' '}
                 Foundation Medicine
             </a>
-            , a subsidiary of <a href="https://www.roche.com/">Roche, Inc.</a>
+            , a subsidiary of{' '}
+            <a href="https://www.roche.com/" target="_blank">
+                Roche, Inc.
+            </a>
         </p>,
     ],
 };

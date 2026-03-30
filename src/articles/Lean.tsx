@@ -11,12 +11,15 @@ const lean: ArticleProps = {
         <h2>Leaning</h2>,
         <p>
             tools like the
-            <a href="https://lean-lang.org/">
+            <a href="https://lean-lang.org/" target="_blank">
                 {' '}
                 Lean Programming Language and Theorem Prover{' '}
             </a>{' '}
             and projects using it to formalize mathematics and physics like{' '}
-            <a href="https://physlean.com/">PhysLean/</a>.
+            <a href="https://physlean.com/" target="_blank">
+                PhysLean/
+            </a>
+            .
         </p>,
     ],
 };

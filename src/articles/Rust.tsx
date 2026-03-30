@@ -262,7 +262,10 @@ const Rust: ArticleProps = {
             checker features. I, a math geek, love that those beloved features
             of the language are guaranteed by the mathematics of the TCS
             research field known as{' '}
-            <a href="https://shemesh.larc.nasa.gov/fm/fm-what.html">
+            <a
+                href="https://shemesh.larc.nasa.gov/fm/fm-what.html"
+                target="_blank"
+            >
                 formal methods
             </a>
             .
@@ -287,11 +290,14 @@ const Rust: ArticleProps = {
         <ol>
             <li>
                 Installed Rust using rustup (
-                <a href="https://rustup.rs/">https://rustup.rs/</a>).
+                <a href="https://rustup.rs/" target="_blank">
+                    https://rustup.rs/
+                </a>
+                ).
             </li>
             <li>
                 Read some of the official Rust book (
-                <a href="https://doc.rust-lang.org/book/">
+                <a href="https://doc.rust-lang.org/book/" target="_blank">
                     https://doc.rust-lang.org/book/
                 </a>
                 ).
@@ -322,11 +328,14 @@ const Rust: ArticleProps = {
         </p>,
         <p>
             Before jumping into Rust,{' '}
-            <a href="https://www.docker.com/get-started">
+            <a href="https://www.docker.com/get-started" target="_blank">
                 I'd recommend also getting Docker working locally{' '}
             </a>{' '}
             (for everything, not just this project). If you're wondering{' '}
-            <a href="https://www.docker.com/resources/what-container/">
+            <a
+                href="https://www.docker.com/resources/what-container/"
+                target="_blank"
+            >
                 what is Docker
             </a>
             , it is a lightweight containerization technology used by engineers

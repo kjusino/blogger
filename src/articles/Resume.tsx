@@ -444,6 +444,7 @@ const resume: ArticleProps = {
                     href={require('./Kenneth_Jusino_CV.pdf')}
                     download="Kenneth_Jusino_CV.pdf"
                     aria-label="Download PDF"
+                    target="_blank"
                     style={{
                         textDecoration: 'none',
                         display: 'flex',
@@ -490,6 +491,7 @@ const resume: ArticleProps = {
                 </a>
                 <a
                     href="mailto:kennethjusino@hotmail.com"
+                    target="_blank"
                     aria-label="Email"
                     style={{ textDecoration: 'none' }}
                 >

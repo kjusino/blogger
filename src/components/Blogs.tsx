@@ -91,6 +91,15 @@ const NODES: GraphNode[] = [
         theme: 'cs',
     },
     {
+        id: 'ai_engineering',
+        label: 'AI Engineering',
+        type: 'post',
+        route: '/ai-engineering',
+        r: 11,
+        color: THEME_COLORS.cs,
+        theme: 'cs',
+    },
+    {
         id: 'about',
         label: 'About Me',
         type: 'post',
@@ -101,7 +110,7 @@ const NODES: GraphNode[] = [
     },
     {
         id: 'pa',
-        label: "Happy Fathers Day, Papi!",
+        label: 'Happy Fathers Day, Papi!',
         type: 'post',
         route: 'pa',
         r: 11,
@@ -118,6 +127,7 @@ const RAW_LINKS: RawLink[] = [
     { source: 'math', target: 'phd' },
     { source: 'physics', target: 'phd' },
     { source: 'cs', target: 'rust' },
+    { source: 'cs', target: 'ai_engineering' },
     { source: 'culture', target: 'about' },
     { source: 'culture', target: 'pa' },
 ];
@@ -145,9 +155,11 @@ const Blogs = () => {
 
         // Clone data so simulation can mutate freely
         const nodes: GraphNode[] = NODES.map((n) => ({ ...n }));
-        const links: d3.SimulationLinkDatum<GraphNode>[] = RAW_LINKS.map((l) => ({
-            ...l,
-        }));
+        const links: d3.SimulationLinkDatum<GraphNode>[] = RAW_LINKS.map(
+            (l) => ({
+                ...l,
+            }),
+        );
 
         // ── SVG setup ──────────────────────────────────────────────────────
         const svg = d3.select(svgEl);
@@ -173,7 +185,7 @@ const Blogs = () => {
                 .scaleExtent([0.25, 4])
                 .on('zoom', (event) => {
                     g.attr('transform', event.transform);
-                })
+                }),
         );
 
         // ── Force simulation ───────────────────────────────────────────────
@@ -182,16 +194,19 @@ const Blogs = () => {
             .force(
                 'link',
                 d3
-                    .forceLink<GraphNode, d3.SimulationLinkDatum<GraphNode>>(links)
+                    .forceLink<GraphNode, d3.SimulationLinkDatum<GraphNode>>(
+                        links,
+                    )
                     .id((d) => d.id)
                     .distance((l) => {
                         const s = l.source as GraphNode;
                         const t = l.target as GraphNode;
                         if (s.type === 'root' || t.type === 'root') return 160;
-                        if (s.type === 'theme' || t.type === 'theme') return 110;
+                        if (s.type === 'theme' || t.type === 'theme')
+                            return 110;
                         return 80;
                     })
-                    .strength(0.7)
+                    .strength(0.7),
             )
             .force(
                 'charge',
@@ -199,18 +214,21 @@ const Blogs = () => {
                     if (d.type === 'root') return -700;
                     if (d.type === 'theme') return -250;
                     return -100;
-                })
+                }),
             )
             .force('center', d3.forceCenter(width / 2, height / 2))
             .force(
                 'collision',
-                d3.forceCollide<GraphNode>().radius((d) => d.r + 24)
+                d3.forceCollide<GraphNode>().radius((d) => d.r + 24),
             );
 
         // ── Links ──────────────────────────────────────────────────────────
         const linkSel = g
             .append('g')
-            .selectAll<SVGLineElement, d3.SimulationLinkDatum<GraphNode>>('line')
+            .selectAll<
+                SVGLineElement,
+                d3.SimulationLinkDatum<GraphNode>
+            >('line')
             .data(links)
             .join('line')
             .attr('stroke', linkColor)
@@ -224,13 +242,14 @@ const Blogs = () => {
             .data(nodes)
             .join('g')
             .attr('cursor', (d) =>
-                d.type === 'post' || d.type === 'root' ? 'pointer' : 'default'
+                d.type === 'post' || d.type === 'root' ? 'pointer' : 'default',
             )
             .call(
                 d3
                     .drag<SVGGElement, GraphNode>()
                     .on('start', (event, d) => {
-                        if (!event.active) simulation.alphaTarget(0.3).restart();
+                        if (!event.active)
+                            simulation.alphaTarget(0.3).restart();
                         d.fx = d.x;
                         d.fy = d.y;
                     })
@@ -242,7 +261,7 @@ const Blogs = () => {
                         if (!event.active) simulation.alphaTarget(0);
                         d.fx = null;
                         d.fy = null;
-                    })
+                    }),
             );
 
         // Circles
@@ -266,7 +285,10 @@ const Blogs = () => {
             .attr('fill', kInitialsFill)
             .attr('font-size', '14px')
             .attr('font-weight', '700')
-            .attr('font-family', "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif")
+            .attr(
+                'font-family',
+                "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            )
             .attr('pointer-events', 'none')
             .text('KJ');
 
@@ -282,7 +304,10 @@ const Blogs = () => {
                     .attr('fill', kennethLabelFill)
                     .attr('font-size', '15px')
                     .attr('font-weight', '700')
-                    .attr('font-family', "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif")
+                    .attr(
+                        'font-family',
+                        "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                    )
                     .attr('pointer-events', 'none')
                     .text(`Kenneth ${themeIcon}`);
             } else if (d.type === 'theme') {
@@ -295,7 +320,10 @@ const Blogs = () => {
                     .attr('font-size', '12px')
                     .attr('font-weight', '700')
                     .attr('letter-spacing', '0.1em')
-                    .attr('font-family', "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif")
+                    .attr(
+                        'font-family',
+                        "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                    )
                     .attr('pointer-events', 'none');
 
                 lines.forEach((line, i) => {
@@ -316,7 +344,7 @@ const Blogs = () => {
                     .attr('font-size', '11.5px')
                     .attr(
                         'font-family',
-                        "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+                        "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     )
                     .attr('pointer-events', 'none')
                     .text(short);
@@ -324,9 +352,11 @@ const Blogs = () => {
         });
 
         // Tooltip on all nodes
-        nodeGroup.append('title').text((d) =>
-            d.type === 'root' ? `Kenneth — click to toggle theme` : d.label
-        );
+        nodeGroup
+            .append('title')
+            .text((d) =>
+                d.type === 'root' ? `Kenneth — click to toggle theme` : d.label,
+            );
 
         // ── Hover interaction ──────────────────────────────────────────────
         nodeGroup
@@ -343,7 +373,9 @@ const Blogs = () => {
                 nodeGroup
                     .transition()
                     .duration(180)
-                    .style('opacity', (n) => (connectedIds.has(n.id) ? 1 : 0.12));
+                    .style('opacity', (n) =>
+                        connectedIds.has(n.id) ? 1 : 0.12,
+                    );
 
                 linkSel
                     .transition()
@@ -358,12 +390,16 @@ const Blogs = () => {
                     .attr('stroke-opacity', (l) => {
                         const s = (l.source as GraphNode).id;
                         const t = (l.target as GraphNode).id;
-                        return connectedIds.has(s) && connectedIds.has(t) ? 1 : 0.08;
+                        return connectedIds.has(s) && connectedIds.has(t)
+                            ? 1
+                            : 0.08;
                     })
                     .attr('stroke-width', (l) => {
                         const s = (l.source as GraphNode).id;
                         const t = (l.target as GraphNode).id;
-                        return connectedIds.has(s) && connectedIds.has(t) ? 2 : 1.5;
+                        return connectedIds.has(s) && connectedIds.has(t)
+                            ? 2
+                            : 1.5;
                     });
 
                 d3.select<SVGGElement, GraphNode>(this)
@@ -410,7 +446,7 @@ const Blogs = () => {
 
             nodeGroup.attr(
                 'transform',
-                (d) => `translate(${d.x ?? 0},${d.y ?? 0})`
+                (d) => `translate(${d.x ?? 0},${d.y ?? 0})`,
             );
         });
 
@@ -457,7 +493,8 @@ const Blogs = () => {
                         margin: 0,
                         fontSize: '26px',
                         fontWeight: 700,
-                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+                        fontFamily:
+                            "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                         color: 'var(--text-bright)',
                         letterSpacing: '-0.02em',
                     }}
@@ -473,7 +510,8 @@ const Blogs = () => {
                             "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
                     }}
                 >
-                    Drag · Scroll to zoom · Click a post to read it · Click Kenneth to toggle theme
+                    Drag · Scroll to zoom · Click a post to read it · Click
+                    Kenneth to toggle theme
                 </p>
             </div>
 

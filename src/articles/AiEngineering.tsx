@@ -223,16 +223,20 @@ const AiEngineering: ArticleProps = {
         </p>,
         <h2>Enter LangChain and LangGraph</h2>,
         <p>
-            <a href="https://www.langchain.com/">LangChain</a> is a framework
-            that gives developers a unified interface for interacting with LLMs.
-            Think of it as the adapter that lets your deterministic code "speak"
-            to a stochastic model, and swap out models without rewriting your
-            application logic.
+            <a href="https://www.langchain.com/" target="_blank">
+                LangChain
+            </a>{' '}
+            is a framework that gives developers a unified interface for
+            interacting with LLMs. Think of it as the adapter that lets your
+            deterministic code "speak" to a stochastic model, and swap out
+            models without rewriting your application logic.
         </p>,
         <p>
-            <a href="https://www.langchain.com/langgraph">LangGraph</a> goes
-            further. It lets you define your AI-enhanced system as a directed
-            graph: a set of nodes (discrete processing steps) and edges
+            <a href="https://www.langchain.com/langgraph" target="_blank">
+                LangGraph
+            </a>{' '}
+            goes further. It lets you define your AI-enhanced system as a
+            directed graph: a set of nodes (discrete processing steps) and edges
             (transitions between them). Some of those edges can be{' '}
             <i>conditional</i>, meaning an LLM's output determines which path
             the program takes next. This is the key insight: you can use
@@ -247,9 +251,12 @@ const AiEngineering: ArticleProps = {
             preferable.
         </p>,
         <p>
-            <a href="https://ollama.com">Ollama</a> is a tool that lets you
-            download and run open-source LLMs directly on your machine with a
-            single command. Once installed, pulling a model is as simple as:
+            <a href="https://ollama.com" target="_blank">
+                Ollama
+            </a>{' '}
+            is a tool that lets you download and run open-source LLMs directly
+            on your machine with a single command. Once installed, pulling a
+            model is as simple as:
         </p>,
         <SyntaxHighlighter
             language="bash"
@@ -276,7 +283,7 @@ const AiEngineering: ArticleProps = {
             usage costs, no data leaving your machine.
         </p>,
         <img
-            src={require(`../articles/pics/ollama-screenshot.png`)}
+            src={require(`../articles/pics/ollama.png`)}
             style={{ width: '100%', height: 'auto' }}
             alt={'Ollama running locally'}
         />,
@@ -314,15 +321,6 @@ const AiEngineering: ArticleProps = {
             <code>POST /ask</code>, that routes any question to one of two
             specialized LLM nodes depending on what kind of question it is.
         </p>,
-        <p>The graph looks like this:</p>,
-        <pre>
-            <code>{`__start__\n    ↓\nclassifier         ← LLM decides: "code" or "general"?\n    ↓ (conditional edge)\ncode_node  OR  general_node\n    ↓\n__end__`}</code>
-        </pre>,
-        <img
-            src={require(`../articles/pics/graph.png`)}
-            style={{ width: '100%', height: 'auto' }}
-            alt={'LangGraph node graph'}
-        />,
         <p>
             When a question arrives, the <code>classifier</code> node sends it
             to the LLM with a strict prompt: respond with one word, either{' '}
@@ -389,12 +387,18 @@ const AiEngineering: ArticleProps = {
         </p>,
         <h2>The future belongs to builders</h2>,
         <p>
-            AI Engineering is not a niche specialty. It is the direction all
-            software development is heading. The systems of tomorrow will not be
-            purely deterministic or purely stochastic; they will be compositions
-            of both, carefully designed to get the best out of each. The
-            developers who understand how to wire these pieces together will have
-            an enormous advantage.
+            <a
+                href="https://en.wikipedia.org/wiki/Artificial_intelligence_engineering"
+                target="_blank"
+            >
+                AI Engineering
+            </a>{' '}
+            is not a niche specialty. It is the direction all software
+            development is heading. The systems of tomorrow will not be purely
+            deterministic or purely stochastic; they will be compositions of
+            both, carefully designed to get the best out of each. The developers
+            who understand how to wire these pieces together will have an
+            enormous advantage.
         </p>,
         <p>
             There has never been a better time to be a builder. The tools are
@@ -402,8 +406,7 @@ const AiEngineering: ArticleProps = {
             lower than ever. What matters now is imagination. The most important
             question is not "what can the model do?" but "what can I build with
             it?" Creativity and vision are the new competitive edge. The Lego
-            pieces are on the table. What you build with them is entirely up to
-            you.
+            pieces are on the table. What will you build?
         </p>,
     ],
 };

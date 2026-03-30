@@ -31,12 +31,18 @@ const data: ArticleProps = {
         <h2> PVD Born and Raised </h2>,
         <p>
             Upon returning to Providence, I began attending{' '}
-            <a href="https://www.usnews.com/education/k12/rhode-island/alfred-lima-sr-elementary-school-278884">
+            <a
+                href="https://www.usnews.com/education/k12/rhode-island/alfred-lima-sr-elementary-school-278884"
+                target="_blank"
+            >
                 Alfred Lima Elementary
             </a>
             , a bilingual public school where many first generation students in
             Providence pass through. I later arrived at{' '}
-            <a href="https://www.usnews.com/education/best-high-schools/rhode-island/districts/providence-public-schools/times2-middle-high-school-409586">
+            <a
+                href="https://www.usnews.com/education/best-high-schools/rhode-island/districts/providence-public-schools/times2-middle-high-school-409586"
+                target="_blank"
+            >
                 Times Squared Academy
             </a>
             , the charter school I graduated high school from before attending
