@@ -10,6 +10,17 @@ const ollamaConnectString = `const llm = new Ollama({
   baseUrl: "http://localhost:11434",
 });`;
 
+const deterministicKeywordSearch = `
+const glossary = ["code", "javascript", "programming", "python", "java",...]; 
+question.forEach(word => {
+    if(glossary.includes(word)){
+        return 'code' 
+    }else{
+        return 'general'
+    }    
+});
+`;
+
 const exampleOutputString = `// Code question: "What is a closure in JavaScript?"
 {
   "node": "code",
@@ -322,7 +333,7 @@ const AiEngineering: ArticleProps = {
             local model and returns a response, just like it would with any
             cloud provider.
         </p>,
-        <h2>A real example</h2>,
+        <h2>Real Example: Code Question, or Not?</h2>,
         <div
             style={{
                 display: 'flex',
@@ -370,7 +381,46 @@ const AiEngineering: ArticleProps = {
         >
             {exampleOutputString}
         </SyntaxHighlighter>,
-        <p>Here's the full implementation, about 120 lines of TypeScript:</p>,
+        <h3>Pre-LLMs</h3>,
+        <p>
+            Before LLMs, fully deterministic programs would have had to perform
+            a keyword search against a predetermined list of terms manually
+            added to a "glossary". In this example's case, a "code glossary"
+            would contain all words that might refer to a coding question. I
+            would have done something like the following:
+        </p>,
+        <SyntaxHighlighter
+            language="typescript"
+            style={vscDarkPlus}
+            wrapLongLines={true}
+            customStyle={{
+                minWidth: 0,
+                fontSize: '0.875rem',
+                padding: '0 6%',
+                margin: 0,
+                boxSizing: 'border-box',
+                width: '100%',
+                maxWidth: '90vw',
+                overflowX: 'auto',
+            }}
+        >
+            {deterministicKeywordSearch}
+        </SyntaxHighlighter>,
+        <p>
+            It would have been an extremely tedious task to keep the list of
+            keywords up to date. Gaps would always exist if a coding question
+            did not include any of the words in the glossary but was still about
+            programming.
+        </p>,
+        <h3>Post-LLMs</h3>,
+        <p>
+            Fast forward to today, and the LLMs can now <b>be the glossary</b>{' '}
+            and more. They can interpret the question and, based on their
+            training data, probabilistically choose whether the question is
+            code-related or not. LangGraph helps with this "probabilistic
+            choosing", and provides a framework for conditional logic.
+        </p>,
+        <p>Here's the full implementation, in 126 lines of TypeScript:</p>,
         <SyntaxHighlighter
             language="typescript"
             style={vscDarkPlus}
