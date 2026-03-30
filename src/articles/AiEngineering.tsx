@@ -183,6 +183,7 @@ const AiEngineering: ArticleProps = {
         'Building deterministic and stochastic software with LangChain, LangGraph, and Ollama.',
     createdDate: '2026-03-28',
     tags: [Tags.Computation],
+    graphThemes: ['cs'],
     content: [
         <h2>Deterministic vs Stochastic Software</h2>,
         <p>

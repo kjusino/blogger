@@ -11,4 +11,5 @@ export interface ArticleProps {
     tags?: Tags[];
     content: JSX.Element[];
     createdDate?: string;
+    graphThemes?: string[];
 }

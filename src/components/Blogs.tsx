@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { useTheme } from '../context/ThemeContext';
+import allData from '../articles/allData';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -29,7 +30,7 @@ const THEME_COLORS: Record<string, string> = {
     culture: '#fb7185',
 };
 
-const NODES: GraphNode[] = [
+const STATIC_NODES: GraphNode[] = [
     // Root
     { id: 'kenneth', label: 'Kenneth', type: 'root', r: 30, color: '#ffffff' },
 
@@ -70,67 +71,44 @@ const NODES: GraphNode[] = [
         theme: 'culture',
         labelLines: ['CULTURE'],
     },
-
-    // Blog post leaf nodes
-    {
-        id: 'phd',
-        label: 'Quantum Computation',
-        type: 'post',
-        route: '/phd',
-        r: 11,
-        color: THEME_COLORS.math,
-        theme: 'math',
-    },
-    {
-        id: 'rust',
-        label: 'Getting Rusty',
-        type: 'post',
-        route: '/rust',
-        r: 11,
-        color: THEME_COLORS.cs,
-        theme: 'cs',
-    },
-    {
-        id: 'ai_engineering',
-        label: 'AI Engineering',
-        type: 'post',
-        route: '/ai-engineering',
-        r: 11,
-        color: THEME_COLORS.cs,
-        theme: 'cs',
-    },
-    {
-        id: 'about',
-        label: 'About Me',
-        type: 'post',
-        route: '/about',
-        r: 11,
-        color: THEME_COLORS.culture,
-        theme: 'culture',
-    },
-    {
-        id: 'pa',
-        label: 'Happy Fathers Day, Papi!',
-        type: 'post',
-        route: 'pa',
-        r: 11,
-        color: THEME_COLORS.culture,
-        theme: 'culture',
-    },
 ];
 
-const RAW_LINKS: RawLink[] = [
+const STATIC_LINKS: RawLink[] = [
     { source: 'kenneth', target: 'math' },
     { source: 'kenneth', target: 'cs' },
     { source: 'kenneth', target: 'physics' },
     { source: 'kenneth', target: 'culture' },
-    { source: 'math', target: 'phd' },
-    { source: 'physics', target: 'phd' },
-    { source: 'cs', target: 'rust' },
-    { source: 'cs', target: 'ai_engineering' },
-    { source: 'culture', target: 'about' },
-    { source: 'culture', target: 'pa' },
 ];
+
+// Derive a stable node id from a route (e.g. '/ai-engineering' → 'ai_engineering')
+function routeToId(route: string): string {
+    return route.replace(/^\//, '').replace(/-/g, '_') || 'home';
+}
+
+// Dynamically build post nodes and links from allData entries that declare graphThemes
+const POST_NODES: GraphNode[] = allData
+    .filter((a) => a.graphThemes && a.graphThemes.length > 0)
+    .map((a) => ({
+        id: routeToId(a.route),
+        label: a.title,
+        type: 'post' as const,
+        route: a.route,
+        r: 11,
+        color: THEME_COLORS[a.graphThemes![0]] ?? '#888888',
+        theme: a.graphThemes![0],
+    }));
+
+const POST_LINKS: RawLink[] = allData
+    .filter((a) => a.graphThemes && a.graphThemes.length > 0)
+    .flatMap((a) =>
+        a.graphThemes!.map((theme) => ({
+            source: theme,
+            target: routeToId(a.route),
+        })),
+    );
+
+const NODES = [...STATIC_NODES, ...POST_NODES];
+const RAW_LINKS = [...STATIC_LINKS, ...POST_LINKS];
 
 // ── Component ────────────────────────────────────────────────────────────────
 
