@@ -5,8 +5,11 @@ import allData from './articles/allData';
 import NavBar from './components/NavBar';
 import Articles from './components/Articles';
 import Blogs from './components/Blogs';
+import PersonalLayout from './personal/PersonalLayout';
+import PersonalIndex from './personal/Index';
+import Workout from './personal/workout/Workout';
 
-const NON_BLOG_ROUTES = new Set(['/', '/cv']);
+const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
 function App() {
     let routes = [];
@@ -23,15 +26,21 @@ function App() {
                 isBlogPost={isBlogPost}
             />
         );
-        routes.push(<Route path={blog.route} element={component} />);
+        routes.push(<Route key={blog.route} path={blog.route} element={component} />);
     }
-    routes.push(<Route path="articles" element={<Articles />} />);
-    routes.push(<Route path="blogs" element={<Blogs />} />);
+    routes.push(<Route key="articles" path="articles" element={<Articles />} />);
+    routes.push(<Route key="blogs" path="blogs" element={<Blogs />} />);
     return (
         <header className="App-header">
             <BrowserRouter>
                 <NavBar />
-                <Routes>{routes}</Routes>
+                <Routes>
+                    {routes}
+                    <Route path="/personal" element={<PersonalLayout />}>
+                        <Route index element={<PersonalIndex />} />
+                        <Route path="workout" element={<Workout />} />
+                    </Route>
+                </Routes>
             </BrowserRouter>
         </header>
     );
