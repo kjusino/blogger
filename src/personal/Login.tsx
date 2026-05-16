@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { login } from './authClient';
+import './personal.css';
 
 type Props = { onSuccess: () => void };
 
@@ -23,26 +24,26 @@ export default function Login({ onSuccess }: Props) {
     }
 
     return (
-        <div style={{ maxWidth: 360, margin: '4rem auto', padding: '1rem' }}>
+        <div className="personal-login">
             <h2>Personal</h2>
             <form onSubmit={onSubmit}>
                 <input
                     type="password"
+                    className="personal-input"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     autoFocus
-                    style={{ width: '100%', padding: '0.5rem', fontSize: '1rem' }}
                     disabled={busy}
                 />
                 <button
                     type="submit"
+                    className="personal-btn personal-btn-primary"
                     disabled={busy || !password}
-                    style={{ marginTop: '0.75rem', padding: '0.5rem 1rem' }}
                 >
                     {busy ? 'Checking…' : 'Enter'}
                 </button>
-                {error && <div style={{ color: 'crimson', marginTop: '0.5rem' }}>{error}</div>}
+                {error && <div className="personal-error">{error}</div>}
             </form>
         </div>
     );

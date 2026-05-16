@@ -1,5 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from './authClient';
+import './personal.css';
+
+const TOOLS = [{ to: '/personal/workout', label: 'Workout Tracker' }];
 
 export default function PersonalIndex() {
     const navigate = useNavigate();
@@ -10,17 +13,19 @@ export default function PersonalIndex() {
     }
 
     return (
-        <div style={{ maxWidth: 600, margin: '3rem auto', padding: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="personal-page">
+            <div className="personal-page-header">
                 <h2>Personal</h2>
-                <button onClick={onLogout} style={{ padding: '0.4rem 0.8rem' }}>
+                <button className="personal-btn" onClick={onLogout}>
                     Log out
                 </button>
             </div>
-            <ul style={{ marginTop: '1.5rem', lineHeight: 2 }}>
-                <li>
-                    <Link to="/personal/workout">Workout Tracker</Link>
-                </li>
+            <ul className="personal-tools">
+                {TOOLS.map((t) => (
+                    <li key={t.to}>
+                        <Link to={t.to}>{t.label}</Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );

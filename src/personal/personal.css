@@ -1,0 +1,164 @@
+.personal-page {
+    width: 100%;
+    max-width: 640px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    color: var(--text);
+    text-align: left;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.personal-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.personal-page-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-bright);
+}
+
+.personal-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.personal-back:hover {
+    color: var(--accent);
+}
+
+.personal-tools {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.personal-tools a {
+    display: block;
+    padding: 1rem 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+    transition:
+        border-color 0.2s,
+        transform 0.1s;
+}
+
+.personal-tools a:hover {
+    border-color: var(--accent);
+    color: var(--text-bright);
+}
+
+.personal-tools a:active {
+    transform: translateY(1px);
+}
+
+.personal-muted {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Buttons (logout, enter, etc.) */
+.personal-btn {
+    background: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition:
+        border-color 0.2s,
+        color 0.2s,
+        opacity 0.2s;
+    font-family: inherit;
+}
+
+.personal-btn:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--text-bright);
+}
+
+.personal-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.personal-btn-primary {
+    background-color: var(--text-bright);
+    color: var(--bg);
+    border-color: var(--text-bright);
+}
+
+.personal-btn-primary:hover:not(:disabled) {
+    opacity: 0.85;
+    color: var(--bg);
+}
+
+/* Login */
+.personal-login {
+    width: 100%;
+    max-width: 360px;
+    margin: 6rem auto;
+    padding: 2rem 1.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.personal-login h2 {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.4rem;
+    color: var(--text-bright);
+}
+
+.personal-login form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.personal-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.personal-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.personal-error {
+    color: #e06464;
+    font-size: 0.9rem;
+}
+
+.personal-loading {
+    color: var(--text-muted);
+    text-align: center;
+    margin: 6rem auto;
+}

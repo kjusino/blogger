@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { Outlet } from 'react-router-dom';
 import { getAuthState } from './authClient';
 import Login from './Login';
+import './personal.css';
 
 type Status = 'loading' | 'in' | 'out';
 
@@ -18,7 +19,7 @@ export default function PersonalLayout() {
     }, [refresh]);
 
     if (status === 'loading') {
-        return <div style={{ padding: '2rem' }}>Loading…</div>;
+        return <div className="personal-loading">Loading…</div>;
     }
     if (status === 'out') {
         return <Login onSuccess={refresh} />;
