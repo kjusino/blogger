@@ -16,6 +16,61 @@
     box-sizing: border-box;
 }
 
+/* ── Dashboard (atop picker) ───────────────────────────── */
+
+.wj-dashboard {
+    margin-bottom: 1.75rem;
+}
+
+.wj-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.55rem;
+    margin: 1rem 0 0.75rem;
+}
+
+.wj-stat {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.55rem;
+    text-align: center;
+}
+
+.wj-stat-num {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.wj-stat-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+}
+
+.wj-last-session-strip {
+    margin-top: 0.55rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.wj-last-session-strip strong {
+    color: var(--text);
+}
+
+.wj-section-label {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 /* ── Picker ────────────────────────────────────────────── */
 
 .wj-picker-header {
@@ -82,6 +137,29 @@
 
 .wj-program-card:hover {
     border-color: var(--accent);
+}
+
+.wj-program-card.is-suggested {
+    border-color: var(--accent);
+    background-image: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--accent) 6%, transparent),
+        transparent 60%
+    );
+}
+
+.wj-suggested-pill {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 .wj-program-card:active {
@@ -300,6 +378,30 @@
     color: var(--accent);
     font-weight: 700;
     letter-spacing: 0.05em;
+}
+
+/* ── "Last time" hint row ─────────────────────────────── */
+
+.wj-last-row {
+    display: grid;
+    grid-template-columns: 36px 1fr 1fr;
+    gap: 0.6rem;
+    margin: 0 0 0.4rem;
+}
+
+.wj-last-time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.wj-last-time strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.wj-last-time--empty {
+    font-style: italic;
 }
 
 /* ── Set rows ─────────────────────────────────────────── */
@@ -673,6 +775,201 @@
 .wj-sync--err {
     border-color: var(--accent);
     color: var(--accent);
+}
+
+/* ── Celebration banner (new PRs after Finish) ───────── */
+
+.wj-celebration {
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    background-color: var(--card-bg);
+    border: 1.5px solid var(--accent);
+    background-image: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent) 12%, transparent),
+        transparent
+    );
+}
+
+.wj-celebration-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+}
+
+.wj-celebration-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.85rem;
+    display: grid;
+    gap: 0.25rem;
+}
+
+.wj-celebration-list li {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.wj-celebration-list strong {
+    color: var(--text-bright);
+}
+
+.wj-celebration-delta {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.wj-celebration-dismiss {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.95rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.wj-celebration-dismiss:hover {
+    opacity: 0.9;
+}
+
+/* ── Tabs (Training Log) ──────────────────────────────── */
+
+.wj-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.wj-tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    margin-bottom: -1px;
+}
+
+.wj-tab.is-active {
+    color: var(--text-bright);
+    border-bottom-color: var(--accent);
+}
+
+/* ── Sessions list (Training Log → Sessions tab) ──────── */
+
+.wj-sessions {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.wj-session-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+}
+
+.wj-session-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.wj-session-card-program {
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+}
+
+.wj-session-card-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.wj-session-card-exercises {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.4rem;
+}
+
+.wj-session-card-exercise {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.wj-session-exercise-name {
+    font-size: 0.9rem;
+    color: var(--text-bright);
+    font-weight: 600;
+}
+
+.wj-session-exercise-sets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.wj-session-set {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding: 0.1rem 0.45rem;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.wj-session-set.is-pr {
+    color: var(--accent);
+    border-color: var(--accent);
+    font-weight: 700;
+}
+
+/* ── PR list (Training Log → PRs tab) ─────────────────── */
+
+.wj-prs {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.wj-pr-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.65rem 0.85rem;
+}
+
+.wj-pr-name {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-bright);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.wj-pr-value {
+    color: var(--accent);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
 }
 
 /* ── Loading ──────────────────────────────────────────── */

@@ -57,6 +57,11 @@ function parseDateCell(raw: unknown): string {
 
 export async function appendRows(rows: WorkoutRow[]): Promise<void> {
     if (rows.length === 0) return;
+    // Sweep empty rows first so the table stays tidy when the user has
+    // cleared cells via the Delete key (which leaves the rows in place).
+    await pruneEmptyRows().catch((e) => {
+        console.warn('prune failed (continuing with append):', e);
+    });
     const values = rows.map((r) => COLS.map((c) => r[c]));
     const res = await graphFetch(`${tableUrl()}/rows`, {
         method: 'POST',
@@ -66,6 +71,25 @@ export async function appendRows(rows: WorkoutRow[]): Promise<void> {
         throw new Error(
             `Excel append failed: ${res.status} ${await res.text()}`
         );
+    }
+}
+
+async function pruneEmptyRows(): Promise<void> {
+    const res = await graphFetch(`${tableUrl()}/rows?$top=500`);
+    if (!res.ok) return;
+    const json = (await res.json()) as { value: { index: number; values: unknown[][] }[] };
+    const emptyIndices = json.value
+        .filter((r) => {
+            const v = r.values?.[0];
+            return !v || !String(v[2] ?? '').trim();
+        })
+        .map((r) => r.index)
+        // Delete from highest index downward so earlier deletes don't shift later ones
+        .sort((a, b) => b - a);
+    for (const idx of emptyIndices) {
+        await graphFetch(`${tableUrl()}/rows/itemAt(index=${idx})`, {
+            method: 'DELETE',
+        });
     }
 }
 
