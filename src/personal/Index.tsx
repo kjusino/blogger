@@ -2,7 +2,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logout } from './authClient';
 import './personal.css';
 
-const TOOLS = [{ to: '/personal/workout', label: 'Workout Tracker' }];
+const TOOLS = [
+    { to: '/personal/workout', label: 'Workout Tracker' },
+    { to: '/personal/leanlingo', label: 'LeanLingo' },
+];
 
 export default function PersonalIndex() {
     const navigate = useNavigate();
