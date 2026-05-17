@@ -1,0 +1,696 @@
+/* Workout journal — mobile-first, theme-variable driven. */
+
+.wj-root {
+    --wj-compound: var(--accent);
+    --wj-isolation: #2a8474;
+    --wj-core: #7b6ca0;
+    --wj-pr-bg: rgba(30, 144, 255, 0.08);
+
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 8rem;
+    color: var(--text);
+    text-align: left;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* ── Picker ────────────────────────────────────────────── */
+
+.wj-picker-header {
+    margin-bottom: 1.25rem;
+}
+
+.wj-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.wj-h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin: 0 0 0.25rem;
+    line-height: 1.1;
+}
+
+.wj-sub {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.wj-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.wj-back:hover {
+    color: var(--accent);
+}
+
+.wj-program-list {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.wj-program-card {
+    width: 100%;
+    text-align: left;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition:
+        border-color 0.15s,
+        transform 0.05s;
+}
+
+.wj-program-card:hover {
+    border-color: var(--accent);
+}
+
+.wj-program-card:active {
+    transform: translateY(1px);
+}
+
+.wj-program-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(30, 144, 255, 0.1);
+    border: 1px solid var(--border);
+    color: var(--text-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.wj-program-meta {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.wj-program-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-bright);
+}
+
+.wj-program-sub {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-body);
+}
+
+.wj-program-stats {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+    letter-spacing: 0.04em;
+}
+
+.wj-toggle-history {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 0.85rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.wj-toggle-history:hover {
+    color: var(--text-bright);
+    border-color: var(--accent);
+}
+
+/* ── Session header / pacing ──────────────────────────── */
+
+.wj-session-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin: -1.25rem -1rem 0;
+    padding: 0.85rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.wj-session-title {
+    min-width: 0;
+}
+
+.wj-session-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+.wj-session-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.wj-elapsed {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.wj-elapsed-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-bright);
+}
+
+.wj-elapsed-value.is-over {
+    color: var(--accent);
+}
+
+.wj-elapsed-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+}
+
+.wj-pacing {
+    margin: 0.85rem 0;
+    padding: 0.55rem 0.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    letter-spacing: 0.04em;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* ── Block card ───────────────────────────────────────── */
+
+.wj-block {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.wj-block--compound {
+    --wj-block-color: var(--wj-compound);
+}
+.wj-block--isolation {
+    --wj-block-color: var(--wj-isolation);
+}
+.wj-block--core {
+    --wj-block-color: var(--wj-core);
+}
+
+.wj-block-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--wj-block-color) 18%, transparent);
+    color: var(--wj-block-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+}
+
+.wj-block-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0 0 0.85rem;
+}
+
+.wj-pair-headers {
+    display: grid;
+    grid-template-columns: 36px 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.wj-pair-header {
+    min-width: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem;
+    word-break: break-word;
+}
+
+.wj-pair-letter {
+    color: var(--wj-block-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+}
+
+.wj-pair-reps {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.wj-pair-pr {
+    font-size: 0.65rem;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* ── Set rows ─────────────────────────────────────────── */
+
+.wj-set-row {
+    display: grid;
+    grid-template-columns: 36px 1fr 1fr;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.3rem 0;
+    transition: opacity 0.15s;
+}
+
+.wj-set-row.is-done {
+    opacity: 0.45;
+}
+
+.wj-set-check {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        border-color 0.15s,
+        background-color 0.15s,
+        color 0.15s;
+}
+
+.wj-set-check.is-done {
+    background-color: var(--wj-block-color);
+    border-color: var(--wj-block-color);
+    color: var(--bg);
+}
+
+.wj-weight {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.wj-weight-input {
+    width: 100%;
+    min-width: 0;
+    max-width: 88px;
+    padding: 0.45rem 0.5rem;
+    background-color: var(--bg);
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    font-size: 1rem;
+    font-family: inherit;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+    -moz-appearance: textfield;
+}
+
+.wj-weight-input::-webkit-outer-spin-button,
+.wj-weight-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.wj-weight-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.wj-weight-input.is-pr {
+    border-color: var(--accent);
+    background-color: var(--wj-pr-bg);
+}
+
+.wj-pr-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+}
+
+/* ── Rest timer ───────────────────────────────────────── */
+
+.wj-rest-timer {
+    margin: 0.6rem 0 0.2rem;
+    padding: 0.55rem 0.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.wj-rest-timer.is-low {
+    border-color: var(--accent);
+    background-color: var(--wj-pr-bg);
+}
+
+.wj-rest-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 52px;
+    text-align: center;
+    color: var(--text-bright);
+}
+
+.wj-rest-timer.is-low .wj-rest-value {
+    color: var(--accent);
+}
+
+.wj-rest-bar {
+    flex: 1;
+    height: 5px;
+    background-color: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.wj-rest-bar-fill {
+    height: 100%;
+    background-color: var(--wj-isolation);
+    transition:
+        width 1s linear,
+        background-color 0.3s;
+}
+
+.wj-rest-timer.is-low .wj-rest-bar-fill {
+    background-color: var(--accent);
+}
+
+.wj-rest-skip {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.25rem 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* ── Form guides ──────────────────────────────────────── */
+
+.wj-form-toggle {
+    width: 100%;
+    margin-top: 0.6rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.45rem 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wj-form-toggle:hover {
+    color: var(--text-bright);
+}
+
+.wj-form-list {
+    margin-top: 0.4rem;
+    padding: 0.25rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.wj-form-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.25rem;
+    color: var(--text);
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.wj-form-link:last-child {
+    border-bottom: none;
+}
+
+.wj-form-link:hover {
+    color: var(--accent);
+}
+
+.wj-form-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    font-size: 0.65rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    flex-shrink: 0;
+    text-decoration: none;
+    margin-left: 0.2rem;
+}
+
+.wj-form-badge:hover {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* ── Sticky action bar ────────────────────────────────── */
+
+.wj-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom));
+    background-color: var(--bg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 11;
+}
+
+.wj-actions-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    gap: 0.6rem;
+}
+
+.wj-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+.wj-btn:hover:not(:disabled) {
+    border-color: var(--accent);
+}
+
+.wj-btn--primary {
+    flex: 2;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.wj-btn--primary:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+/* ── History ──────────────────────────────────────────── */
+
+.wj-history {
+    margin-top: 1rem;
+}
+
+.wj-history-empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 0;
+    font-style: italic;
+}
+
+.wj-history-row {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.wj-history-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wj-history-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-bright);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.wj-history-pr {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+}
+
+.wj-history-entries {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.wj-history-entry {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    min-width: 44px;
+}
+
+.wj-history-entry-weight {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.wj-history-entry-weight.is-pr {
+    color: var(--accent);
+}
+
+/* ── Sync status ──────────────────────────────────────── */
+
+.wj-sync {
+    margin: 0 0 1rem;
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+}
+
+.wj-sync--ok {
+    border-color: color-mix(in srgb, var(--wj-isolation) 50%, transparent);
+    color: var(--wj-isolation);
+}
+
+.wj-sync--err {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── Loading ──────────────────────────────────────────── */
+
+.wj-loading {
+    color: var(--text-muted);
+    text-align: center;
+    margin: 6rem auto;
+    letter-spacing: 0.2em;
+}
+
+/* ── Desktop tweaks ───────────────────────────────────── */
+
+@media (min-width: 640px) {
+    .wj-root {
+        padding: 2rem 1.5rem 8rem;
+    }
+    .wj-h1 {
+        font-size: 2rem;
+    }
+}

@@ -2,7 +2,8 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import path from 'path';
 import { env } from './env';
-import { authRouter } from './auth';
+import { authRouter, requireAuth } from './auth';
+import { workoutRouter } from './routes/workout';
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/api/personal', authRouter);
+app.use('/api/personal/workout', requireAuth, workoutRouter);
 
 const buildDir = path.resolve(__dirname, '..', 'build');
 app.use(express.static(buildDir));

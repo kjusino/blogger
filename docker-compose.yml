@@ -13,5 +13,6 @@ services:
         # Application Settings; this mount is local-only.
         volumes:
             - ./.env.local:/usr/src/app/.env.local:ro
+            - ./data:/usr/src/app/data
         ports:
             - 3000:3000
