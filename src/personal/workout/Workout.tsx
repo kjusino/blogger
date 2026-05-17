@@ -659,18 +659,26 @@ function mergeCloudIntoLocal(
     local: WorkoutData,
     cloud: WorkoutData
 ): WorkoutData {
+    // Cloud (Excel) is the absolute source of truth for history + PRs.
+    // Local only contributes in-progress `sets` for exercises with non-empty sets.
     const out: WorkoutData = {};
-    const keys = Array.from(
-        new Set<string>([...Object.keys(local), ...Object.keys(cloud)])
-    );
-    for (const k of keys) {
+    for (const [k, c] of Object.entries(cloud)) {
         const l = local[k];
-        const c = cloud[k];
-        if (c && l) {
-            // Cloud is the source for pr/history; keep local's in-progress sets.
-            out[k] = { ...c, sets: l.sets ?? {} };
-        } else {
-            out[k] = c ?? l;
+        out[k] = {
+            ...c,
+            sets:
+                l && l.sets && Object.keys(l.sets).length > 0 ? l.sets : {},
+        };
+    }
+    // Preserve local-only entries that have in-progress sets (haven't synced yet).
+    for (const [k, l] of Object.entries(local)) {
+        if (!out[k] && l.sets && Object.keys(l.sets).length > 0) {
+            out[k] = {
+                name: l.name,
+                pr: 0,
+                history: [],
+                sets: l.sets,
+            };
         }
     }
     return out;

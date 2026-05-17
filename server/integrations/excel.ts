@@ -86,10 +86,14 @@ export async function readAllRows(): Promise<WorkoutRow[]> {
         for (const row of json.value) {
             const v = row.values?.[0];
             if (!v) continue;
+            const exercise = String(v[2] ?? '').trim();
+            // Skip table rows where the user cleared contents in Excel without
+            // deleting the row — those come back as all-empty cells.
+            if (!exercise) continue;
             out.push({
                 date: parseDateCell(v[0]),
                 program: String(v[1] ?? ''),
-                exercise: String(v[2] ?? ''),
+                exercise,
                 set_idx: Number(v[3] ?? 0),
                 weight: Number(v[4] ?? 0),
                 pr_at_time: Number(v[5] ?? 0),
