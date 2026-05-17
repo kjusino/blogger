@@ -429,40 +429,38 @@ export default function Workout() {
             day: 'numeric',
         });
         const rows: WorkoutRow[] = [];
-        setData((prev) => {
-            const next: WorkoutData = {};
-            for (const [key, val] of Object.entries(prev)) {
-                const e = { ...val, sets: { ...val.sets } };
-                const setEntries = Object.entries(val.sets).filter(
-                    ([, s]) => Number(s.weight) > 0
-                );
-                if (setEntries.length > 0) {
-                    const weights = setEntries.map(([, s]) => Number(s.weight));
-                    const max = Math.max(...weights);
-                    e.name = e.name || displayNameFor(key);
-                    e.history = [
-                        ...(e.history || []),
-                        { weight: max, date: today },
-                    ];
-                    if (day) {
-                        for (const [siStr, s] of setEntries) {
-                            rows.push({
-                                date: today,
-                                program: day,
-                                exercise: e.name,
-                                set_idx: Number(siStr) + 1,
-                                weight: Number(s.weight),
-                                pr_at_time: e.pr,
-                            });
-                        }
+        const next: WorkoutData = {};
+        for (const [key, val] of Object.entries(data)) {
+            const e = { ...val, sets: { ...val.sets } };
+            const setEntries = Object.entries(val.sets).filter(
+                ([, s]) => Number(s.weight) > 0
+            );
+            if (setEntries.length > 0) {
+                const weights = setEntries.map(([, s]) => Number(s.weight));
+                const max = Math.max(...weights);
+                e.name = e.name || displayNameFor(key);
+                e.history = [
+                    ...(e.history || []),
+                    { weight: max, date: today },
+                ];
+                if (day) {
+                    for (const [siStr, s] of setEntries) {
+                        rows.push({
+                            date: today,
+                            program: day,
+                            exercise: e.name,
+                            set_idx: Number(siStr) + 1,
+                            weight: Number(s.weight),
+                            pr_at_time: e.pr,
+                        });
                     }
-                    e.sets = {};
                 }
-                next[key] = e;
+                e.sets = {};
             }
-            saveData(next);
-            return next;
-        });
+            next[key] = e;
+        }
+        setData(next);
+        saveData(next);
 
         if (rows.length > 0) {
             setSyncStatus({ state: 'syncing' });
