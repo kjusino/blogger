@@ -63,6 +63,44 @@
     color: var(--text);
 }
 
+.wj-wedding {
+    margin-top: 0.85rem;
+    padding: 0.55rem 0.85rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+.wj-wedding-num {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    font-variant-numeric: tabular-nums;
+}
+
+.wj-wedding-sep {
+    color: var(--text-muted);
+}
+
+.wj-wedding-label {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.wj-wedding-meta {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
 .wj-section-label {
     margin: 1.25rem 0 0.5rem;
     font-size: 0.7rem;

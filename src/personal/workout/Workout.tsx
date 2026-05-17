@@ -347,11 +347,23 @@ function PairRows({
     );
 }
 
+// Wedding day — anchors the workout journal's reason-for-being.
+// Update here if the date ever changes.
+const WEDDING_DATE = new Date(2026, 7, 26); // Aug 26 2026 (month is 0-indexed)
+
+function weddingRunway(): { weeks: number; days: number } | null {
+    const ms = WEDDING_DATE.getTime() - Date.now();
+    if (ms <= 0) return null;
+    const days = Math.ceil(ms / 86_400_000);
+    return { days, weeks: Math.round(days / 7) };
+}
+
 function Dashboard({ sessions }: { sessions: Session[] }) {
     const last7 = countSessionsInLastDays(sessions, 7);
     const last30 = countSessionsInLastDays(sessions, 30);
     const lastSession = sessions[0];
     const sinceLast = lastSession ? daysSince(lastSession.date) : null;
+    const wedding = weddingRunway();
 
     let coachLine: string;
     if (sessions.length === 0) {
@@ -372,6 +384,18 @@ function Dashboard({ sessions }: { sessions: Session[] }) {
         <div className="wj-dashboard">
             <div className="wj-eyebrow">Workout Journal</div>
             <h1 className="wj-h1">{coachLine}</h1>
+            {wedding && (
+                <div className="wj-wedding">
+                    <span className="wj-wedding-num">{wedding.weeks}w</span>
+                    <span className="wj-wedding-sep">→</span>
+                    <span className="wj-wedding-label">
+                        Aug 26 wedding
+                    </span>
+                    <span className="wj-wedding-meta">
+                        ({wedding.days} days)
+                    </span>
+                </div>
+            )}
             <div className="wj-stats">
                 <div className="wj-stat">
                     <div className="wj-stat-num">{last7}</div>
