@@ -22,6 +22,7 @@ export default function QuestionCard({ question, onAnswered, progressPct }: Prop
     const [attempts, setAttempts] = useState(0);
     const [done, setDone] = useState(false);
     const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
+    const [pendingOutcome, setPendingOutcome] = useState<Outcome | null>(null);
 
     function judge(correct: boolean) {
         const next = attempts + 1;
@@ -29,8 +30,7 @@ export default function QuestionCard({ question, onAnswered, progressPct }: Prop
         setFeedback(correct ? 'correct' : 'wrong');
         if (correct || next >= 3) {
             setDone(true);
-            // give user a beat to read feedback
-            setTimeout(() => onAnswered({ correct, attemptNumber: next }), 900);
+            setPendingOutcome({ correct, attemptNumber: next });
         }
     }
 
@@ -46,6 +46,17 @@ export default function QuestionCard({ question, onAnswered, progressPct }: Prop
                 <div className={`leanlingo-feedback ${feedback}`}>
                     {feedback === 'correct' ? '✓ Correct! ' : '✗ Not quite. '}
                     {question.explanation}
+                </div>
+            )}
+            {done && pendingOutcome && (
+                <div className="leanlingo-actions">
+                    <button
+                        className="leanlingo-btn"
+                        onClick={() => onAnswered(pendingOutcome)}
+                        autoFocus
+                    >
+                        Next →
+                    </button>
                 </div>
             )}
         </div>
