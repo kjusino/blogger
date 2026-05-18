@@ -48,6 +48,26 @@ export default function QuestionCard({ question, onAnswered, progressPct }: Prop
                     {question.explanation}
                 </div>
             )}
+            {feedback === 'wrong' && (question.quote || question.source_url) && (
+                <div className="leanlingo-source">
+                    {question.quote && (
+                        <blockquote className="leanlingo-source-quote">
+                            {question.quote}
+                            <cite className="leanlingo-source-cite">— {question.book_ref}</cite>
+                        </blockquote>
+                    )}
+                    {question.source_url && (
+                        <a
+                            className="leanlingo-source-link"
+                            href={question.source_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Read more in the book ↗
+                        </a>
+                    )}
+                </div>
+            )}
             {done && pendingOutcome && (
                 <div className="leanlingo-actions">
                     <button

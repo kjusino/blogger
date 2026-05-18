@@ -15,6 +15,8 @@ export type Question = {
     ord_items: string[];
     book_ref: string;
     lesson_title: string;
+    quote: string;
+    source_url: string;
 };
 
 export type Lesson = {

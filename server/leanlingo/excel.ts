@@ -70,6 +70,8 @@ export async function readAllQuestions(): Promise<QuestionRow[]> {
                 ord_items: parseJsonArray(v[11]),
                 book_ref: unescape(v[12]),
                 lesson_title: unescape(v[13]),
+                quote: unescape(v[14]),
+                source_url: unescape(v[15]),
             });
         }
         next = json['@odata.nextLink'] ?? null;

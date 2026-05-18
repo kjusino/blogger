@@ -293,6 +293,42 @@
     border: 1px solid #ef444466;
 }
 
+.leanlingo-source {
+    margin-top: 10px;
+    padding: 12px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.leanlingo-source-quote {
+    margin: 0;
+    padding: 0 0 0 12px;
+    border-left: 3px solid #475569;
+    font-style: italic;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.55;
+}
+.leanlingo-source-cite {
+    display: block;
+    margin-top: 6px;
+    color: #64748b;
+    font-style: normal;
+    font-size: 12px;
+}
+.leanlingo-source-link {
+    color: #22d3ee;
+    font-size: 14px;
+    text-decoration: none;
+    align-self: flex-start;
+}
+.leanlingo-source-link:hover {
+    text-decoration: underline;
+}
+
 .leanlingo-ord-list {
     display: flex;
     flex-direction: column;
