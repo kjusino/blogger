@@ -53,12 +53,17 @@ export function requireAuth(req: Request, res: Response, next: NextFunction): vo
 export const authRouter = Router();
 
 // Throttle login attempts so a single attacker can't brute-force the side
-// password or pin the bcrypt CPU on the B1 instance.
+// password or pin the bcrypt CPU on the B1 instance. Single-bucket (not
+// per-IP) — works behind Azure's edge regardless of trust-proxy quirks,
+// and fine for a one-user personal site. Real users locked out alongside
+// attackers is acceptable; it's a 15-min wait.
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 8,
     standardHeaders: true,
     legacyHeaders: false,
+    keyGenerator: () => 'global-login',
+    validate: false,
     message: { error: 'too many login attempts — try again in 15 minutes' },
 });
 
