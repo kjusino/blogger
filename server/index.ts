@@ -9,9 +9,11 @@ import { leanlingoRouter } from './routes/leanlingo';
 
 const app = express();
 
-// Tell Express to trust X-Forwarded-* from the Azure App Service front-end
-// so req.ip reflects the real client (used by express-rate-limit).
-app.set('trust proxy', 1);
+// Trust X-Forwarded-* from Azure App Service so req.ip is the real client
+// IP (used by express-rate-limit). `true` trusts all forwarders; Azure
+// strips client-supplied X-Forwarded-For on ingress so spoofing isn't a
+// concern. `1` was insufficient — Azure adds >1 hop.
+app.set('trust proxy', true);
 app.disable('x-powered-by');
 
 app.use(
