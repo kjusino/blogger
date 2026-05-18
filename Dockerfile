@@ -4,6 +4,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json* ./
 RUN npm ci
 COPY . .
+ENV GENERATE_SOURCEMAP=false
 RUN npm run build
 
 # Stage 2: runtime — Express serves the build and the /api/personal routes

@@ -1,4 +1,5 @@
 import { Router, Request, Response, NextFunction } from 'express';
+import rateLimit from 'express-rate-limit';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import { env, isProd } from './env';
@@ -51,11 +52,21 @@ export function requireAuth(req: Request, res: Response, next: NextFunction): vo
 
 export const authRouter = Router();
 
+// Throttle login attempts so a single attacker can't brute-force the side
+// password or pin the bcrypt CPU on the B1 instance.
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 8,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: 'too many login attempts — try again in 15 minutes' },
+});
+
 authRouter.get('/me', (req, res) => {
     res.json({ authenticated: isAuthenticated(req) });
 });
 
-authRouter.post('/login', async (req, res) => {
+authRouter.post('/login', loginLimiter, async (req, res) => {
     const password = typeof req.body?.password === 'string' ? req.body.password : '';
     if (!password) {
         res.status(400).json({ error: 'password required' });

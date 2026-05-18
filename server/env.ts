@@ -28,9 +28,13 @@ export const env = {
     MS_CLIENT_ID: optional('MS_CLIENT_ID'),
     MS_CLIENT_SECRET: optional('MS_CLIENT_SECRET'),
     MS_REFRESH_TOKEN: optional('MS_REFRESH_TOKEN'),
+    // /home is the only path Azure App Service Linux containers persist
+    // across restarts. Dev defaults to the repo's data/ dir.
     MS_TOKEN_FILE:
         process.env.MS_TOKEN_FILE ??
-        path.resolve(__dirname, '..', 'data', 'ms-refresh.txt'),
+        (process.env.NODE_ENV === 'production'
+            ? '/home/data/ms-refresh.txt'
+            : path.resolve(__dirname, '..', 'data', 'ms-refresh.txt')),
 };
 
 export const isProd = env.NODE_ENV === 'production';

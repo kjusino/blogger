@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
 import path from 'path';
 import { env } from './env';
 import { authRouter, requireAuth } from './auth';
@@ -8,7 +9,19 @@ import { leanlingoRouter } from './routes/leanlingo';
 
 const app = express();
 
-app.use(express.json());
+// Tell Express to trust X-Forwarded-* from the Azure App Service front-end
+// so req.ip reflects the real client (used by express-rate-limit).
+app.set('trust proxy', 1);
+app.disable('x-powered-by');
+
+app.use(
+    helmet({
+        contentSecurityPolicy: false, // CRA inline-scripts would break with default CSP; revisit on Vite migration
+        crossOriginEmbedderPolicy: false,
+        strictTransportSecurity: { maxAge: 31_536_000, includeSubDomains: true, preload: false },
+    })
+);
+app.use(express.json({ limit: '256kb' }));
 app.use(cookieParser());
 
 app.use('/api/personal', authRouter);
