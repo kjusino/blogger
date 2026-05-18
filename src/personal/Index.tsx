@@ -5,6 +5,7 @@ import './personal.css';
 const TOOLS = [
     { to: '/personal/workout', label: 'Workout Tracker' },
     { to: '/personal/leanlingo', label: 'LeanLingo' },
+    { to: '/personal/reflex', label: 'Reflex' },
 ];
 
 export default function PersonalIndex() {
