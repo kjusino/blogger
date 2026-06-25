@@ -100,6 +100,15 @@ const NODES: GraphNode[] = [
         theme: 'cs',
     },
     {
+        id: 'verification',
+        label: 'Trust, but Verify',
+        type: 'post',
+        route: '/verification',
+        r: 11,
+        color: THEME_COLORS.cs,
+        theme: 'cs',
+    },
+    {
         id: 'about',
         label: 'About Me',
         type: 'post',
@@ -128,6 +137,8 @@ const RAW_LINKS: RawLink[] = [
     { source: 'physics', target: 'phd' },
     { source: 'cs', target: 'rust' },
     { source: 'cs', target: 'ai_engineering' },
+    { source: 'cs', target: 'verification' },
+    { source: 'math', target: 'verification' },
     { source: 'culture', target: 'about' },
     { source: 'culture', target: 'pa' },
 ];
