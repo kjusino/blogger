@@ -6,7 +6,8 @@ import Resume from './Resume';
 import Rust from './Rust';
 import Lean from './Lean';
 import AiEngineering from './AiEngineering';
+import Verification from './Verification';
 
-const allData = [Home, About, Pa, PhD, Resume, Rust, AiEngineering];
+const allData = [Home, About, Pa, PhD, Resume, Rust, AiEngineering, Verification];
 
 export default allData;
