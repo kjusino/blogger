@@ -26,10 +26,10 @@ interface RawLink {
 // ── Graph data ───────────────────────────────────────────────────────────────
 
 const THEME_COLORS: Record<string, string> = {
-    math: '#22d3ee',
-    cs: '#f59e0b',
-    physics: '#a78bfa',
-    culture: '#fb7185',
+    math: '#fb7185', // red
+    cs: '#f59e0b', // amber
+    physics: '#4ade80', // green
+    culture: '#22d3ee', // blue
 };
 
 const NODES: GraphNode[] = [
