@@ -12,6 +12,29 @@
     margin-bottom: 2.5rem;
 }
 
+/* Header image — larger than the global 40vmin, sized to fit either a wide
+   diagram or a tall portrait while staying responsive */
+.blog-page .App-logo {
+    height: auto;
+    width: auto;
+    max-width: min(820px, 92vw);
+    max-height: 72vh;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+/* Click the hero to open the full-resolution image in a new tab (zoom) */
+.blog-page .hero-zoom {
+    display: inline-block;
+    cursor: zoom-in;
+    border-bottom: none;
+    transition: opacity 0.2s;
+}
+
+.blog-page .hero-zoom:hover {
+    opacity: 0.92;
+}
+
 /* Category label — the abstract becomes an ALL-CAPS editorial label */
 .blog-page .Abstract {
     display: block;
@@ -136,7 +159,7 @@
 }
 
 .blog-page .Content em {
-    color: var(--text-muted);
+    color: var(--text-bright);
     font-style: italic;
 }
 
