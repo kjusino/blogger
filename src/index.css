@@ -189,6 +189,13 @@ body {
     }
 }
 
+.Article {
+    /* include the left/right padding in the width so the text column never
+       overflows the viewport (which clips both edges under overflow-x:hidden) */
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .Article-header {
     text-align: center;
 }
