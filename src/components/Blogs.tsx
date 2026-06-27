@@ -484,7 +484,7 @@ const Blogs = () => {
         });
 
         // ── Tick ──────────────────────────────────────────────────────────
-        simulation.on('tick', () => {
+        const ticked = () => {
             linkSel
                 .attr('x1', (l) => (l.source as GraphNode).x ?? 0)
                 .attr('y1', (l) => (l.source as GraphNode).y ?? 0)
@@ -495,7 +495,19 @@ const Blogs = () => {
                 'transform',
                 (d) => `translate(${d.x ?? 0},${d.y ?? 0})`,
             );
-        });
+        };
+
+        simulation.on('tick', ticked);
+
+        // Pre-warm the layout to its converged (most spread-out, lowest-energy)
+        // state before the first paint, so the graph loads fully settled instead
+        // of animating outward from the center. tick(n) advances the simulation
+        // by n iterations without dispatching events — ~300 iterations cools
+        // alpha to its minimum — so we paint once manually afterward and zero
+        // alpha to keep it still until the user interacts.
+        simulation.tick(300);
+        simulation.alpha(0);
+        ticked();
 
         return () => {
             simulation.stop();
