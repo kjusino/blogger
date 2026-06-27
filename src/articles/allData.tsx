@@ -7,7 +7,18 @@ import Rust from './Rust';
 import Lean from './Lean';
 import AiEngineering from './AiEngineering';
 import Verification from './Verification';
+import LeanInToGradSchool from './LeanInToGradSchool';
 
-const allData = [Home, About, Pa, PhD, Resume, Rust, AiEngineering, Verification];
+const allData = [
+    Home,
+    About,
+    Pa,
+    PhD,
+    Resume,
+    Rust,
+    AiEngineering,
+    Verification,
+    LeanInToGradSchool,
+];
 
 export default allData;

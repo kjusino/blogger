@@ -114,6 +114,16 @@ const NODES: GraphNode[] = [
         themes: ['math', 'cs'],
     },
     {
+        id: 'lean_grad',
+        label: "Lean'in' to Grad School",
+        type: 'post',
+        route: '/lean-in-to-grad-school',
+        r: 11,
+        color: THEME_COLORS.math,
+        theme: 'math',
+        themes: ['math', 'cs'],
+    },
+    {
         id: 'about',
         label: 'About Me',
         type: 'post',
@@ -144,6 +154,8 @@ const RAW_LINKS: RawLink[] = [
     { source: 'cs', target: 'ai_engineering' },
     { source: 'cs', target: 'verification' },
     { source: 'math', target: 'verification' },
+    { source: 'cs', target: 'lean_grad' },
+    { source: 'math', target: 'lean_grad' },
     { source: 'culture', target: 'about' },
     { source: 'culture', target: 'pa' },
 ];
