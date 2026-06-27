@@ -27,6 +27,7 @@ function App() {
                 content={blog.content}
                 tags={blog.tags}
                 isBlogPost={isBlogPost}
+                audioSrc={blog.audioSrc}
             />
         );
         routes.push(<Route key={blog.route} path={blog.route} element={component} />);
