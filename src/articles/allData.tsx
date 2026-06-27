@@ -4,7 +4,6 @@ import Pa from './Pa';
 import PhD from './PhD';
 import Resume from './Resume';
 import Rust from './Rust';
-import Lean from './Lean';
 import AiEngineering from './AiEngineering';
 import Verification from './Verification';
 import LeanInToGradSchool from './LeanInToGradSchool';
