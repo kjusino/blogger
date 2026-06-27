@@ -338,24 +338,6 @@ const LeanInToGradSchool: ArticleProps = {
             </strong>{' '}
             There has never been a better time to be a builder.
         </p>,
-        <hr />,
-        <p>
-            <strong>The Flywheel:</strong>
-        </p>,
-        <ol>
-            <li>
-                <strong>AI × SWE</strong> → Accelerate Code ✅
-            </li>
-            <li>
-                <strong>SWE × Verification</strong> → Prove Correct ✅
-            </li>
-            <li>
-                <strong>Verification × Math</strong> → Formalize Truths ✅
-            </li>
-            <li>
-                <strong>Math × AI</strong> → Build Math Machines ✅
-            </li>
-        </ol>,
     ],
 };
 
