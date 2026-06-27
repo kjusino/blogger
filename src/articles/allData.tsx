@@ -5,7 +5,6 @@ import PhD from './PhD';
 import Resume from './Resume';
 import Rust from './Rust';
 import AiEngineering from './AiEngineering';
-import Verification from './Verification';
 import LeanInToGradSchool from './LeanInToGradSchool';
 
 const allData = [
@@ -16,7 +15,6 @@ const allData = [
     Resume,
     Rust,
     AiEngineering,
-    Verification,
     LeanInToGradSchool,
 ];
 

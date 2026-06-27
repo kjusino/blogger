@@ -26,10 +26,10 @@ interface RawLink {
 // ── Graph data ───────────────────────────────────────────────────────────────
 
 const THEME_COLORS: Record<string, string> = {
-    math: '#22d3ee',
-    cs: '#f59e0b',
-    physics: '#a78bfa',
-    culture: '#fb7185',
+    math: '#fb7185', // red
+    cs: '#f59e0b', // amber
+    physics: '#4ade80', // green
+    culture: '#22d3ee', // blue
 };
 
 const NODES: GraphNode[] = [
@@ -104,16 +104,6 @@ const NODES: GraphNode[] = [
         theme: 'cs',
     },
     {
-        id: 'verification',
-        label: 'Trust, but Verify',
-        type: 'post',
-        route: '/verification',
-        r: 11,
-        color: THEME_COLORS.math,
-        theme: 'math',
-        themes: ['math', 'cs'],
-    },
-    {
         id: 'lean_grad',
         label: "Lean'in' to Grad School",
         type: 'post',
@@ -152,8 +142,6 @@ const RAW_LINKS: RawLink[] = [
     { source: 'physics', target: 'phd' },
     { source: 'cs', target: 'rust' },
     { source: 'cs', target: 'ai_engineering' },
-    { source: 'cs', target: 'verification' },
-    { source: 'math', target: 'verification' },
     { source: 'cs', target: 'lean_grad' },
     { source: 'math', target: 'lean_grad' },
     { source: 'culture', target: 'about' },

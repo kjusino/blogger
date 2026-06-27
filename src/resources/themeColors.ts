@@ -3,10 +3,10 @@ import { Tags } from './enums/Tags';
 // Single source of truth for theme colors, shared across the knowledge
 // graph, the article list, and the per-article header.
 export const THEME_COLOR: Record<Tags, string> = {
-    [Tags.Math]: '#22d3ee', // cyan
+    [Tags.Math]: '#fb7185', // red
     [Tags.Computation]: '#f59e0b', // amber
-    [Tags.Physics]: '#a78bfa', // violet
-    [Tags.Culture]: '#fb7185', // rose
+    [Tags.Physics]: '#4ade80', // green
+    [Tags.Culture]: '#22d3ee', // blue
 };
 
 // Canonical render order, so a given combination of themes always produces
