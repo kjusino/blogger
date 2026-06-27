@@ -48,7 +48,15 @@ function Blog({
                 )}
                 <em className="Abstract">{abstract}</em>
                 <figure>
-                    <img src={img} className="App-logo" alt={caption} />
+                    <a
+                        href={img}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hero-zoom"
+                        title="Click to open full size"
+                    >
+                        <img src={img} className="App-logo" alt={caption} />
+                    </a>
                     <figcaption className="Caption">{caption}</figcaption>
                 </figure>
             </header>
