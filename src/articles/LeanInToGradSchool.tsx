@@ -335,7 +335,7 @@ const LeanInToGradSchool: ArticleProps = {
             </a>
             ,{' '}
             <a
-                href="https://aws.amazon.com/security/provable-security/"
+                href="https://www.amazon.science/research-areas/automated-reasoning"
                 target="_blank"
             >
                 AWS ARG
