@@ -38,7 +38,7 @@ const pullQuoteStyle = {
 };
 
 const LeanInToGradSchool: ArticleProps = {
-    route: '/lean-in-to-grad-school',
+    route: '/lean',
     title: "Lean'in' to Grad School",
     abstract:
         "Why I'm leaving industry to pursue a PhD at the intersection of AI, formal verification, mathematics, and software engineering.",
@@ -54,17 +54,22 @@ const LeanInToGradSchool: ArticleProps = {
             full-time employment.
         </p>,
         <p>
-            I will begin a Computer Science PhD program this fall at Northeastern
-            University's Khoury College for Computer Science as part of the
-            Formal Methods Group. My research is supported by the NSF's
-            CSGrad4US Fellowship.
+            I will begin a Computer Science PhD program this fall at{' '}
+            <a href="https://www.khoury.northeastern.edu/" target="_blank">
+                Northeastern University's Khoury College for Computer Science
+            </a>{' '}
+            as part of the Formal Methods Group. My research is supported by the
+            NSF's CSGrad4US Fellowship.
         </p>,
         <p>
             I want to work at the frontier of four distinct but overlapping
             sub-disciplines, conducting research experiments that accelerate
             (flywheel) progress in all four simultaneously. My research will be
             grounded in a powerful technology developed recently:{' '}
-            <strong>Lean</strong>.
+            <a href="https://lean-lang.org/" target="_blank">
+                <strong>Lean</strong>
+            </a>
+            .
         </p>,
         <hr />,
         <h2>Why? My Time in Software Engineering</h2>,
@@ -149,14 +154,26 @@ const LeanInToGradSchool: ArticleProps = {
         </p>,
         <p>
             So what is Lean? Lean is both a programming language{' '}
-            <strong>and</strong> an automated theorem prover (ATP). You've likely
-            heard of programming languages like Python and Java. ATPs are
-            software tools that help humans mechanically prove logical statements
-            correct or incorrect, using the mathematics of Dependent Type Theory
+            <strong>and</strong> an{' '}
+            <a
+                href="https://en.wikipedia.org/wiki/Automated_theorem_proving"
+                target="_blank"
+            >
+                automated theorem prover
+            </a>{' '}
+            (ATP). You've likely heard of programming languages like Python and
+            Java. ATPs are software tools that help humans mechanically prove
+            logical statements correct or incorrect, using the mathematics of{' '}
+            <a
+                href="https://en.wikipedia.org/wiki/Dependent_type"
+                target="_blank"
+            >
+                Dependent Type Theory
+            </a>{' '}
             — deep theoretical CS that I'm excited to study at Northeastern.
-            Computer scientists have researched ATPs for decades, but the barrier
-            to entry was so high that they were used solely by the academics
-            researching them.
+            Computer scientists have researched ATPs for decades, but the
+            barrier to entry was so high that they were used solely by the
+            academics researching them.
         </p>,
         <p>
             Leonardo changed this. Designed with a software verification-first
@@ -227,8 +244,15 @@ const LeanInToGradSchool: ArticleProps = {
         </p>,
         <p>We bake mathematics into the models.</p>,
         <p>
-            Lean's official mathematics library, <strong>Mathlib</strong>, is
-            where mathematical facts are being formalized and codified for future
+            Lean's official mathematics library,{' '}
+            <a
+                href="https://leanprover-community.github.io/mathlib-overview.html"
+                target="_blank"
+            >
+                <strong>Mathlib</strong>
+            </a>
+            , is where mathematical facts are being formalized and codified for
+            future
             generations to leverage as a library of truth. Instead of letting
             models randomly predict the next token, we endow them with the
             ability to reason mathematically — and therefore learn new domains
@@ -239,7 +263,13 @@ const LeanInToGradSchool: ArticleProps = {
             With Mathlib, anyone in the world using Lean can leverage formalized
             theorems to prove statements about mathematics <em>or</em> software.
             This is possible because of the{' '}
-            <strong>Curry-Howard Correspondence</strong>.
+            <a
+                href="https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence"
+                target="_blank"
+            >
+                <strong>Curry-Howard Correspondence</strong>
+            </a>
+            .
         </p>,
         <p>Don't take my word for it — let me show you:</p>,
         <SyntaxHighlighter
