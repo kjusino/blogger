@@ -1,6 +1,7 @@
 import '../blog.css';
 import { Tags } from '../resources/enums/Tags';
 import ThemeBadge from './ThemeBadge';
+import AudioPlayer from './AudioPlayer';
 
 function Blog({
     route,
@@ -11,6 +12,7 @@ function Blog({
     content,
     tags,
     isBlogPost,
+    audioSrc,
 }: {
     route: string;
     title: string;
@@ -20,6 +22,7 @@ function Blog({
     content: JSX.Element[];
     tags?: Tags[];
     isBlogPost?: boolean;
+    audioSrc?: string;
 }) {
     const img = require(`../articles/pics/${pics[0]}`);
 
@@ -60,6 +63,7 @@ function Blog({
                     <figcaption className="Caption">{caption}</figcaption>
                 </figure>
             </header>
+            {audioSrc && <AudioPlayer src={audioSrc} title={title} />}
             <article className="Content">{content}</article>
             {img2 && (
                 <figure>
