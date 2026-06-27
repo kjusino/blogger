@@ -217,25 +217,25 @@ const Blogs = () => {
                     .distance((l) => {
                         const s = l.source as GraphNode;
                         const t = l.target as GraphNode;
-                        if (s.type === 'root' || t.type === 'root') return 160;
+                        if (s.type === 'root' || t.type === 'root') return 210;
                         if (s.type === 'theme' || t.type === 'theme')
-                            return 110;
-                        return 80;
+                            return 155;
+                        return 120;
                     })
-                    .strength(0.7),
+                    .strength(0.65),
             )
             .force(
                 'charge',
                 d3.forceManyBody<GraphNode>().strength((d) => {
-                    if (d.type === 'root') return -700;
-                    if (d.type === 'theme') return -250;
-                    return -100;
+                    if (d.type === 'root') return -1100;
+                    if (d.type === 'theme') return -600;
+                    return -320;
                 }),
             )
             .force('center', d3.forceCenter(width / 2, height / 2))
             .force(
                 'collision',
-                d3.forceCollide<GraphNode>().radius((d) => d.r + 24),
+                d3.forceCollide<GraphNode>().radius((d) => d.r + 34),
             );
 
         // ── Links ──────────────────────────────────────────────────────────
