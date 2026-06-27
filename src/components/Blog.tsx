@@ -1,5 +1,6 @@
 import '../blog.css';
 import { Tags } from '../resources/enums/Tags';
+import ThemeBadge from './ThemeBadge';
 
 function Blog({
     route,
@@ -31,6 +32,20 @@ function Blog({
         <div className={articleClass}>
             <header className="Article-header">
                 <h1>{title}</h1>
+                {tags && tags.length > 0 && (
+                    <div
+                        className="ThemeTags"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: 8,
+                        }}
+                    >
+                        <ThemeBadge tags={tags} size={18} />
+                        <span>{tags.join(' · ')}</span>
+                    </div>
+                )}
                 <em className="Abstract">{abstract}</em>
                 <figure>
                     <img src={img} className="App-logo" alt={caption} />
