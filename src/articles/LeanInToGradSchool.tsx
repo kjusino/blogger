@@ -111,8 +111,8 @@ const LeanInToGradSchool: ArticleProps = {
             I led the Compliance Engineering team, where we built automated
             systems to formally verify regulatory adherence by other software
             teams promoting products from dev → qa → stage → prod. Our "release
-            manager" system generates a software verification report that proves
-            — to FMI and to auditors — that products were installed successfully
+            manager" system generates a software verification report that proves,
+            to FMI and to auditors, that products were installed successfully
             and are behaving as expected. It pulls live data across all
             environments and synthesizes a current model of the release. If the
             release passes a comprehensive swath of verification checks, the
@@ -127,7 +127,7 @@ const LeanInToGradSchool: ArticleProps = {
             And this <em>really</em> bothers me. As a student of mathematics, I
             have been trained in the most extreme of mindsets: things are either
             100% correct or 0% correct. No in between. Correctness is binary, and
-            software engineering is a discipline destined to cause me agony — or
+            software engineering is a discipline destined to cause me agony, or
             so it seemed.
         </p>,
         <hr />,
@@ -145,7 +145,7 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             He and a world-renowned group of computer scientists and
             mathematicians around the globe have been building tools to{' '}
-            <strong>prove</strong> software correctness — not just test for it,
+            <strong>prove</strong> software correctness, not just test for it,
             but <em>mathematically guarantee</em> it. I want to join this global
             movement to build safer software that accelerates scientific
             discoveries in medicine, mathematics, physics, and computer science
@@ -169,8 +169,8 @@ const LeanInToGradSchool: ArticleProps = {
                 target="_blank"
             >
                 Dependent Type Theory
-            </a>{' '}
-            — deep theoretical CS that I'm excited to study at Northeastern.
+            </a>
+            , deep theoretical CS that I'm excited to study at Northeastern.
             Computer scientists have researched ATPs for decades, but the
             barrier to entry was so high that they were used solely by the
             academics researching them.
@@ -190,7 +190,7 @@ const LeanInToGradSchool: ArticleProps = {
             software systems for the betterment of humanity.
         </p>,
         <p>
-            And this guarantee has never been more urgent — because of AI.
+            And this guarantee has never been more urgent, because of AI.
         </p>,
         <hr />,
         <h2>When? Right Now.</h2>,
@@ -205,8 +205,8 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             <strong>
                 1. Software development has undergone a phase transition
-            </strong>{' '}
-            — like when humans went from vacuum tubes to punch cards, punch cards
+            </strong>
+            , like when humans went from vacuum tubes to punch cards, punch cards
             to machine code, machine code to programming languages.
             LLM-augmented engineering is the future, and there's nothing anyone
             can do about it.
@@ -217,7 +217,7 @@ const LeanInToGradSchool: ArticleProps = {
                 ATPs.
             </strong>{' '}
             If writing code by hand is walking, LLM-augmented engineering is
-            flying — and Lean is what keeps us from crashing. This integration
+            flying, and Lean is what keeps us from crashing. This integration
             creates a positive feedback loop: AI generates candidate code, Lean
             verifies it, failures refine the next attempt. Guess and check. And
             mathematicians have been perfecting guess-and-check for centuries.
@@ -233,7 +233,7 @@ const LeanInToGradSchool: ArticleProps = {
             One important caveat worth acknowledging: Lean proves correctness{' '}
             <em>relative to a specification</em>. The spec itself can still be
             wrong. But this is exactly where human expertise remains
-            irreplaceable — and where AI can help us explore the specification
+            irreplaceable, and where AI can help us explore the specification
             space faster than ever before.
         </p>,
         <hr />,
@@ -255,7 +255,7 @@ const LeanInToGradSchool: ArticleProps = {
             future
             generations to leverage as a library of truth. Instead of letting
             models randomly predict the next token, we endow them with the
-            ability to reason mathematically — and therefore learn new domains
+            ability to reason mathematically, and therefore learn new domains
             correctly, potentially discovering solutions to earth's biggest
             challenges that no single person could achieve alone.
         </p>,
@@ -271,7 +271,7 @@ const LeanInToGradSchool: ArticleProps = {
             </a>
             .
         </p>,
-        <p>Don't take my word for it — let me show you:</p>,
+        <p>Don't take my word for it, let me show you:</p>,
         <SyntaxHighlighter
             language="lean"
             style={vscDarkPlus}
@@ -294,13 +294,14 @@ const LeanInToGradSchool: ArticleProps = {
             proofs and computer programs. A theorem is a type. A proof is a
             program. A program's computational logic <em>is</em> a proof's
             deduction logic. At the deepest level, math proofs and computer
-            programs are the same thing — and we can create one-to-one
+            programs are the same thing, and we can create one-to-one
             correspondences between them to guarantee the correctness of
             software.
         </p>,
         <p>
-            And this scales. Function composition — the backbone of all software
-            — <em>is</em> logical transitivity:
+            And this scales. Function composition, the backbone of all
+            software,{' '}
+            <em>is</em> logical transitivity:
         </p>,
         <SyntaxHighlighter
             language="lean"
@@ -312,7 +313,7 @@ const LeanInToGradSchool: ArticleProps = {
         </SyntaxHighlighter>,
         <p>
             The <code>→</code> symbol means "function" and "implies"
-            simultaneously. These aren't analogies — they are the same thing.
+            simultaneously. These aren't analogies, they are the same thing.
             That's Curry-Howard. And that's why the future of software
             engineering is verifying mathematical proofs.
         </p>,
@@ -328,8 +329,42 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             I plan to use my research to contribute to efforts like Mathlib, and
             help build better tools for software engineering and mathematical
-            research at places like Axiom, AWS ARG, Harmonic, Anthropic, Google
-            DeepMind, OpenAI, Microsoft Research, IBM Research, and beyond.
+            research at places like{' '}
+            <a href="https://axiommath.ai/" target="_blank">
+                Axiom
+            </a>
+            ,{' '}
+            <a
+                href="https://aws.amazon.com/security/provable-security/"
+                target="_blank"
+            >
+                AWS ARG
+            </a>
+            ,{' '}
+            <a href="https://harmonic.fun/" target="_blank">
+                Harmonic
+            </a>
+            ,{' '}
+            <a href="https://www.anthropic.com/" target="_blank">
+                Anthropic
+            </a>
+            ,{' '}
+            <a href="https://deepmind.google/" target="_blank">
+                Google DeepMind
+            </a>
+            ,{' '}
+            <a href="https://openai.com/" target="_blank">
+                OpenAI
+            </a>
+            ,{' '}
+            <a href="https://www.microsoft.com/en-us/research/" target="_blank">
+                Microsoft Research
+            </a>
+            ,{' '}
+            <a href="https://research.ibm.com/" target="_blank">
+                IBM Research
+            </a>
+            , and beyond.
         </p>,
         <p>
             <strong>
