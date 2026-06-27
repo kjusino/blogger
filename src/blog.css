@@ -159,7 +159,7 @@
 }
 
 .blog-page .Content em {
-    color: var(--text-muted);
+    color: var(--text-bright);
     font-style: italic;
 }
 
