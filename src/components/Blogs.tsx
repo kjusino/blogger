@@ -105,7 +105,7 @@ const NODES: GraphNode[] = [
     },
     {
         id: 'lean_grad',
-        label: "Lean'in' to Grad School",
+        label: "Lean'in'",
         type: 'post',
         route: '/lean',
         r: 11,
