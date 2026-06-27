@@ -10,6 +10,9 @@ interface GraphNode extends d3.SimulationNodeDatum {
     type: 'root' | 'theme' | 'post';
     route?: string;
     theme?: string;
+    // Canonical-ordered theme keys for a post node. A single entry renders a
+    // solid disc; multiple entries render equal pie wedges.
+    themes?: string[];
     color: string;
     r: number;
     labelLines?: string[];
@@ -80,6 +83,7 @@ const NODES: GraphNode[] = [
         r: 11,
         color: THEME_COLORS.math,
         theme: 'math',
+        themes: ['math', 'physics'],
     },
     {
         id: 'rust',
@@ -105,8 +109,9 @@ const NODES: GraphNode[] = [
         type: 'post',
         route: '/verification',
         r: 11,
-        color: THEME_COLORS.cs,
-        theme: 'cs',
+        color: THEME_COLORS.math,
+        theme: 'math',
+        themes: ['math', 'cs'],
     },
     {
         id: 'about',
@@ -275,17 +280,48 @@ const Blogs = () => {
                     }),
             );
 
-        // Circles
-        nodeGroup
+        // Visual wrapper — scaled on hover. The outer group keeps the
+        // simulation's translate; this inner group owns the shape so hover
+        // scaling and translation never fight over the transform attribute.
+        const visual = nodeGroup.append('g').attr('class', 'visual');
+
+        // Root & theme nodes: a single circle.
+        visual
+            .filter((d) => d.type !== 'post')
             .append('circle')
             .attr('r', (d) => d.r)
             .attr('fill', (d) => {
                 if (d.type === 'root') return rootCircleFill;
-                if (d.type === 'theme') return d.color + '1a'; // 10% opacity fill
-                return d.color; // fully opaque solid fill
+                return d.color + '1a'; // theme: 10% opacity fill
             })
             .attr('stroke', (d) => (d.type === 'root' ? 'none' : d.color))
             .attr('stroke-width', (d) => (d.type === 'theme' ? 2 : 1.5));
+
+        // Post nodes: pie wedges, one slice per theme. A single theme draws a
+        // full disc; multiple themes each keep their own color side by side.
+        visual
+            .filter((d) => d.type === 'post')
+            .each(function (this: SVGGElement, d) {
+                const themes = d.themes ?? (d.theme ? [d.theme] : ['cs']);
+                const slice = (2 * Math.PI) / themes.length;
+                const arc = d3
+                    .arc<{ startAngle: number; endAngle: number }>()
+                    .innerRadius(0)
+                    .outerRadius(d.r);
+                const wedges = themes.map((t, i) => ({
+                    theme: t,
+                    startAngle: i * slice,
+                    endAngle: (i + 1) * slice,
+                }));
+                d3.select<SVGGElement, GraphNode>(this)
+                    .selectAll<SVGPathElement, (typeof wedges)[number]>('path')
+                    .data(wedges)
+                    .join('path')
+                    .attr('d', (w) => arc(w) ?? '')
+                    .attr('fill', (w) => THEME_COLORS[w.theme] ?? '#888888')
+                    .attr('stroke', kInitialsFill)
+                    .attr('stroke-width', themes.length > 1 ? 1 : 0);
+            });
 
         // Initials inside Kenneth node
         nodeGroup
@@ -414,13 +450,13 @@ const Blogs = () => {
                     });
 
                 d3.select<SVGGElement, GraphNode>(this)
-                    .select('circle')
+                    .select('.visual')
                     .transition()
                     .duration(180)
-                    .attr('r', d.r * 1.18)
+                    .attr('transform', 'scale(1.18)')
                     .attr('filter', 'url(#glow)');
             })
-            .on('mouseleave', function (_, d) {
+            .on('mouseleave', function () {
                 nodeGroup.transition().duration(280).style('opacity', 1);
 
                 linkSel
@@ -431,10 +467,10 @@ const Blogs = () => {
                     .attr('stroke-width', 1.5);
 
                 d3.select<SVGGElement, GraphNode>(this)
-                    .select('circle')
+                    .select('.visual')
                     .transition()
                     .duration(280)
-                    .attr('r', d.r)
+                    .attr('transform', 'scale(1)')
                     .attr('filter', null as unknown as string);
             });
 

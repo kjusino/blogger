@@ -25,6 +25,7 @@ function App() {
                 pics={blog.pics}
                 caption={blog.caption}
                 content={blog.content}
+                tags={blog.tags}
                 isBlogPost={isBlogPost}
             />
         );

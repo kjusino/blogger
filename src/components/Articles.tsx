@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import allData from '../articles/allData';
+import ThemeBadge from './ThemeBadge';
 
 const Articles = () => {
     const location = useLocation();
@@ -21,14 +22,23 @@ const Articles = () => {
                         <u>{tagForThisPage} Articles</u>
                     </h2>
                     <ul className="article-list">
-                        {filteredArticles.map(({ title, abstract, route }) => (
-                            <div>
-                                <h3>
-                                    <a href={route}>{title}</a>
-                                </h3>
-                                <p>{abstract}</p>
-                            </div>
-                        ))}
+                        {filteredArticles.map(
+                            ({ title, abstract, route, tags }) => (
+                                <div>
+                                    <h3
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: 8,
+                                        }}
+                                    >
+                                        <ThemeBadge tags={tags} size={14} />
+                                        <a href={route}>{title}</a>
+                                    </h3>
+                                    <p>{abstract}</p>
+                                </div>
+                            ),
+                        )}
                     </ul>
                 </div>
             )}
