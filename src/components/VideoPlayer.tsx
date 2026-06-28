@@ -68,12 +68,22 @@ function VideoPlayer({ src, title, route }: { src: string; title: string; route:
 
     const toggleFullscreen = useCallback(() => {
         const wrapper = wrapperRef.current;
-        if (!wrapper) return;
+        const video = videoRef.current;
         if (document.fullscreenElement) {
             document.exitFullscreen();
-        } else {
-            wrapper.requestFullscreen();
+            return;
         }
+        // Standard Fullscreen API — desktop Chrome/Firefox/Safari, Android, iPad.
+        if (wrapper?.requestFullscreen) {
+            wrapper.requestFullscreen();
+            return;
+        }
+        // iPhone Safari has no element-level Fullscreen API; hand off to the
+        // native iOS video player on the <video> element itself.
+        const iosVideo = video as
+            | (HTMLVideoElement & { webkitEnterFullscreen?: () => void })
+            | null;
+        iosVideo?.webkitEnterFullscreen?.();
     }, []);
 
     const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
