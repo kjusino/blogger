@@ -12,4 +12,5 @@ export interface ArticleProps {
     content: JSX.Element[];
     createdDate?: string;
     audioSrc?: string;
+    videoSrc?: string;
 }

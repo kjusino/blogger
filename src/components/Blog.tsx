@@ -2,6 +2,7 @@ import '../blog.css';
 import { Tags } from '../resources/enums/Tags';
 import ThemeBadge from './ThemeBadge';
 import AudioPlayer from './AudioPlayer';
+import VideoPlayer from './VideoPlayer';
 
 function Blog({
     route,
@@ -13,6 +14,7 @@ function Blog({
     tags,
     isBlogPost,
     audioSrc,
+    videoSrc,
 }: {
     route: string;
     title: string;
@@ -23,6 +25,7 @@ function Blog({
     tags?: Tags[];
     isBlogPost?: boolean;
     audioSrc?: string;
+    videoSrc?: string;
 }) {
     const img = require(`../articles/pics/${pics[0]}`);
 
@@ -64,6 +67,7 @@ function Blog({
                 </figure>
             </header>
             {audioSrc && <AudioPlayer src={audioSrc} title={title} />}
+            {videoSrc && <VideoPlayer src={videoSrc} title={title} />}
             <article className="Content">{content}</article>
             {img2 && (
                 <figure>
