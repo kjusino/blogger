@@ -24,39 +24,30 @@ Personal blog — React 18 (CRA) + Express.js + TypeScript, deployed via Docker 
 
 Articles can include `audioSrc?: string` pointing to an MP3/M4A in `public/audio/`. The `AudioPlayer` component renders play/pause, seek, time, and speed toggle using native HTML5 `<audio>`.
 
-### Video (implemented, needs Azure setup)
+### Video (implemented — Azure Blob Storage live)
 
 Articles can include `videoSrc?: string` pointing to an Azure Blob Storage URL. The `VideoPlayer` component renders a 16:9 player with click-to-play overlay, seek, time, and fullscreen toggle.
 
-**Azure Blob Storage setup (run with `az` CLI):**
+**Azure Blob Storage — already provisioned (hardened).** Account `kennethjusinoblog`
+(East US, StorageV2, Standard_LRS) in the `kennethjusino.com` resource group:
+
+- HTTPS-only, min TLS 1.2.
+- Container `videos` at `blob` public access — anonymous **read of known URLs only,
+  no directory listing**. Nothing else in the account is public.
+- CORS scoped to the real origins (`https://kennethjusino.com`,
+  `https://www.kennethjusino.com`, `https://kennethjusino-client.azurewebsites.net`);
+  GET/HEAD/OPTIONS; exposes `Content-Range,Content-Length,Accept-Ranges` (range
+  requests for seeking verified working — 206 Partial Content).
+- Blob soft-delete enabled, 7-day retention (accidental-deletion safety net).
+
+The setup is done — you only need to upload videos and reference them. To upload
+(uses your Azure login, no account key needed):
 
 ```bash
-# Find the resource group
-az webapp show --name kennethjusino-client --query resourceGroup -o tsv
-
-# Create storage account
-az storage account create \
-  --name kennethjusinoblog \
-  --resource-group <RESOURCE_GROUP> \
-  --location eastus --sku Standard_LRS --kind StorageV2 --min-tls-version TLS1_2
-
-# Create public-read container
-az storage container create \
-  --name videos --account-name kennethjusinoblog --public-access blob
-
-# Configure CORS for browser playback
-az storage cors add \
-  --account-name kennethjusinoblog --services b \
-  --methods GET HEAD OPTIONS \
-  --origins "https://kennethjusino-client.azurewebsites.net" \
-  --allowed-headers "*" \
-  --exposed-headers "Content-Range,Content-Length,Accept-Ranges" \
-  --max-age 3600
-
-# Upload a video
 az storage blob upload \
   --account-name kennethjusinoblog --container-name videos \
-  --name video-name.mp4 --file ./path/to/video.mp4 --content-type video/mp4
+  --name video-name.mp4 --file ./path/to/video.mp4 \
+  --content-type video/mp4 --auth-mode login
 ```
 
 Video URL pattern: `https://kennethjusinoblog.blob.core.windows.net/videos/<filename>.mp4`
@@ -65,3 +56,7 @@ Usage in an article file:
 ```typescript
 videoSrc: 'https://kennethjusinoblog.blob.core.windows.net/videos/my-video.mp4',
 ```
+
+> These are **public** blog videos (no confidentiality). For private/gated video
+> you'd need a private container + server-minted SAS URLs + a VideoPlayer change —
+> a different design, not what's set up here.
