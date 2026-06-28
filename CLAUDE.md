@@ -103,14 +103,14 @@ Dashboard        ◄── GET /api/personal/analytics ◄───────�
 - `src/personal/analytics/api.ts` — Fetch helpers
 - Route: `/personal/analytics` (behind auth)
 
-**Excel workbook setup (manual, one-time):**
+**Excel workbook setup (provisioned):**
 
-Create `/PersonalApps/blog-analytics.xlsx` in OneDrive with a table named `Events` and these column headers:
+`/PersonalApps/blog-analytics.xlsx` exists in OneDrive with an `Events` table and these column headers:
 
 | timestamp | session_id | event | route | referrer | device | read_seconds |
 |-----------|------------|-------|-------|----------|--------|--------------|
 
-The existing Graph API credentials already have `Files.ReadWrite` scope — no new permissions needed.
+It was created with `npx tsx scripts/create-analytics-workbook.ts` (idempotent — re-run to recreate the workbook/table if it's ever deleted). The existing Graph API credentials already have `Files.ReadWrite` scope — no new permissions needed.
 
 **How tracking hooks in:**
 - `Blog.tsx` calls `usePageTracking(route)` — tracks view on mount, sends read time on unmount/tab-switch
