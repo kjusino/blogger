@@ -6,6 +6,8 @@ import { env } from './env';
 import { authRouter, requireAuth } from './auth';
 import { workoutRouter } from './routes/workout';
 import { leanlingoRouter } from './routes/leanlingo';
+import { analyticsPublicRouter, analyticsPrivateRouter } from './routes/analytics';
+import { startFlusher } from './analytics/buffer';
 
 const app = express();
 
@@ -29,6 +31,10 @@ app.use(cookieParser());
 app.use('/api/personal', authRouter);
 app.use('/api/personal/workout', requireAuth, workoutRouter);
 app.use('/api/personal/leanlingo', requireAuth, leanlingoRouter);
+app.use('/api/analytics', analyticsPublicRouter);
+app.use('/api/personal/analytics', requireAuth, analyticsPrivateRouter);
+
+startFlusher();
 
 const buildDir = path.resolve(__dirname, '..', 'build');
 app.use(express.static(buildDir));

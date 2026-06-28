@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import '../audioplayer.css';
+import { trackEvent } from '../analytics/tracker';
 
 const SPEEDS = [1, 1.25, 1.5, 2];
 
@@ -9,7 +10,7 @@ function formatTime(seconds: number): string {
     return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
-function AudioPlayer({ src, title }: { src: string; title: string }) {
+function AudioPlayer({ src, title, route }: { src: string; title: string; route: string }) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -22,8 +23,8 @@ function AudioPlayer({ src, title }: { src: string; title: string }) {
 
         const onTimeUpdate = () => setCurrentTime(audio.currentTime);
         const onLoadedMetadata = () => setDuration(audio.duration);
-        const onEnded = () => setIsPlaying(false);
-        const onPlay = () => setIsPlaying(true);
+        const onEnded = () => { setIsPlaying(false); trackEvent('audio_complete', route); };
+        const onPlay = () => { setIsPlaying(true); trackEvent('audio_play', route); };
         const onPause = () => setIsPlaying(false);
 
         audio.addEventListener('timeupdate', onTimeUpdate);

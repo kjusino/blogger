@@ -1,0 +1,129 @@
+.analytics-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.analytics-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.analytics-card-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-bright, var(--text));
+    font-variant-numeric: tabular-nums;
+}
+
+.analytics-card-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    letter-spacing: 0.03em;
+}
+
+.analytics-section {
+    margin-bottom: 2rem;
+}
+
+.analytics-section h3 {
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+    color: var(--text-bright, var(--text));
+}
+
+.analytics-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.analytics-table th,
+.analytics-table td {
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.analytics-table th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.analytics-table td {
+    color: var(--text);
+}
+
+.analytics-table tr:last-child td {
+    border-bottom: none;
+}
+
+.analytics-referrers {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.analytics-referrers li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+.analytics-referrers li:last-child {
+    border-bottom: none;
+}
+
+.analytics-devices {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.analytics-device {
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.analytics-device-pct {
+    font-weight: 600;
+    color: var(--text-bright, var(--text));
+}
+
+.analytics-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .analytics-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .analytics-table {
+        font-size: 0.78rem;
+    }
+
+    .analytics-table th,
+    .analytics-table td {
+        padding: 0.4rem 0.5rem;
+    }
+}

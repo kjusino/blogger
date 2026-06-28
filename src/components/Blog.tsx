@@ -3,6 +3,7 @@ import { Tags } from '../resources/enums/Tags';
 import ThemeBadge from './ThemeBadge';
 import AudioPlayer from './AudioPlayer';
 import VideoPlayer from './VideoPlayer';
+import usePageTracking from '../analytics/usePageTracking';
 
 function Blog({
     route,
@@ -27,6 +28,8 @@ function Blog({
     audioSrc?: string;
     videoSrc?: string;
 }) {
+    usePageTracking(route);
+
     const img = require(`../articles/pics/${pics[0]}`);
 
     const img2 =
@@ -66,8 +69,8 @@ function Blog({
                     <figcaption className="Caption">{caption}</figcaption>
                 </figure>
             </header>
-            {audioSrc && <AudioPlayer src={audioSrc} title={title} />}
-            {videoSrc && <VideoPlayer src={videoSrc} title={title} />}
+            {audioSrc && <AudioPlayer src={audioSrc} title={title} route={route} />}
+            {videoSrc && <VideoPlayer src={videoSrc} title={title} route={route} />}
             <article className="Content">{content}</article>
             {img2 && (
                 <figure>
