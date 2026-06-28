@@ -7,6 +7,7 @@ const data: ArticleProps = {
     pics: ['caribbeanSea.png'],
     caption: '🇩🇴 Dominican Mother & 🇵🇷 Puerto Rican Father',
     tags: [Tags.Culture],
+    createdDate: '2025-05-26',
     content: [
         <h2> The Beginning </h2>,
         <p>

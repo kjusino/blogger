@@ -5,6 +5,7 @@ const data: ArticleProps = {
     abstract: 'The Man, The Myth, The Legend',
     pics: ['pa.png', 'pa2.png'],
     caption: 'The Worlds Greatest Father, middle',
+    createdDate: '2025-05-26',
     content: [
         <h2>Maunabo, PR</h2>,
         <p>

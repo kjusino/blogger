@@ -6,6 +6,7 @@ const phdData: ArticleProps = {
     pics: ['quantumCircuit.png', 'quantumGap.png', 'quantumStack.png'],
     tags: [Tags.Math, Tags.Computation, Tags.Physics],
     caption: 'Quantum circuit progressing through time',
+    createdDate: '2025-05-26',
     content: [
         <h2>Quantum Computer Scientist Soon🔜</h2>,
         <p>
