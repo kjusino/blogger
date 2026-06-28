@@ -28,6 +28,7 @@ function App() {
                 content={blog.content}
                 tags={blog.tags}
                 isBlogPost={isBlogPost}
+                createdDate={blog.createdDate}
                 audioSrc={blog.audioSrc}
                 videoSrc={blog.videoSrc}
             />

@@ -5,6 +5,16 @@ import AudioPlayer from './AudioPlayer';
 import VideoPlayer from './VideoPlayer';
 import usePageTracking from '../analytics/usePageTracking';
 
+function formatDate(dateStr: string): string {
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+}
+
 function Blog({
     route,
     title,
@@ -14,6 +24,7 @@ function Blog({
     content,
     tags,
     isBlogPost,
+    createdDate,
     audioSrc,
     videoSrc,
 }: {
@@ -25,6 +36,7 @@ function Blog({
     content: JSX.Element[];
     tags?: Tags[];
     isBlogPost?: boolean;
+    createdDate?: string;
     audioSrc?: string;
     videoSrc?: string;
 }) {
@@ -68,6 +80,11 @@ function Blog({
                     </a>
                     <figcaption className="Caption">{caption}</figcaption>
                 </figure>
+                {isBlogPost && createdDate && (
+                    <time className="publish-date" dateTime={createdDate}>
+                        {formatDate(createdDate)}
+                    </time>
+                )}
             </header>
             {audioSrc && <AudioPlayer src={audioSrc} title={title} route={route} />}
             {videoSrc && <VideoPlayer src={videoSrc} title={title} route={route} />}
