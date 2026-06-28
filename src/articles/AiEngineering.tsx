@@ -184,6 +184,7 @@ const AiEngineering: ArticleProps = {
     createdDate: '2026-03-28',
     tags: [Tags.Computation],
     audioSrc: '/audio/ai-engineering.m4a',
+    videoSrc: 'https://kennethjusinoblog.blob.core.windows.net/videos/img-1710.mov',
     content: [
         <h2>Deterministic vs Stochastic Software</h2>,
         <p>
