@@ -10,6 +10,7 @@ import PersonalIndex from './personal/Index';
 import Workout from './personal/workout/Workout';
 import LeanLingo from './personal/leanlingo/LeanLingo';
 import Reflex from './personal/reflex/Reflex';
+import Analytics from './personal/analytics/Analytics';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -46,6 +47,7 @@ function App() {
                         <Route path="workout" element={<Workout />} />
                         <Route path="leanlingo" element={<LeanLingo />} />
                         <Route path="reflex" element={<Reflex />} />
+                        <Route path="analytics" element={<Analytics />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

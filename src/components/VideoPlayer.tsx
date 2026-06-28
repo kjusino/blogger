@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import '../videoplayer.css';
+import { trackEvent } from '../analytics/tracker';
 
 function formatTime(seconds: number): string {
     const m = Math.floor(seconds / 60);
@@ -7,7 +8,7 @@ function formatTime(seconds: number): string {
     return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
-function VideoPlayer({ src, title }: { src: string; title: string }) {
+function VideoPlayer({ src, title, route }: { src: string; title: string; route: string }) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -22,8 +23,8 @@ function VideoPlayer({ src, title }: { src: string; title: string }) {
 
         const onTimeUpdate = () => setCurrentTime(video.currentTime);
         const onLoadedMetadata = () => setDuration(video.duration);
-        const onEnded = () => { setIsPlaying(false); setHasStarted(false); };
-        const onPlay = () => { setIsPlaying(true); setHasStarted(true); };
+        const onEnded = () => { setIsPlaying(false); setHasStarted(false); trackEvent('video_complete', route); };
+        const onPlay = () => { setIsPlaying(true); setHasStarted(true); trackEvent('video_play', route); };
         const onPause = () => setIsPlaying(false);
 
         video.addEventListener('timeupdate', onTimeUpdate);
