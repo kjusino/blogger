@@ -4,6 +4,7 @@ import ThemeBadge from './ThemeBadge';
 import AudioPlayer from './AudioPlayer';
 import VideoPlayer from './VideoPlayer';
 import usePageTracking from '../analytics/usePageTracking';
+import NewsletterSubscribe from './NewsletterSubscribe';
 
 function Blog({
     route,
@@ -77,6 +78,7 @@ function Blog({
                     <img src={img2} className="App-logo" />
                 </figure>
             )}
+            {isBlogPost && <NewsletterSubscribe route={route} />}
         </div>
     );
 }

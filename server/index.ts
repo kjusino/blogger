@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
+import fs from 'fs';
 import path from 'path';
 import { env } from './env';
 import { authRouter, requireAuth } from './auth';
@@ -8,6 +9,9 @@ import { workoutRouter } from './routes/workout';
 import { leanlingoRouter } from './routes/leanlingo';
 import { analyticsPublicRouter, analyticsPrivateRouter } from './routes/analytics';
 import { startFlusher } from './analytics/buffer';
+import { newsletterRouter } from './routes/newsletter';
+import { generateRss } from './rss';
+import { injectMetaTags } from './ogTags';
 
 const app = express();
 
@@ -33,14 +37,25 @@ app.use('/api/personal/workout', requireAuth, workoutRouter);
 app.use('/api/personal/leanlingo', requireAuth, leanlingoRouter);
 app.use('/api/analytics', analyticsPublicRouter);
 app.use('/api/personal/analytics', requireAuth, analyticsPrivateRouter);
+app.use('/api/newsletter', newsletterRouter);
 
 startFlusher();
 
 const buildDir = path.resolve(__dirname, '..', 'build');
 app.use(express.static(buildDir));
 
-app.get('*', (_req, res) => {
-    res.sendFile(path.join(buildDir, 'index.html'));
+const rssXml = generateRss();
+app.get('/rss.xml', (_req, res) => {
+    res.set('Content-Type', 'application/rss+xml; charset=utf-8');
+    res.set('Cache-Control', 'public, max-age=3600');
+    res.send(rssXml);
+});
+
+const indexHtmlTemplate = fs.readFileSync(path.join(buildDir, 'index.html'), 'utf8');
+app.get('*', (req, res) => {
+    const html = injectMetaTags(indexHtmlTemplate, req.path);
+    res.set('Content-Type', 'text/html');
+    res.send(html);
 });
 
 app.listen(env.PORT, () => {

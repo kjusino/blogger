@@ -1,0 +1,46 @@
+.newsletter-card {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-heading {
+    margin: 0 0 0.25rem;
+    font-size: 1.15rem;
+    color: var(--text-bright);
+}
+
+.newsletter-subtext {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.newsletter-input {
+    flex: 1;
+    min-width: 180px;
+    max-width: 260px;
+}
+
+.newsletter-btn {
+    white-space: nowrap;
+}
+
+.newsletter-success {
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0;
+}
