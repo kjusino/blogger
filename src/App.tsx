@@ -8,7 +8,7 @@ import Blogs from './components/Blogs';
 import PersonalLayout from './personal/PersonalLayout';
 import PersonalIndex from './personal/Index';
 import Workout from './personal/workout/Workout';
-import LeanLingo from './personal/leanlingo/LeanLingo';
+import Projects from './components/Projects';
 import Reflex from './personal/reflex/Reflex';
 import Analytics from './personal/analytics/Analytics';
 
@@ -37,6 +37,7 @@ function App() {
     }
     routes.push(<Route key="articles" path="articles" element={<Articles />} />);
     routes.push(<Route key="blogs" path="blogs" element={<Blogs />} />);
+    routes.push(<Route key="projects" path="projects" element={<Projects />} />);
     return (
         <header className="App-header">
             <BrowserRouter>
@@ -46,7 +47,6 @@ function App() {
                     <Route path="/personal" element={<PersonalLayout />}>
                         <Route index element={<PersonalIndex />} />
                         <Route path="workout" element={<Workout />} />
-                        <Route path="leanlingo" element={<LeanLingo />} />
                         <Route path="reflex" element={<Reflex />} />
                         <Route path="analytics" element={<Analytics />} />
                     </Route>
