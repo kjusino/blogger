@@ -156,13 +156,13 @@ const LeanInToGradSchool: ArticleProps = {
             So what is Lean? Lean is both a programming language{' '}
             <strong>and</strong> an{' '}
             <a
-                href="https://en.wikipedia.org/wiki/Automated_theorem_proving"
+                href="https://en.wikipedia.org/wiki/Proof_assistant"
                 target="_blank"
             >
-                automated theorem prover
+                interactive theorem prover
             </a>{' '}
-            (ATP). You've likely heard of programming languages like Python and
-            Java. ATPs are software tools that help humans mechanically prove
+            (ITP). You've likely heard of programming languages like Python and
+            Java. ITPs are software tools that help humans mechanically prove
             logical statements correct or incorrect, using the mathematics of{' '}
             <a
                 href="https://en.wikipedia.org/wiki/Dependent_type"
@@ -171,13 +171,13 @@ const LeanInToGradSchool: ArticleProps = {
                 Dependent Type Theory
             </a>
             , deep theoretical CS that I'm excited to study at Northeastern.
-            Computer scientists have researched ATPs for decades, but the
+            Computer scientists have researched ITPs for decades, but the
             barrier to entry was so high that they were used solely by the
             academics researching them.
         </p>,
         <p>
             Leonardo changed this. Designed with a software verification-first
-            mindset, Lean reduces the barrier to entry for ATPs and makes it
+            mindset, Lean reduces the barrier to entry for ITPs and makes it
             practical for engineers to prove the correctness of software built in
             the Lean programming language using the Lean theorem prover. One
             language, one syntax, one stack.
@@ -214,7 +214,7 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             <strong>
                 2. Stochastic LLMs <em>must</em> integrate with deterministic
-                ATPs.
+                ITPs.
             </strong>{' '}
             If writing code by hand is walking, LLM-augmented engineering is
             flying, and Lean is what keeps us from crashing. This integration
