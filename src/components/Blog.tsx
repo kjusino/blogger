@@ -53,20 +53,6 @@ function Blog({
         <div className={articleClass}>
             <header className="Article-header">
                 <h1>{title}</h1>
-                {tags && tags.length > 0 && (
-                    <div
-                        className="ThemeTags"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            gap: 8,
-                        }}
-                    >
-                        <ThemeBadge tags={tags} size={18} />
-                        <span>{tags.join(' · ')}</span>
-                    </div>
-                )}
                 <em className="Abstract">{abstract}</em>
                 <figure>
                     <a
@@ -81,9 +67,17 @@ function Blog({
                     <figcaption className="Caption">{caption}</figcaption>
                 </figure>
                 {isBlogPost && createdDate && (
-                    <time className="publish-date" dateTime={createdDate}>
-                        {formatDate(createdDate)}
-                    </time>
+                    <div className="publish-meta">
+                        <time className="publish-date" dateTime={createdDate}>
+                            {formatDate(createdDate)}
+                        </time>
+                        {tags && tags.length > 0 && (
+                            <div className="ThemeTags">
+                                <ThemeBadge tags={tags} size={14} />
+                                <span>{tags.join(' · ')}</span>
+                            </div>
+                        )}
+                    </div>
                 )}
             </header>
             {audioSrc && <AudioPlayer src={audioSrc} title={title} route={route} />}
