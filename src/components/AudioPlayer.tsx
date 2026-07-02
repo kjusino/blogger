@@ -10,7 +10,7 @@ function formatTime(seconds: number): string {
     return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
-function AudioPlayer({ src, title, route }: { src: string; title: string; route: string }) {
+function AudioPlayer({ src, title, route, label }: { src: string; title: string; route: string; label?: string }) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -112,7 +112,7 @@ function AudioPlayer({ src, title, route }: { src: string; title: string; route:
                     {SPEEDS[speedIndex]}x
                 </button>
             </div>
-            <span className="audio-player-label">Listen to this article</span>
+            <span className="audio-player-label">{label ?? 'Listen to this article'}</span>
         </div>
     );
 }

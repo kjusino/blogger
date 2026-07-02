@@ -11,6 +11,7 @@ import Workout from './personal/workout/Workout';
 import Projects from './components/Projects';
 import Reflex from './personal/reflex/Reflex';
 import Analytics from './personal/analytics/Analytics';
+import Podcast from './podcast/Podcast';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -38,6 +39,7 @@ function App() {
     routes.push(<Route key="articles" path="articles" element={<Articles />} />);
     routes.push(<Route key="blogs" path="blogs" element={<Blogs />} />);
     routes.push(<Route key="projects" path="projects" element={<Projects />} />);
+    routes.push(<Route key="podcast" path="podcast" element={<Podcast />} />);
     return (
         <header className="App-header">
             <BrowserRouter>

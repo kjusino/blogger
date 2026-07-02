@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <title>Kasike Kéne Podcast</title>
+    <link>https://kennethjusino.com/podcast</link>
+    <description>Conversations and thoughts on engineering, culture, and building things.</description>
+    <language>en-us</language>
+    <itunes:author>Kenneth Jusino</itunes:author>
+    <itunes:image href="https://kennethjusinoblog.blob.core.windows.net/podcast/artwork/cover.jpg" />
+    <itunes:category text="Technology" />
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <itunes:owner>
+      <itunes:name>Kenneth Jusino</itunes:name>
+      <itunes:email>kennethjusino@hotmail.com</itunes:email>
+    </itunes:owner>
+
+    <!--
+    Add <item> blocks here, newest episode first. Template:
+
+    <item>
+      <title>Episode Title</title>
+      <description>Episode description or show notes.</description>
+      <enclosure
+        url="https://kennethjusinoblog.blob.core.windows.net/podcast/episodes/ep001.mp3"
+        length="30000000"
+        type="audio/mpeg" />
+      <guid isPermaLink="false">kkp-001</guid>
+      <pubDate>Thu, 02 Jul 2026 12:00:00 GMT</pubDate>
+      <itunes:duration>32:15</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    -->
+
+  </channel>
+</rss>

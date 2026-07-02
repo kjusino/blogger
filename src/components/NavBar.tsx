@@ -35,6 +35,9 @@ const NavBar = () => {
                     <a href="/projects" onClick={closeMenu}>
                         Projects
                     </a>
+                    <a href="/podcast" onClick={closeMenu}>
+                        Podcast
+                    </a>
                     <a href="/cv" onClick={closeMenu}>
                         CV
                     </a>

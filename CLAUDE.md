@@ -120,3 +120,59 @@ It was created with `npx tsx scripts/create-analytics-workbook.ts` (idempotent �
 **Rate limiting:** Simple in-memory Map per IP, 30 requests per 60-second window. No npm dependency (no `express-rate-limit`).
 
 **No cookies or fingerprinting.** Session ID lives in `sessionStorage` (cleared when the tab closes). Referrer is the external hostname only (same-site navigations are ignored).
+
+### Podcast (implemented — infrastructure ready)
+
+Podcast hosting infrastructure for distribution via Apple Podcasts and Spotify.
+
+**Architecture:**
+- Episode metadata lives in `src/podcast/episodes.ts` (single source of truth for the SPA)
+- `public/feed.xml` is the RSS 2.0 feed with iTunes/podcast namespace extensions — Apple and Spotify poll this
+- Audio files are served from Azure Blob Storage (`kennethjusinoblog.blob.core.windows.net/podcast/`)
+- The `/podcast` page lists all episodes with embedded audio players
+
+**Azure Blob Storage — reuses the existing `kennethjusinoblog` account.** Requires a `podcast` container with `blob`-level public access (same as the `videos` container). CORS should be configured identically to the video setup.
+
+```bash
+# Create the podcast container (one-time)
+az storage container create \
+  --account-name kennethjusinoblog --name podcast \
+  --public-access blob --auth-mode login
+
+# Upload an episode
+az storage blob upload \
+  --account-name kennethjusinoblog --container-name podcast \
+  --name episodes/ep001.mp3 --file ./path/to/episode.mp3 \
+  --content-type audio/mpeg --auth-mode login
+
+# Upload artwork (3000x3000 JPEG or PNG required by Apple)
+az storage blob upload \
+  --account-name kennethjusinoblog --container-name podcast \
+  --name artwork/cover.jpg --file ./path/to/cover.jpg \
+  --content-type image/jpeg --auth-mode login
+```
+
+**Episode publish workflow:**
+1. Upload `.mp3` to Azure Blob (`podcast/episodes/epXXX.mp3`)
+2. Get the blob URL and exact file size in bytes
+3. Add the episode to `src/podcast/episodes.ts` (for the SPA page)
+4. Add a matching `<item>` block to `public/feed.xml` (for Apple/Spotify)
+5. Deploy — Apple and Spotify auto-poll and pick up the new episode
+
+**Client files:**
+- `src/podcast/episodes.ts` — `PodcastEpisode` interface and episodes array
+- `src/podcast/Podcast.tsx` — Podcast listing page with embedded players
+- `src/podcast/podcast.css` — Podcast page styles
+- `public/feed.xml` — RSS 2.0 feed
+
+**Route:** `/podcast` (public, in NavBar)
+
+**Directory submission (one-time, after first episode is published):**
+- Apple Podcasts: submit `https://kennethjusino.com/feed.xml` at podcastsconnect.apple.com
+- Spotify: submit same URL at podcasters.spotify.com
+
+**Constraints:**
+- `enclosure` `length` in feed.xml must be exact file size in bytes
+- `guid` must never change after publishing
+- `pubDate` must be RFC 2822 format (e.g. `Thu, 02 Jul 2026 12:00:00 GMT`)
+- Artwork must be 3000x3000px, JPEG or PNG, HTTPS URL
