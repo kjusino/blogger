@@ -156,7 +156,7 @@ const LeanInToGradSchool: ArticleProps = {
             So what is Lean? Lean is both a programming language{' '}
             <strong>and</strong> an{' '}
             <a
-                href="https://en.wikipedia.org/wiki/Proof_assistant"
+                href="https://en.wikipedia.org/wiki/Interactive_theorem_proving"
                 target="_blank"
             >
                 interactive theorem prover
