@@ -314,8 +314,8 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             The <code>→</code> symbol means "function" and "implies"
             simultaneously. These aren't analogies, they are the same thing.
-            That's Curry-Howard. And that's why the future of software
-            engineering is verifying mathematical proofs.
+            And that's why the future of software engineering is verifying
+            mathematical proofs.
         </p>,
         <p>
             The futures of AI, Mathematics, and Computer Science are intricately
