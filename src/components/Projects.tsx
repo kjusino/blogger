@@ -5,6 +5,7 @@ interface Project {
     description: string;
     url: string;
     displayUrl: string;
+    image?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -14,6 +15,7 @@ const PROJECTS: Project[] = [
             'A Duolingo-style interactive learning platform for Lean 4, the programming language and theorem prover. Practice formal verification through bite-sized lessons.',
         url: 'https://leanlingo.org',
         displayUrl: 'leanlingo.org',
+        image: 'https://leanlingo.org/og.png',
     },
 ];
 
@@ -33,9 +35,20 @@ const Projects = () => (
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <h2 className="project-card-name">{p.name}</h2>
-                    <p className="project-card-desc">{p.description}</p>
-                    <span className="project-card-url">{p.displayUrl} &rarr;</span>
+                    {p.image && (
+                        <img
+                            className="project-card-img"
+                            src={p.image}
+                            alt={p.name}
+                        />
+                    )}
+                    <div className="project-card-body">
+                        <h2 className="project-card-name">{p.name}</h2>
+                        <p className="project-card-desc">{p.description}</p>
+                        <span className="project-card-url">
+                            {p.displayUrl} &rarr;
+                        </span>
+                    </div>
                 </a>
             ))}
         </div>
