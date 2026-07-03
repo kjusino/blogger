@@ -2,12 +2,14 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import path from 'path';
+import fs from 'fs';
 import { env } from './env';
 import { authRouter, requireAuth } from './auth';
 import { workoutRouter } from './routes/workout';
 import { leanlingoRouter } from './routes/leanlingo';
 import { analyticsPublicRouter, analyticsPrivateRouter } from './routes/analytics';
 import { startFlusher } from './analytics/buffer';
+import { injectOgTags } from './og';
 
 const app = express();
 
@@ -37,10 +39,13 @@ app.use('/api/personal/analytics', requireAuth, analyticsPrivateRouter);
 startFlusher();
 
 const buildDir = path.resolve(__dirname, '..', 'build');
-app.use(express.static(buildDir));
+app.use(express.static(buildDir, { index: false }));
 
-app.get('*', (_req, res) => {
-    res.sendFile(path.join(buildDir, 'index.html'));
+const indexHtml = fs.readFileSync(path.join(buildDir, 'index.html'), 'utf-8');
+const ogInjector = injectOgTags(buildDir);
+
+app.get('*', (req, res) => {
+    res.type('html').send(ogInjector(indexHtml, req.path));
 });
 
 app.listen(env.PORT, () => {
