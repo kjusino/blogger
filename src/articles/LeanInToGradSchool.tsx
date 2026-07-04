@@ -54,12 +54,12 @@ const LeanInToGradSchool: ArticleProps = {
             full-time employment.
         </p>,
         <p>
-            I will begin a Computer Science PhD program this fall at{' '}
+            I will begin a Computer Science (CS) PhD program this fall at{' '}
             <a href="https://www.khoury.northeastern.edu/" target="_blank">
                 Northeastern University's Khoury College for Computer Science
             </a>{' '}
             as part of the Formal Methods Group. My research is supported by the
-            NSF's CSGrad4US Fellowship.
+            National Science Foundation (NSF) CSGrad4US Fellowship.
         </p>,
         <p>
             I want to work at the frontier of four distinct but overlapping
@@ -97,14 +97,15 @@ const LeanInToGradSchool: ArticleProps = {
             partial differential equations and calculating Fourier transforms by
             pen and paper: <em>very</em>. I always thought about how to find edge
             cases and 99th-percentile scenarios, and I took this testing mindset
-            with me when I joined Foundation Medicine's Quality Engineering group
-            as a Software Engineer.
+            with me when I joined the Quality Engineering group at Foundation
+            Medicine (FMI) as a Software Engineer.
         </p>,
         <p>
-            FMI sells FDA-regulated Software as Medical Device products and must
-            adhere to all regulatory standards when releasing new software to
-            patients. Every team deploying to our globally-distributed production
-            environments had to follow a strict SDLC process to prove to
+            FMI sells Software as Medical Device products regulated by the Food
+            and Drug Administration (FDA), and must adhere to all regulatory
+            standards when releasing new software to patients. Every team deploying to our globally-distributed production
+            environments had to follow a strict Software Development Life Cycle
+            (SDLC) process to prove to
             auditors that we adhered to all standards during development.
         </p>,
         <p>
@@ -190,15 +191,17 @@ const LeanInToGradSchool: ArticleProps = {
             software systems for the betterment of humanity.
         </p>,
         <p>
-            And this guarantee has never been more urgent, because of AI.
+            And this guarantee has never been more urgent, because of
+            Artificial Intelligence (AI).
         </p>,
         <hr />,
         <h2>When? Right Now.</h2>,
         <p>
             In January 2026, tools like Anthropic's Claude Code and OpenAI's
             Codex changed software engineering forever, right in front of our
-            eyes. These were not the autocomplete LLMs that engineers rightly
-            ignored between 2022 and 2025. The early LLMs hallucinated broken
+            eyes. These were not the autocomplete Large Language Models (LLMs)
+            that engineers rightly ignored between 2022 and 2025. The early LLMs
+            hallucinated broken
             code constantly. But the 2026 generation completely convinced me of
             two things:
         </p>,
@@ -338,7 +341,7 @@ const LeanInToGradSchool: ArticleProps = {
                 href="https://www.amazon.science/research-areas/automated-reasoning"
                 target="_blank"
             >
-                AWS ARG
+                AWS Automated Reasoning Group (ARG)
             </a>
             ,{' '}
             <a href="https://harmonic.fun/" target="_blank">
