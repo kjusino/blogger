@@ -17,6 +17,7 @@ import Forge from './personal/forge/Forge';
 import Ledger from './personal/ledger/Ledger';
 import Orbit from './personal/orbit/Orbit';
 import Signal from './personal/signal/Signal';
+import Parity from './personal/parity/Parity';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -61,6 +62,7 @@ function App() {
                         <Route path="ledger" element={<Ledger />} />
                         <Route path="orbit" element={<Orbit />} />
                         <Route path="signal" element={<Signal />} />
+                        <Route path="parity" element={<Parity />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
