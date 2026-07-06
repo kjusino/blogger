@@ -11,6 +11,7 @@ const TOOLS = [
     { to: '/personal/forge', label: 'Forge' },
     { to: '/personal/ledger', label: 'Ledger' },
     { to: '/personal/orbit', label: 'Orbit' },
+    { to: '/personal/signal', label: 'Signal' },
 ];
 
 export default function PersonalIndex() {
