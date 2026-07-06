@@ -13,6 +13,7 @@ import Reflex from './personal/reflex/Reflex';
 import Analytics from './personal/analytics/Analytics';
 import Runway from './personal/runway/Runway';
 import Calibrate from './personal/calibrate/Calibrate';
+import Forge from './personal/forge/Forge';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -53,6 +54,7 @@ function App() {
                         <Route path="analytics" element={<Analytics />} />
                         <Route path="runway" element={<Runway />} />
                         <Route path="calibrate" element={<Calibrate />} />
+                        <Route path="forge" element={<Forge />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

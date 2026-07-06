@@ -8,6 +8,7 @@ const TOOLS = [
     { to: '/personal/analytics', label: 'Analytics' },
     { to: '/personal/runway', label: 'Runway' },
     { to: '/personal/calibrate', label: 'Calibrate' },
+    { to: '/personal/forge', label: 'Forge' },
 ];
 
 export default function PersonalIndex() {
