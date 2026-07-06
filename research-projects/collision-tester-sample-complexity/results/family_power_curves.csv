@@ -1,0 +1,16 @@
+family,m,power
+paired,71,0.65
+paired,141,0.85
+paired,283,0.9
+paired,566,1.0
+paired,1131,1.0
+single_heavy,71,1.0
+single_heavy,141,1.0
+single_heavy,283,1.0
+single_heavy,566,1.0
+single_heavy,1131,1.0
+block_quarter,71,0.75
+block_quarter,141,0.65
+block_quarter,283,0.9
+block_quarter,566,1.0
+block_quarter,1131,1.0

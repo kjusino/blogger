@@ -1,0 +1,50 @@
+{
+  "fits": {
+    "collision_eps0.2": {
+      "tester": "collision",
+      "epsilon": 0.2,
+      "fitted_exponent": 0.12499999999999985,
+      "intercept": 4.110747862487455,
+      "r_squared": 0.5192307692307712,
+      "predicted_exponent": 0.5
+    },
+    "naive_learner_eps0.2": {
+      "tester": "naive_learner",
+      "epsilon": 0.2,
+      "fitted_exponent": 0.9679487179487168,
+      "intercept": 2.8572797821799996,
+      "r_squared": 0.9710211629311528,
+      "predicted_exponent": 1.0
+    }
+  },
+  "family_comparison": {
+    "n": 128,
+    "epsilon": 0.2,
+    "m_grid": [
+      71,
+      141,
+      283,
+      566,
+      1131
+    ]
+  },
+  "config": {
+    "quick": true,
+    "n_grids": {
+      "collision": [
+        64,
+        128,
+        256
+      ],
+      "naive_learner": [
+        64,
+        128,
+        256
+      ]
+    },
+    "epsilons": [
+      0.2
+    ],
+    "trials": 20
+  }
+}

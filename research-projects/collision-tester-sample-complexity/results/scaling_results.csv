@@ -1,0 +1,7 @@
+tester,family,epsilon,n,m50,false_positive_rate,bracketed
+collision,paired,0.2,64,107.63474115247547,0.08749999999999997,True
+collision,paired,0.2,128,101.59366732596476,0.11666666666666667,True
+collision,paired,0.2,256,127.99999999999996,0.35,True
+naive_learner,paired,0.2,64,912.2802873757072,0.5,True
+naive_learner,paired,0.2,128,2181.204151173044,0.5,True
+naive_learner,paired,0.2,256,3490.5309037714396,0.5,True
