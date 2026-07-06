@@ -1,0 +1,295 @@
+.calib {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.calib-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+.calib-back {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 8px 4px;
+}
+.calib-back:hover { color: #e5e7eb; }
+.calib-title {
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 0.4px;
+}
+.calib-brier {
+    color: #fbbf24;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 12px;
+}
+
+.calib-intro {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.calib-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 18px;
+}
+.calib-input {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    color: #e5e7eb;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    box-sizing: border-box;
+}
+.calib-form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.calib-confidence-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    flex: 1;
+    min-width: 180px;
+}
+.calib-confidence-label input[type='range'] {
+    flex: 1;
+    accent-color: #0ea5e9;
+}
+.calib-confidence-value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    color: #e5e7eb;
+    min-width: 34px;
+    text-align: right;
+}
+.calib-date-input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #e5e7eb;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: inherit;
+}
+
+.calib-btn {
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+}
+.calib-btn-primary {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    color: white;
+}
+.calib-btn-primary:hover { background: #0284c7; }
+
+.calib-section { margin-top: 20px; }
+.calib-section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.calib-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.calib-item {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+.calib-item-overdue { border-color: #b91c1c; }
+.calib-item-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+}
+.calib-item-text {
+    font-size: 14px;
+    color: #e5e7eb;
+    line-height: 1.4;
+}
+.calib-item-conf {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    color: #fbbf24;
+    font-size: 13px;
+    white-space: nowrap;
+}
+.calib-item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #64748b;
+    flex-wrap: wrap;
+}
+.calib-overdue-tag { color: #f87171; }
+.calib-item-actions {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+.calib-chip {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.calib-chip-true { border-color: #16a34a; color: #86efac; }
+.calib-chip-true:hover { background: #14532d; }
+.calib-chip-false { border-color: #b91c1c; color: #fca5a5; }
+.calib-chip-false:hover { background: #7f1d1d; }
+
+.calib-item-resolved { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.calib-item-resolved .calib-item-main { flex: 1; }
+.calib-outcome-tag {
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+}
+.calib-outcome-true { background: #14532d; color: #86efac; }
+.calib-outcome-false { background: #57534e; color: #d6d3d1; }
+
+.calib-buckets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.calib-bucket {
+    display: grid;
+    grid-template-columns: 56px 1fr 140px;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+.calib-bucket-range {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    color: #94a3b8;
+}
+.calib-bucket-bar-track {
+    position: relative;
+    height: 10px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.calib-bucket-bar-predicted {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #334155;
+}
+.calib-bucket-bar-actual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    bottom: 0;
+    margin: auto 0;
+    background: #0ea5e9;
+    border-radius: 4px;
+}
+.calib-bucket-count { color: #64748b; text-align: right; }
+.calib-bucket-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #64748b;
+}
+.calib-bucket-legend span { display: flex; align-items: center; gap: 6px; }
+.calib-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.calib-swatch-predicted { background: #334155; }
+.calib-swatch-actual { background: #0ea5e9; }
+
+.calib-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 18px;
+}
+.calib-stat {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    text-align: center;
+}
+.calib-stat-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.calib-stat-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e5e7eb;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+}
+.calib-stat-value-text {
+    font-size: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    color: #cbd5e1;
+}
+
+.calib-empty {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+}

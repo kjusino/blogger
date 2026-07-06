@@ -11,6 +11,7 @@ import Workout from './personal/workout/Workout';
 import Projects from './components/Projects';
 import Reflex from './personal/reflex/Reflex';
 import Analytics from './personal/analytics/Analytics';
+import Calibrate from './personal/calibrate/Calibrate';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -49,6 +50,7 @@ function App() {
                         <Route path="workout" element={<Workout />} />
                         <Route path="reflex" element={<Reflex />} />
                         <Route path="analytics" element={<Analytics />} />
+                        <Route path="calibrate" element={<Calibrate />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
