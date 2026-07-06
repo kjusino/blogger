@@ -1,0 +1,229 @@
+.cadence {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.cadence-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+.cadence-back {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 8px 4px;
+}
+.cadence-back:hover { color: #e5e7eb; }
+.cadence-title {
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 0.4px;
+}
+.cadence-badge {
+    color: #38bdf8;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-weight: 600;
+}
+
+.cadence-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cadence-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+.cadence-field input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+}
+.cadence-field input[type='range'] {
+    padding: 0;
+    accent-color: #38bdf8;
+}
+.cadence-field input:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+.cadence-btn {
+    width: 100%;
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 48px;
+    font-family: inherit;
+}
+.cadence-btn:hover { background: #233247; }
+.cadence-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.cadence-btn-primary {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #0b1220;
+    font-weight: 600;
+}
+.cadence-btn-primary:hover:not(:disabled) { background: #22a9e8; }
+
+.cadence-section {
+    margin-top: 20px;
+}
+.cadence-section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.cadence-stat-row {
+    display: flex;
+    gap: 10px;
+}
+.cadence-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 10px 12px;
+    align-items: center;
+}
+.cadence-stat-value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: #38bdf8;
+}
+.cadence-stat-label {
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+}
+
+.cadence-trend {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 100px;
+}
+.cadence-trend-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+}
+.cadence-trend-track {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    background: #0f172a;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.cadence-trend-fill {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+}
+.cadence-trend-label {
+    font-size: 9px;
+    color: #64748b;
+}
+.cadence-trend-legend {
+    margin-top: 8px;
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+}
+
+.cadence-insight {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+.cadence-insight strong {
+    color: #38bdf8;
+}
+
+.cadence-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cadence-item {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.cadence-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+.cadence-item-title {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+.cadence-item-detail {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+.cadence-chip {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.cadence-chip-remove:hover { background: #1e293b; color: #e5e7eb; }
+
+.cadence-tip {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+}

@@ -20,6 +20,7 @@ import Signal from './personal/signal/Signal';
 import Parity from './personal/parity/Parity';
 import Ascent from './personal/ascent/Ascent';
 import Depth from './personal/depth/Depth';
+import Cadence from './personal/cadence/Cadence';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -67,6 +68,7 @@ function App() {
                         <Route path="parity" element={<Parity />} />
                         <Route path="ascent" element={<Ascent />} />
                         <Route path="depth" element={<Depth />} />
+                        <Route path="cadence" element={<Cadence />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

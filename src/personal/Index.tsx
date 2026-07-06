@@ -15,6 +15,7 @@ const TOOLS = [
     { to: '/personal/parity', label: 'Parity' },
     { to: '/personal/ascent', label: 'Ascent' },
     { to: '/personal/depth', label: 'Depth' },
+    { to: '/personal/cadence', label: 'Cadence' },
 ];
 
 export default function PersonalIndex() {
