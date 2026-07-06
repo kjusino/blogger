@@ -1,0 +1,26 @@
+{
+  "ensemble": {
+    "dv": 3,
+    "dc": 6,
+    "rate": 0.5
+  },
+  "de_threshold": 0.42943668365478516,
+  "blocklengths": [
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "shift_scaling": {
+    "fitted_prefactor_C": 0.5806396334078743,
+    "fitted_exponent": -0.6590100565937975,
+    "theory_exponent": -0.6666666666666666
+  },
+  "width_scaling": {
+    "fitted_prefactor_C": 1.7061565694922645,
+    "fitted_exponent": -0.5234052644060367,
+    "theory_exponent": -0.5
+  }
+}
