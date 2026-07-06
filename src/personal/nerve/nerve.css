@@ -1,0 +1,212 @@
+.nerve {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.nerve-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+.nerve-back {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 8px 4px;
+}
+.nerve-back:hover { color: #e5e7eb; }
+.nerve-title {
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 0.4px;
+}
+.nerve-badge {
+    color: #fbbf24;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-weight: 600;
+}
+
+.nerve-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.nerve-field-row {
+    display: flex;
+    gap: 10px;
+}
+.nerve-field-row .nerve-field { flex: 1; }
+.nerve-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+.nerve-field input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+}
+.nerve-field input:focus {
+    outline: none;
+    border-color: #fbbf24;
+}
+
+.nerve-btn {
+    width: 100%;
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 48px;
+    font-family: inherit;
+}
+.nerve-btn:hover { background: #233247; }
+.nerve-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.nerve-btn-primary {
+    background: #fbbf24;
+    border-color: #fbbf24;
+    color: #1c1300;
+    font-weight: 600;
+}
+.nerve-btn-primary:hover:not(:disabled) { background: #f5b300; }
+
+.nerve-section {
+    margin-top: 20px;
+}
+.nerve-section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.nerve-stat-row {
+    display: flex;
+    gap: 10px;
+}
+.nerve-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 10px 12px;
+    align-items: center;
+}
+.nerve-stat-value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fbbf24;
+}
+.nerve-stat-label {
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+}
+
+.nerve-insight {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.nerve-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.nerve-item {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.nerve-item-yes { border-color: #14532d; }
+.nerve-item-partial { border-color: #78350f; }
+.nerve-item-no { border-color: #1e293b; }
+.nerve-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+.nerve-item-title {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.nerve-item-detail {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+.nerve-item-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+}
+.nerve-chip {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+}
+.nerve-chip-yes:hover { background: #14532d; color: #bbf7d0; border-color: #14532d; }
+.nerve-chip-partial:hover { background: #78350f; color: #fde68a; border-color: #78350f; }
+.nerve-chip-no:hover { background: #1e293b; color: #e5e7eb; }
+.nerve-chip-remove:hover { background: #1e293b; color: #e5e7eb; }
+.nerve-chip-outcome {
+    cursor: default;
+    padding: 2px 6px;
+}
+.nerve-chip-outcome.nerve-chip-yes { color: #86efac; border-color: #14532d; }
+.nerve-chip-outcome.nerve-chip-partial { color: #fde68a; border-color: #78350f; }
+.nerve-chip-outcome.nerve-chip-no { color: #64748b; border-color: #334155; }
+
+.nerve-tip {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+}

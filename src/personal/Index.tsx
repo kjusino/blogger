@@ -17,6 +17,7 @@ const TOOLS = [
     { to: '/personal/depth', label: 'Depth' },
     { to: '/personal/cadence', label: 'Cadence' },
     { to: '/personal/leak', label: 'Leak' },
+    { to: '/personal/nerve', label: 'Nerve' },
 ];
 
 export default function PersonalIndex() {
