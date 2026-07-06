@@ -15,6 +15,7 @@ import Runway from './personal/runway/Runway';
 import Calibrate from './personal/calibrate/Calibrate';
 import Forge from './personal/forge/Forge';
 import Ledger from './personal/ledger/Ledger';
+import Orbit from './personal/orbit/Orbit';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -57,6 +58,7 @@ function App() {
                         <Route path="calibrate" element={<Calibrate />} />
                         <Route path="forge" element={<Forge />} />
                         <Route path="ledger" element={<Ledger />} />
+                        <Route path="orbit" element={<Orbit />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

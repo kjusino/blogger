@@ -1,0 +1,232 @@
+.orbit {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.orbit-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+.orbit-back {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 8px 4px;
+}
+.orbit-back:hover { color: #e5e7eb; }
+.orbit-title {
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 0.4px;
+}
+.orbit-badge {
+    color: #ec4899;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-weight: 600;
+}
+
+.orbit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.orbit-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+.orbit-field input,
+.orbit-field select {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+}
+.orbit-field input:focus,
+.orbit-field select:focus {
+    outline: none;
+    border-color: #ec4899;
+}
+
+.orbit-status {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.orbit-btn {
+    width: 100%;
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 48px;
+    font-family: inherit;
+}
+.orbit-btn:hover { background: #233247; }
+.orbit-btn-primary {
+    background: #ec4899;
+    border-color: #ec4899;
+    color: #1e0a14;
+    font-weight: 600;
+}
+.orbit-btn-primary:hover { background: #db2777; }
+.orbit-btn-copy {
+    margin-top: 10px;
+    font-size: 13px;
+    padding: 10px 12px;
+    min-height: 40px;
+    color: #f472b6;
+    border-color: #831843;
+}
+.orbit-btn-copy:hover { background: #2a0f1e; }
+
+.orbit-section {
+    margin-top: 20px;
+}
+.orbit-section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.orbit-buckets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.orbit-bucket-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+.orbit-bucket-label {
+    width: 84px;
+    flex-shrink: 0;
+}
+.orbit-bar-track {
+    flex: 1;
+    height: 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.orbit-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: #ec4899;
+}
+.orbit-bucket-count {
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+}
+
+.orbit-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.orbit-item {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.orbit-item-overdue {
+    border-color: #7f1d1d;
+}
+.orbit-item-soon {
+    border-color: #78350f;
+}
+.orbit-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+.orbit-item-title {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+.orbit-item-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: #64748b;
+}
+.orbit-tag {
+    background: #1e293b;
+    border-radius: 6px;
+    padding: 2px 6px;
+}
+.orbit-item-note {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+.orbit-item-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+}
+.orbit-chip {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+}
+.orbit-chip-contact {
+    color: #f472b6;
+    border-color: #831843;
+}
+.orbit-chip-contact:hover { background: #2a0f1e; }
+.orbit-chip-remove:hover { background: #1e293b; color: #e5e7eb; }
+
+.orbit-tip {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+}
