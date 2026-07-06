@@ -14,6 +14,7 @@ const TOOLS = [
     { to: '/personal/signal', label: 'Signal' },
     { to: '/personal/parity', label: 'Parity' },
     { to: '/personal/ascent', label: 'Ascent' },
+    { to: '/personal/depth', label: 'Depth' },
 ];
 
 export default function PersonalIndex() {

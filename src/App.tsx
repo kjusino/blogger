@@ -19,6 +19,7 @@ import Orbit from './personal/orbit/Orbit';
 import Signal from './personal/signal/Signal';
 import Parity from './personal/parity/Parity';
 import Ascent from './personal/ascent/Ascent';
+import Depth from './personal/depth/Depth';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -65,6 +66,7 @@ function App() {
                         <Route path="signal" element={<Signal />} />
                         <Route path="parity" element={<Parity />} />
                         <Route path="ascent" element={<Ascent />} />
+                        <Route path="depth" element={<Depth />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
