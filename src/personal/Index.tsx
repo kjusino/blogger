@@ -6,6 +6,7 @@ const TOOLS = [
     { to: '/personal/workout', label: 'Workout Tracker' },
     { to: '/personal/reflex', label: 'Reflex' },
     { to: '/personal/analytics', label: 'Analytics' },
+    { to: '/personal/runway', label: 'Runway' },
 ];
 
 export default function PersonalIndex() {
