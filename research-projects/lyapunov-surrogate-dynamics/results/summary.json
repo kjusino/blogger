@@ -1,0 +1,7 @@
+{
+  "n_configs": 54,
+  "chaos_detection_accuracy": 0.2962962962962963,
+  "true_lambda1_literature_reference": 0.905,
+  "true_lambda1_measured": 0.9005026953387504,
+  "pearson_r_logmse_vs_lambda1_error": -0.06794907547374986
+}
