@@ -1,0 +1,215 @@
+.leak {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.leak-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+.leak-back {
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 8px 4px;
+}
+.leak-back:hover { color: #e5e7eb; }
+.leak-title {
+    font-weight: 600;
+    color: #e5e7eb;
+    letter-spacing: 0.4px;
+}
+.leak-badge {
+    color: #38bdf8;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-weight: 600;
+}
+
+.leak-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.leak-field-row {
+    display: flex;
+    gap: 10px;
+}
+.leak-field-row .leak-field { flex: 1; }
+.leak-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+.leak-field input,
+.leak-field select {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: #e5e7eb;
+    font-size: 14px;
+    font-family: inherit;
+}
+.leak-field input:focus,
+.leak-field select:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+.leak-btn {
+    width: 100%;
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    min-height: 48px;
+    font-family: inherit;
+}
+.leak-btn:hover { background: #233247; }
+.leak-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.leak-btn-primary {
+    background: #38bdf8;
+    border-color: #38bdf8;
+    color: #0b1220;
+    font-weight: 600;
+}
+.leak-btn-primary:hover:not(:disabled) { background: #22a9e8; }
+
+.leak-section {
+    margin-top: 20px;
+}
+.leak-section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.leak-stat-row {
+    display: flex;
+    gap: 10px;
+}
+.leak-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 10px 12px;
+    align-items: center;
+}
+.leak-stat-value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: #38bdf8;
+}
+.leak-stat-label {
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+}
+.leak-stat-warn .leak-stat-value { color: #f87171; }
+
+.leak-insight {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+.leak-insight strong {
+    color: #f87171;
+}
+
+.leak-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.leak-item {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.leak-item-leak {
+    border-color: #7f1d1d;
+}
+.leak-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+.leak-item-title {
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.leak-item-detail {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+.leak-item-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+}
+.leak-chip {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+}
+.leak-chip-warn {
+    color: #f87171;
+    border-color: #7f1d1d;
+    cursor: default;
+    padding: 2px 6px;
+}
+.leak-chip-action:hover { background: #1e293b; color: #e5e7eb; }
+.leak-chip-remove:hover { background: #1e293b; color: #e5e7eb; }
+
+.leak-tip {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+}

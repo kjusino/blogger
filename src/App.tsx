@@ -21,6 +21,7 @@ import Parity from './personal/parity/Parity';
 import Ascent from './personal/ascent/Ascent';
 import Depth from './personal/depth/Depth';
 import Cadence from './personal/cadence/Cadence';
+import Leak from './personal/leak/Leak';
 
 const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
 
@@ -69,6 +70,7 @@ function App() {
                         <Route path="ascent" element={<Ascent />} />
                         <Route path="depth" element={<Depth />} />
                         <Route path="cadence" element={<Cadence />} />
+                        <Route path="leak" element={<Leak />} />
                     </Route>
                 </Routes>
             </BrowserRouter>
