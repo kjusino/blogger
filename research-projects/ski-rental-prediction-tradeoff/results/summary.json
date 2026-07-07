@@ -1,0 +1,109 @@
+{
+  "quick_mode": false,
+  "elapsed_seconds": 1.122781753540039,
+  "b_grid": [
+    10,
+    50,
+    200,
+    1000
+  ],
+  "lambda_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "classical_bound_check": {
+    "b": 1000,
+    "robustness_at_lambda0": 1.999,
+    "note": "should be close to 2.0 (the classical tight 2-competitive bound)"
+  },
+  "theory_vs_bruteforce": {
+    "all_within_tolerance": true,
+    "max_robustness_abs_diff": {
+      "value": 4.440892098500626e-16,
+      "at_b": 50,
+      "at_lambda": 0.1,
+      "tolerance_used": 1e-06
+    },
+    "max_consistency_abs_diff": {
+      "value": 0.050000000000000044,
+      "at_b": 10,
+      "at_lambda": 0.5,
+      "tolerance_used": 0.1
+    }
+  },
+  "monte_carlo": {
+    "b": 200,
+    "sigma_grid": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "n_samples": 20000,
+    "lambda_star_empirical_by_sigma": {
+      "0.0": 1.0,
+      "0.1": 0.8,
+      "0.25": 0.75,
+      "0.5": 0.7,
+      "1.0": 1.0,
+      "2.0": 1.0
+    },
+    "lambda_star_heuristic_c": -0.0,
+    "lambda_star_monotonic_nonincreasing": false,
+    "lambda_star_comparison": [
+      {
+        "sigma": 0.0,
+        "lambda_star_empirical": 1.0,
+        "lambda_star_approx": 1.0,
+        "abs_error": 0.0,
+        "rel_error": 0.0
+      },
+      {
+        "sigma": 0.1,
+        "lambda_star_empirical": 0.8,
+        "lambda_star_approx": 1.0,
+        "abs_error": 0.19999999999999996,
+        "rel_error": 0.24999999999999994
+      },
+      {
+        "sigma": 0.25,
+        "lambda_star_empirical": 0.75,
+        "lambda_star_approx": 1.0,
+        "abs_error": 0.25,
+        "rel_error": 0.3333333333333333
+      },
+      {
+        "sigma": 0.5,
+        "lambda_star_empirical": 0.7,
+        "lambda_star_approx": 1.0,
+        "abs_error": 0.30000000000000004,
+        "rel_error": 0.42857142857142866
+      },
+      {
+        "sigma": 1.0,
+        "lambda_star_empirical": 1.0,
+        "lambda_star_approx": 1.0,
+        "abs_error": 0.0,
+        "rel_error": 0.0
+      },
+      {
+        "sigma": 2.0,
+        "lambda_star_empirical": 1.0,
+        "lambda_star_approx": 1.0,
+        "abs_error": 0.0,
+        "rel_error": 0.0
+      }
+    ]
+  }
+}
