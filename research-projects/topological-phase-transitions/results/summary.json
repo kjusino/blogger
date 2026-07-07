@@ -1,0 +1,32 @@
+{
+  "er": {
+    "n_trials": 120,
+    "percolation_ratio_mean": 1.1587939698492462,
+    "percolation_ratio_std": 0.26593820689643755,
+    "cycle_onset_ratio_mean": 2.3255396572252116,
+    "cycle_onset_ratio_std": 0.224668572912888,
+    "n_missing_cycle_onset": 0,
+    "wilcoxon_statistic": 0.0,
+    "wilcoxon_p_value": 1.9719517121524354e-21
+  },
+  "rgg": {
+    "n_trials": 120,
+    "percolation_ratio_mean": 0.8540238470340235,
+    "percolation_ratio_std": 0.09560432496530216,
+    "cycle_onset_ratio_mean": 0.8341754180174256,
+    "cycle_onset_ratio_std": 0.07892493176027993,
+    "n_missing_cycle_onset": 0,
+    "wilcoxon_statistic": 2868.0,
+    "wilcoxon_p_value": 0.04597984850317452
+  },
+  "chung_lu": {
+    "n_trials": 120,
+    "percolation_ratio_mean": 1.2614740368509212,
+    "percolation_ratio_std": 0.423146179784617,
+    "cycle_onset_ratio_mean": 1.9762253475185605,
+    "cycle_onset_ratio_std": 0.3107833096288104,
+    "n_missing_cycle_onset": 0,
+    "wilcoxon_statistic": 42.0,
+    "wilcoxon_p_value": 5.6407011538585336e-21
+  }
+}
