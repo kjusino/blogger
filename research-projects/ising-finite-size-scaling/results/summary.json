@@ -1,0 +1,26 @@
+{
+  "elapsed_seconds": 428.36006689071655,
+  "quick_mode": false,
+  "L_values": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "n_T_points": 24,
+  "n_seeds": 4,
+  "exact_Tc": 2.269185314213022,
+  "estimated_Tc": 2.258289581145724,
+  "Tc_relative_error": 0.004801605668365976,
+  "individual_crossings": [
+    2.2511025551277566,
+    2.272943647182359,
+    2.2508225411270564
+  ],
+  "raw_collapse_rmse": 0.10858857499735546,
+  "rescaled_magnetization_collapse_rmse": 0.018625935620325672,
+  "rescaled_susceptibility_collapse_rmse": 0.03678162656566773,
+  "collapse_improvement_factor": 5.8299661939590015,
+  "max_onsager_energy_abs_error": 0.02960086470101997,
+  "max_wolff_vs_metropolis_speedup": 57.79566141712693
+}
