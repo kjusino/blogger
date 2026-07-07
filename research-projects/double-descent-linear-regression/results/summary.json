@@ -1,0 +1,16 @@
+{
+  "n_configs_total": 29,
+  "n_configs_core": 27,
+  "excluded_near_threshold_gammas": [
+    0.99,
+    1.01
+  ],
+  "mean_relative_error_core": 0.012098322377205173,
+  "max_relative_error_core": 0.05852554432776732,
+  "pearson_correlation_empirical_vs_theory_core": 0.9991956824802869,
+  "peak_gamma_empirical": 0.99,
+  "success_mean_relative_error": true,
+  "success_correlation": true,
+  "success_peak_near_threshold": true,
+  "overall_pass": true
+}

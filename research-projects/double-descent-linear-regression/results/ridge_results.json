@@ -1,0 +1,402 @@
+[
+  {
+    "n": 200,
+    "p": 100,
+    "gamma": 0.5,
+    "lambda": 0.0,
+    "empirical_risk": 1.0088846272598653,
+    "empirical_stderr": 0.013224054243530924
+  },
+  {
+    "n": 200,
+    "p": 100,
+    "gamma": 0.5,
+    "lambda": 0.1,
+    "empirical_risk": 0.9997180384568197,
+    "empirical_stderr": 0.014059182401862434
+  },
+  {
+    "n": 200,
+    "p": 100,
+    "gamma": 0.5,
+    "lambda": 1.0,
+    "empirical_risk": 0.9812525738311686,
+    "empirical_stderr": 0.01405437180947457
+  },
+  {
+    "n": 200,
+    "p": 100,
+    "gamma": 0.5,
+    "lambda": 5.0,
+    "empirical_risk": 0.8394516589864404,
+    "empirical_stderr": 0.010168381420846721
+  },
+  {
+    "n": 200,
+    "p": 100,
+    "gamma": 0.5,
+    "lambda": 20.0,
+    "empirical_risk": 0.6018500903135028,
+    "empirical_stderr": 0.0075630917449913924
+  },
+  {
+    "n": 200,
+    "p": 160,
+    "gamma": 0.8,
+    "lambda": 0.0,
+    "empirical_risk": 4.110352770525806,
+    "empirical_stderr": 0.08522018913544833
+  },
+  {
+    "n": 200,
+    "p": 160,
+    "gamma": 0.8,
+    "lambda": 0.1,
+    "empirical_risk": 3.908961713228929,
+    "empirical_stderr": 0.06529281971177982
+  },
+  {
+    "n": 200,
+    "p": 160,
+    "gamma": 0.8,
+    "lambda": 1.0,
+    "empirical_risk": 3.2271203536768325,
+    "empirical_stderr": 0.04705664681348684
+  },
+  {
+    "n": 200,
+    "p": 160,
+    "gamma": 0.8,
+    "lambda": 5.0,
+    "empirical_risk": 2.0522381141923627,
+    "empirical_stderr": 0.022759276193386597
+  },
+  {
+    "n": 200,
+    "p": 160,
+    "gamma": 0.8,
+    "lambda": 20.0,
+    "empirical_risk": 1.0619717151908168,
+    "empirical_stderr": 0.009666703729822815
+  },
+  {
+    "n": 200,
+    "p": 180,
+    "gamma": 0.9,
+    "lambda": 0.0,
+    "empirical_risk": 9.425813500616192,
+    "empirical_stderr": 0.23587304034738352
+  },
+  {
+    "n": 200,
+    "p": 180,
+    "gamma": 0.9,
+    "lambda": 0.1,
+    "empirical_risk": 8.358461856180154,
+    "empirical_stderr": 0.19496095462914595
+  },
+  {
+    "n": 200,
+    "p": 180,
+    "gamma": 0.9,
+    "lambda": 1.0,
+    "empirical_risk": 5.227958008302286,
+    "empirical_stderr": 0.0819444564465687
+  },
+  {
+    "n": 200,
+    "p": 180,
+    "gamma": 0.9,
+    "lambda": 5.0,
+    "empirical_risk": 2.498166597694991,
+    "empirical_stderr": 0.027472891966347546
+  },
+  {
+    "n": 200,
+    "p": 180,
+    "gamma": 0.9,
+    "lambda": 20.0,
+    "empirical_risk": 1.204822202396272,
+    "empirical_stderr": 0.010770368815554408
+  },
+  {
+    "n": 200,
+    "p": 190,
+    "gamma": 0.95,
+    "lambda": 0.0,
+    "empirical_risk": 20.92496577349019,
+    "empirical_stderr": 0.7716709458461487
+  },
+  {
+    "n": 200,
+    "p": 190,
+    "gamma": 0.95,
+    "lambda": 0.1,
+    "empirical_risk": 15.312785989114055,
+    "empirical_stderr": 0.4568208296217814
+  },
+  {
+    "n": 200,
+    "p": 190,
+    "gamma": 0.95,
+    "lambda": 1.0,
+    "empirical_risk": 6.141864104261348,
+    "empirical_stderr": 0.08990368745788514
+  },
+  {
+    "n": 200,
+    "p": 190,
+    "gamma": 0.95,
+    "lambda": 5.0,
+    "empirical_risk": 2.699145788716615,
+    "empirical_stderr": 0.02533960472424271
+  },
+  {
+    "n": 200,
+    "p": 190,
+    "gamma": 0.95,
+    "lambda": 20.0,
+    "empirical_risk": 1.2678874481836981,
+    "empirical_stderr": 0.011174878197675781
+  },
+  {
+    "n": 200,
+    "p": 200,
+    "gamma": 1.0,
+    "lambda": 0.0,
+    "empirical_risk": 16709.7995318266,
+    "empirical_stderr": 10359.620024241598
+  },
+  {
+    "n": 200,
+    "p": 200,
+    "gamma": 1.0,
+    "lambda": 0.1,
+    "empirical_risk": 22.380668293334494,
+    "empirical_stderr": 0.5637503831861431
+  },
+  {
+    "n": 200,
+    "p": 200,
+    "gamma": 1.0,
+    "lambda": 1.0,
+    "empirical_risk": 6.723000709599139,
+    "empirical_stderr": 0.10119854315519672
+  },
+  {
+    "n": 200,
+    "p": 200,
+    "gamma": 1.0,
+    "lambda": 5.0,
+    "empirical_risk": 2.76765537361945,
+    "empirical_stderr": 0.02881604755648411
+  },
+  {
+    "n": 200,
+    "p": 200,
+    "gamma": 1.0,
+    "lambda": 20.0,
+    "empirical_risk": 1.2845531364600955,
+    "empirical_stderr": 0.010768222389180715
+  },
+  {
+    "n": 200,
+    "p": 210,
+    "gamma": 1.05,
+    "lambda": 0.0,
+    "empirical_risk": 23.17974288007592,
+    "empirical_stderr": 0.8734037395118551
+  },
+  {
+    "n": 200,
+    "p": 210,
+    "gamma": 1.05,
+    "lambda": 0.1,
+    "empirical_risk": 15.660839469416642,
+    "empirical_stderr": 0.42117036558910126
+  },
+  {
+    "n": 200,
+    "p": 210,
+    "gamma": 1.05,
+    "lambda": 1.0,
+    "empirical_risk": 6.357180250160398,
+    "empirical_stderr": 0.09678023773736952
+  },
+  {
+    "n": 200,
+    "p": 210,
+    "gamma": 1.05,
+    "lambda": 5.0,
+    "empirical_risk": 2.812102772932803,
+    "empirical_stderr": 0.028804869588364163
+  },
+  {
+    "n": 200,
+    "p": 210,
+    "gamma": 1.05,
+    "lambda": 20.0,
+    "empirical_risk": 1.3357790226404347,
+    "empirical_stderr": 0.01053947748108235
+  },
+  {
+    "n": 200,
+    "p": 220,
+    "gamma": 1.1,
+    "lambda": 0.0,
+    "empirical_risk": 10.411885228090778,
+    "empirical_stderr": 0.241836156632111
+  },
+  {
+    "n": 200,
+    "p": 220,
+    "gamma": 1.1,
+    "lambda": 0.1,
+    "empirical_risk": 9.48244632509811,
+    "empirical_stderr": 0.20272518323229696
+  },
+  {
+    "n": 200,
+    "p": 220,
+    "gamma": 1.1,
+    "lambda": 1.0,
+    "empirical_risk": 5.538061710112125,
+    "empirical_stderr": 0.08053574645470253
+  },
+  {
+    "n": 200,
+    "p": 220,
+    "gamma": 1.1,
+    "lambda": 5.0,
+    "empirical_risk": 2.768225745598157,
+    "empirical_stderr": 0.026756924665285918
+  },
+  {
+    "n": 200,
+    "p": 220,
+    "gamma": 1.1,
+    "lambda": 20.0,
+    "empirical_risk": 1.3596665482589905,
+    "empirical_stderr": 0.011207639574769244
+  },
+  {
+    "n": 200,
+    "p": 240,
+    "gamma": 1.2,
+    "lambda": 0.0,
+    "empirical_risk": 5.207544849471308,
+    "empirical_stderr": 0.08457272851612947
+  },
+  {
+    "n": 200,
+    "p": 240,
+    "gamma": 1.2,
+    "lambda": 0.1,
+    "empirical_risk": 5.170081289844474,
+    "empirical_stderr": 0.09012148950655752
+  },
+  {
+    "n": 200,
+    "p": 240,
+    "gamma": 1.2,
+    "lambda": 1.0,
+    "empirical_risk": 4.186494889571436,
+    "empirical_stderr": 0.06187482434982948
+  },
+  {
+    "n": 200,
+    "p": 240,
+    "gamma": 1.2,
+    "lambda": 5.0,
+    "empirical_risk": 2.547139738015201,
+    "empirical_stderr": 0.02632773801758636
+  },
+  {
+    "n": 200,
+    "p": 240,
+    "gamma": 1.2,
+    "lambda": 20.0,
+    "empirical_risk": 1.3900108123515118,
+    "empirical_stderr": 0.010042850827395354
+  },
+  {
+    "n": 200,
+    "p": 300,
+    "gamma": 1.5,
+    "lambda": 0.0,
+    "empirical_risk": 2.3777208277171584,
+    "empirical_stderr": 0.025160883130053078
+  },
+  {
+    "n": 200,
+    "p": 300,
+    "gamma": 1.5,
+    "lambda": 0.1,
+    "empirical_risk": 2.341186877959954,
+    "empirical_stderr": 0.02403240855055018
+  },
+  {
+    "n": 200,
+    "p": 300,
+    "gamma": 1.5,
+    "lambda": 1.0,
+    "empirical_risk": 2.257402999553915,
+    "empirical_stderr": 0.02379736630022597
+  },
+  {
+    "n": 200,
+    "p": 300,
+    "gamma": 1.5,
+    "lambda": 5.0,
+    "empirical_risk": 1.903638549867926,
+    "empirical_stderr": 0.01669143091603136
+  },
+  {
+    "n": 200,
+    "p": 300,
+    "gamma": 1.5,
+    "lambda": 20.0,
+    "empirical_risk": 1.3465823866461546,
+    "empirical_stderr": 0.00961154917339574
+  },
+  {
+    "n": 200,
+    "p": 400,
+    "gamma": 2.0,
+    "lambda": 0.0,
+    "empirical_risk": 1.5114102457702727,
+    "empirical_stderr": 0.01124517921661051
+  },
+  {
+    "n": 200,
+    "p": 400,
+    "gamma": 2.0,
+    "lambda": 0.1,
+    "empirical_risk": 1.5036067329058764,
+    "empirical_stderr": 0.011034889526268254
+  },
+  {
+    "n": 200,
+    "p": 400,
+    "gamma": 2.0,
+    "lambda": 1.0,
+    "empirical_risk": 1.4794413794115349,
+    "empirical_stderr": 0.009907701524566211
+  },
+  {
+    "n": 200,
+    "p": 400,
+    "gamma": 2.0,
+    "lambda": 5.0,
+    "empirical_risk": 1.4101575079876891,
+    "empirical_stderr": 0.009299502149621247
+  },
+  {
+    "n": 200,
+    "p": 400,
+    "gamma": 2.0,
+    "lambda": 20.0,
+    "empirical_risk": 1.2306854090089536,
+    "empirical_stderr": 0.007115304583348764
+  }
+]
