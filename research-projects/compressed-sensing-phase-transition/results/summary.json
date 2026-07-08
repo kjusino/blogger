@@ -1,0 +1,97 @@
+{
+  "n_values": [
+    40,
+    80
+  ],
+  "delta_grid": [
+    0.1,
+    0.26,
+    0.42000000000000004,
+    0.58,
+    0.74,
+    0.9
+  ],
+  "rho_grid": [
+    0.05,
+    0.15000000000000002,
+    0.25,
+    0.35000000000000003,
+    0.45
+  ],
+  "trials_per_point": 8,
+  "elapsed_seconds": 1.818502426147461,
+  "per_n": {
+    "40": {
+      "rmse_vs_theory": 0.0270387360208501,
+      "mean_transition_width": 0.2853333333333333,
+      "thresholds": [
+        {
+          "rho": 0.05,
+          "empirical_delta_50": 0.18,
+          "theory_delta": 0.20389985632963947,
+          "transition_width": 0.19200000000000003
+        },
+        {
+          "rho": 0.15000000000000002,
+          "empirical_delta_50": 0.42000000000000004,
+          "theory_delta": 0.4279120416303711,
+          "transition_width": 0.256
+        },
+        {
+          "rho": 0.25,
+          "empirical_delta_50": 0.58,
+          "theory_delta": 0.5828576144406177,
+          "transition_width": 0.31999999999999995
+        },
+        {
+          "rho": 0.35000000000000003,
+          "empirical_delta_50": 0.6866666666666666,
+          "theory_delta": 0.7008422476490399,
+          "transition_width": 0.3733333333333334
+        },
+        {
+          "rho": 0.45,
+          "empirical_delta_50": 0.74,
+          "theory_delta": 0.7930334765615917,
+          "transition_width": null
+        }
+      ]
+    },
+    "80": {
+      "rmse_vs_theory": 0.0407895112256602,
+      "mean_transition_width": 0.21308952380952384,
+      "thresholds": [
+        {
+          "rho": 0.05,
+          "empirical_delta_50": 0.22,
+          "theory_delta": 0.20389985632963947,
+          "transition_width": 0.2773333333333333
+        },
+        {
+          "rho": 0.15000000000000002,
+          "empirical_delta_50": 0.3666666666666667,
+          "theory_delta": 0.4279120416303711,
+          "transition_width": 0.2346666666666667
+        },
+        {
+          "rho": 0.25,
+          "empirical_delta_50": 0.612,
+          "theory_delta": 0.5828576144406177,
+          "transition_width": 0.25173333333333336
+        },
+        {
+          "rho": 0.35000000000000003,
+          "empirical_delta_50": 0.6485714285714286,
+          "theory_delta": 0.7008422476490399,
+          "transition_width": 0.1737142857142857
+        },
+        {
+          "rho": 0.45,
+          "empirical_delta_50": 0.8200000000000001,
+          "theory_delta": 0.7930334765615917,
+          "transition_width": 0.128
+        }
+      ]
+    }
+  }
+}
