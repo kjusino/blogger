@@ -1,0 +1,263 @@
+{
+  "config": {
+    "tau": 0.1,
+    "trials_a": 25,
+    "trials_b": 30,
+    "trials_c": 25,
+    "seed": 2026
+  },
+  "study_a_confidence_vs_depth": [
+    {
+      "a_levels": 2,
+      "n": 8,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 20,
+      "success_rate": 1.0
+    },
+    {
+      "a_levels": 2,
+      "n": 8,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 80,
+      "success_rate": 1.0
+    },
+    {
+      "a_levels": 2,
+      "n": 8,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 300,
+      "success_rate": 1.0
+    },
+    {
+      "a_levels": 3,
+      "n": 12,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 20,
+      "success_rate": 0.68
+    },
+    {
+      "a_levels": 3,
+      "n": 12,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 80,
+      "success_rate": 0.84
+    },
+    {
+      "a_levels": 3,
+      "n": 12,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 300,
+      "success_rate": 0.92
+    },
+    {
+      "a_levels": 4,
+      "n": 16,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 20,
+      "success_rate": 0.16
+    },
+    {
+      "a_levels": 4,
+      "n": 16,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 80,
+      "success_rate": 0.52
+    },
+    {
+      "a_levels": 4,
+      "n": 16,
+      "b": 4,
+      "tau": 0.1,
+      "confidence_const": 300,
+      "success_rate": 0.48
+    }
+  ],
+  "study_b_scaling_vs_n": [
+    {
+      "n": 12,
+      "b": 6,
+      "a_levels": 2,
+      "tau": 0.1,
+      "confidence_const": 150,
+      "trials": 30,
+      "success_rate": 1.0,
+      "mean_total_queries": 900,
+      "stdev_total_queries": 0.0,
+      "mean_wall_time_sec": 0.008526717133349848,
+      "stdev_wall_time_sec": 6.305594112992064e-05,
+      "theoretical_total_queries": 900.4,
+      "n_over_log2_n": 3.347315347813558
+    },
+    {
+      "n": 16,
+      "b": 8,
+      "a_levels": 2,
+      "tau": 0.1,
+      "confidence_const": 150,
+      "trials": 30,
+      "success_rate": 1.0,
+      "mean_total_queries": 1398,
+      "stdev_total_queries": 0.0,
+      "mean_wall_time_sec": 0.038987341499993514,
+      "stdev_wall_time_sec": 0.0007525162036777183,
+      "theoretical_total_queries": 1399.6,
+      "n_over_log2_n": 4.0
+    },
+    {
+      "n": 20,
+      "b": 10,
+      "a_levels": 2,
+      "tau": 0.1,
+      "confidence_const": 150,
+      "trials": 30,
+      "success_rate": 1.0,
+      "mean_total_queries": 3396,
+      "stdev_total_queries": 0.0,
+      "mean_wall_time_sec": 0.32549477959999723,
+      "stdev_wall_time_sec": 0.010498403199851725,
+      "theoretical_total_queries": 3396.4,
+      "n_over_log2_n": 4.627564263195183
+    },
+    {
+      "n": 24,
+      "b": 8,
+      "a_levels": 3,
+      "tau": 0.1,
+      "confidence_const": 150,
+      "trials": 30,
+      "success_rate": 1.0,
+      "mean_total_queries": 4680,
+      "stdev_total_queries": 0.0,
+      "mean_wall_time_sec": 0.13863312653334106,
+      "stdev_wall_time_sec": 0.005597428627518581,
+      "theoretical_total_queries": 4681.799999999999,
+      "n_over_log2_n": 5.234503007652758
+    },
+    {
+      "n": 28,
+      "b": 7,
+      "a_levels": 4,
+      "tau": 0.1,
+      "confidence_const": 150,
+      "trials": 30,
+      "success_rate": 1.0,
+      "mean_total_queries": 23316,
+      "stdev_total_queries": 0.0,
+      "mean_wall_time_sec": 0.4979275221999842,
+      "stdev_wall_time_sec": 0.01903530667362043,
+      "theoretical_total_queries": 23316.8,
+      "n_over_log2_n": 5.824408734942265
+    },
+    {
+      "n": 32,
+      "b": 8,
+      "a_levels": 4,
+      "tau": 0.1,
+      "confidence_const": 150,
+      "trials": 30,
+      "success_rate": 1.0,
+      "mean_total_queries": 25312,
+      "stdev_total_queries": 0.0,
+      "mean_wall_time_sec": 0.9712494117666741,
+      "stdev_wall_time_sec": 0.024421306738392882,
+      "theoretical_total_queries": 25313.6,
+      "n_over_log2_n": 6.4
+    }
+  ],
+  "study_b_fit_stats": {
+    "r2_vs_n": 0.952976182605053,
+    "r2_vs_n_over_logn": 0.9504257104621721,
+    "slope_vs_n": 0.26222205471421206,
+    "slope_vs_n_over_logn": 1.7172477922035467
+  },
+  "study_c_window_size_optimum": {
+    "n": 24,
+    "theory_curve": [
+      {
+        "b": 2,
+        "a_levels": 12,
+        "theoretical_total_queries": null
+      },
+      {
+        "b": 3,
+        "a_levels": 8,
+        "theoretical_total_queries": 7.72937852351645e+27
+      },
+      {
+        "b": 4,
+        "a_levels": 6,
+        "theoretical_total_queries": 1433783346.0
+      },
+      {
+        "b": 6,
+        "a_levels": 4,
+        "theoretical_total_queries": 22318.4
+      },
+      {
+        "b": 8,
+        "a_levels": 3,
+        "theoretical_total_queries": 4681.799999999999
+      },
+      {
+        "b": 12,
+        "a_levels": 2,
+        "theoretical_total_queries": 11383.6
+      }
+    ],
+    "empirical_rows": [
+      {
+        "n": 24,
+        "b": 6,
+        "a_levels": 4,
+        "tau": 0.1,
+        "confidence_const": 150,
+        "trials": 25,
+        "success_rate": 0.88,
+        "mean_total_queries": 22316,
+        "stdev_total_queries": 0.0,
+        "mean_wall_time_sec": 0.2614468341599968,
+        "stdev_wall_time_sec": 0.01611868867611762,
+        "theoretical_total_queries": 22318.4
+      },
+      {
+        "n": 24,
+        "b": 8,
+        "a_levels": 3,
+        "tau": 0.1,
+        "confidence_const": 150,
+        "trials": 25,
+        "success_rate": 1.0,
+        "mean_total_queries": 4680,
+        "stdev_total_queries": 0.0,
+        "mean_wall_time_sec": 0.13731419583997195,
+        "stdev_wall_time_sec": 0.002473197494709383,
+        "theoretical_total_queries": 4681.799999999999
+      },
+      {
+        "n": 24,
+        "b": 12,
+        "a_levels": 2,
+        "tau": 0.1,
+        "confidence_const": 150,
+        "trials": 25,
+        "success_rate": 1.0,
+        "mean_total_queries": 11382,
+        "stdev_total_queries": 0.0,
+        "mean_wall_time_sec": 4.010029733320025,
+        "stdev_wall_time_sec": 0.07862975143295287,
+        "theoretical_total_queries": 11383.6
+      }
+    ],
+    "theory_optimal_b": 8,
+    "empirical_fastest_b": 8
+  },
+  "total_wall_time_sec": 176.09193873405457
+}
