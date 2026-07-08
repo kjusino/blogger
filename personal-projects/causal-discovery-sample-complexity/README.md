@@ -1,6 +1,16 @@
 # Does the PC Algorithm's Causal-Discovery Sample Complexity Match Theory?
 
-**Status: results pending — this section will be filled in once `run_experiment.py` completes.**
+**TL;DR**: The **degree** exponent matches theory cleanly (empirical `n50 ~
+d^2.45 +/- 0.21`, theory predicts `d^2`; rescaling by `d^2` collapses all
+three recovery curves onto a single curve almost exactly). The **log p**
+prediction is directionally consistent — `n50` does grow slowly and
+sub-linearly-ish with `p` — but a modest, quickly-simulatable range of `p`
+(10 to 80) cannot cleanly distinguish `Theta(log p)` from a weak power law:
+a plain `n50 ~ a + b*p` line actually fits the five `(p, n50)` points better
+(R^2 = 0.986) than `n50 ~ a + b*log(p)` (R^2 = 0.925). That's a real,
+interesting finding about the practical limits of validating asymptotic
+sample-complexity bounds by simulation, not a failure of the theorem — see
+[Results](#results) for the full analysis.
 
 ## Research question
 
@@ -98,10 +108,12 @@ already requires.
    around that point (more trials each) is used to estimate `n50` by linear
    interpolation on the empirical curve (robust) and by a logistic-curve fit
    (for the transition steepness).
-6. **Scaling fits**: `log(n50)` regressed against `log(p)` (with `d` fixed
-   at 2, `p` swept) and against `log(d)` (with `p` fixed at 14, `d` swept),
-   via ordinary least squares. Theory predicts slopes of 1 and 2
-   respectively.
+6. **Scaling fits**: `log(n50)` regressed against `log(p)` and against
+   `log(d)` via ordinary least squares (log-log power-law fits), plus a
+   linear fit of `n50` against `log(p)` directly (the correct test of the
+   theorem's `n50 = Theta(log p)` claim — see Results for why the log-log
+   version tests a different claim, `n50 ~ p^slope`, and how the two
+   compare on this data).
 
 ### A practical detail: bounding worst-case cost
 
@@ -116,13 +128,14 @@ before the graph has been pruned down to its sparse true structure.
 
 ## Success metrics
 
-- **Primary**: the log-log regression slope of `n50` vs `p` should be close
-  to 1 (theory: `n50 ~ log p`, so plotting against `log(p)` linearizes it —
-  the regression here is `log(n50)` vs `log(p)`, i.e. it tests whether n50
-  behaves as a *power* of p; see note below on how this is interpreted
-  against the log p prediction).
 - **Primary**: the log-log regression slope of `n50` vs `d` should be close
-  to 2 (theory: `n50 ~ d^2`).
+  to 2 (theory: `n50 ~ d^2`, a genuine power law, so a log-log slope is the
+  right test).
+- **Primary**: `n50` fit *linearly* against `log(p)` (not log-log — see
+  Results for why that's the correct test of `n50 = Theta(log p)`) should
+  fit at least comparably to plausible alternative growth rates, and the
+  rescaled-collapse plot should show curves for different `p` moving toward
+  alignment when divided by `log(p)`.
 - **Secondary**: a "rescaled collapse" plot — recovery-probability curves
   for different `p` (or `d`) plotted against `n / log(p)` (or `n / d^2`)
   should approximately collapse onto a single curve if the theoretical
@@ -130,8 +143,100 @@ before the graph has been pruned down to its sparse true structure.
 
 ## Results
 
-*(Filled in after `run_experiment.py` runs — see `results/*.csv` and
-`figures/*.png`.)*
+Both sweeps used `min_margin = 0.10`, `family_wise_alpha = 0.05` (Bonferroni-
+corrected per configuration), 8 trials per coarse-search point and 20 trials
+per fine-grid point. `n50` below is the linear-interpolation estimate (the
+more robust of the two estimators computed; see `results/*_summary.csv` for
+the logistic-fit alternative, which tends to overshoot on steep transitions
+because it extrapolates the fitted curve's tails).
+
+### Sweep B: degree scaling (p = 14 fixed, d in {1, 2, 3}) — matches theory well
+
+| d | n50 |
+|---|-----|
+| 1 | 45 |
+| 2 | 205 |
+| 3 | 689 |
+
+Log-log fit: `n50 ~ d^2.45 +/- 0.21` (R^2 = 0.993). The theory-predicted
+exponent (2) falls within about 2 standard errors of the fitted exponent —
+a reasonably tight match given only 3 points.
+
+![Recovery probability vs n, varying d](figures/d_sweep_recovery_curves.png)
+![n50 vs d log-log fit](figures/d_sweep_scaling_fit.png)
+
+More convincingly, the rescaled-collapse plot below divides sample size by
+`d^2` for each curve, and all three land on essentially the same curve —
+the standard visual signature of a correctly identified scaling exponent in
+a phase-transition study (see e.g. finite-size scaling collapses in
+statistical mechanics):
+
+![Rescaled collapse by d^2](figures/d_sweep_collapse.png)
+
+### Sweep A: variable-count scaling (d = 2 fixed, p in {10, 20, 35, 55, 80}) — directionally right, exponent ambiguous at this scale
+
+| p | n50 |
+|---|-----|
+| 10 | 187 |
+| 20 | 341 |
+| 35 | 492 |
+| 55 | 617 |
+| 80 | 925 |
+
+![Recovery probability vs n, varying p](figures/p_sweep_recovery_curves.png)
+![n50 vs p log-log fit](figures/p_sweep_scaling_fit.png)
+
+The naive log-log power-law fit gives `n50 ~ p^0.73 +/- 0.04` (R^2 = 0.990)
+— but **this is the wrong comparison for a `Theta(log p)` claim.** A
+log-log regression slope of 1 would mean `n50 ~ p` (linear in `p`), not
+`n50 ~ log(p)`; testing the theorem's actual prediction requires fitting
+`n50` linearly against `log(p)` directly. Doing that:
+
+| Model | R^2 |
+|---|---|
+| `n50 = a + b * log(p)` (theory's prediction) | 0.925 |
+| `n50 = a + b * p` (naive alternative: linear in p) | 0.986 |
+| `n50 ~ p^0.73` (power law, unconstrained) | 0.990 |
+
+All three fits are visually reasonable over this range — which is exactly
+the problem. `log(p)` grows so slowly that, without spanning several orders
+of magnitude in `p` (thousands to millions of variables — infeasible to
+simulate with an exact, from-scratch PC implementation in a short
+autonomous run), it is nearly indistinguishable from a weak power law or
+even a locally-linear trend. The rescaled-collapse plot below makes this
+concrete: rescaling by `log(p)` does *not* collapse the curves as cleanly
+as the `d^2` rescaling did (the `p=10` curve sits visibly left of the
+others even after rescaling), indicating the true growth rate is somewhat
+faster than pure `log(p)` at these finite, practically-simulatable sizes:
+
+![Rescaled collapse by log(p)](figures/p_sweep_collapse.png)
+
+This is a legitimate and, I'd argue, under-appreciated point about
+validating asymptotic complexity bounds empirically: **`n = Theta(log p)`
+is a statement about the limit, and at finite `p` the lower-order/constant
+terms the `Theta` notation hides can dominate the picture** for any `p`
+small enough to actually simulate exactly. A cleaner empirical test of the
+log-p exponent specifically would need either a much wider range of `p` (via
+an approximate/scalable CI-testing backend, trading off the exact PC-stable
+implementation used here) or a way to hold the *effective* number of
+necessary tests constant while varying `p`, neither of which fit this
+project's scope of an exact, from-scratch, autonomously-runnable
+implementation.
+
+### Why the degree fit came out cleaner than the variable-count fit
+
+The Bonferroni correction `alpha = 0.05 / C(p, 2)` used to control
+family-wise error growing with `p` (see Method) means the significance
+threshold itself already depends on `p` through a `sqrt(log p)`-type term
+(via the inverse-normal quantile), on top of whatever `log p` dependence
+the theorem's proof separately predicts for detecting the weakest true
+edge. Untangling how much of the observed `p`-scaling comes from "the
+theorem's intrinsic log p term" versus "the log p contributed by my own
+choice of Bonferroni correction" would need a design that varies the
+correction scheme independently of `p` — an interesting follow-up, but out
+of scope here. The `d`-sweep has no such confound: `alpha` was held fixed
+across all three `d` configurations (only `p = 14` was fixed, so
+`bonferroni_alpha(14)` is constant), so the `d^2` result is a cleaner signal.
 
 ## Limitations
 
@@ -168,8 +273,8 @@ figures/                          PNG plots
 
 ```
 pip install -r requirements.txt
-pytest                 # unit + integration tests
-python3 run_experiment.py   # full sweep, ~15-25 minutes
+pytest                 # unit + integration tests, ~2 seconds
+python3 run_experiment.py   # full sweep, ~6-10 minutes
 ```
 
 ## References
