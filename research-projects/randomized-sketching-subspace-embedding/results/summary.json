@@ -1,0 +1,117 @@
+{
+  "config": {
+    "d": 30,
+    "n": 4096,
+    "eps_target": 0.25,
+    "delta": 0.1,
+    "const": 2.0,
+    "trials": 25,
+    "threshold_multipliers": [
+      0.15,
+      0.3,
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "scaling_trials": 25,
+    "scaling_k_grid": [
+      60,
+      120,
+      240,
+      480,
+      960,
+      1920
+    ],
+    "coherence_trials": 25,
+    "coherence_k_grid": [
+      60,
+      120,
+      240,
+      480,
+      960,
+      1920
+    ],
+    "ls_trials": 25,
+    "ls_multipliers": [
+      0.3,
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "ls_noise": 0.1,
+    "timing_n": 8192,
+    "timing_d": 50,
+    "timing_k_grid": [
+      50,
+      100,
+      200,
+      400,
+      800,
+      1600,
+      3200
+    ],
+    "timing_n_grid": [
+      512,
+      1024,
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "timing_k_fixed": 300,
+    "timing_repeats": 5
+  },
+  "k0_threshold": 1034,
+  "k0_least_squares": 1066,
+  "threshold_crossover_k": {
+    "gaussian": 2068,
+    "srht": 1551,
+    "countsketch": 2068
+  },
+  "scaling_fits": {
+    "gaussian": {
+      "a": 16.154538821111462,
+      "exponent": -0.5551359022169319,
+      "r2": 0.9990123617996801
+    },
+    "srht": {
+      "a": 23.828840590497954,
+      "exponent": -0.6425378599479575,
+      "r2": 0.9968584165485854
+    },
+    "countsketch": {
+      "a": 16.222490154482955,
+      "exponent": -0.5579517215729005,
+      "r2": 0.9981646120093024
+    }
+  },
+  "timing_fits": {
+    "gaussian": {
+      "a": 3.882268927200461e-06,
+      "exponent": 1.022131814786667,
+      "r2": 0.9966678217220698
+    },
+    "srht": {
+      "a": 3.0187683973719207e-07,
+      "exponent": 1.2063608684309994,
+      "r2": 0.997347916937012
+    },
+    "countsketch": {
+      "a": 1.5410857728115867e-06,
+      "exponent": 0.936224583543243,
+      "r2": 0.9990948109464737
+    }
+  },
+  "coherence_ablation": {
+    "incoherent_srht_precond_max_eps": 2.010863856488344,
+    "incoherent_uniform_sampling_max_eps": 1.987653960873371,
+    "coherent_srht_precond_max_eps": 2.553010791548953,
+    "coherent_uniform_sampling_max_eps": 67.26666666666665
+  }
+}
