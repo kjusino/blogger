@@ -49,10 +49,10 @@ def _metrics_from_unfolded(x, u_max=3.0, n_bins=20, repulsion_threshold=0.2):
     }
 
 
-def analyze_window(n_start, count, u_max=3.0, n_bins=20, dps=25, label=None):
+def analyze_window(n_start, count, u_max=3.0, n_bins=20, dps=25, label=None, cache_path=None):
     """Fetches `count` consecutive zeta zeros starting at index `n_start`,
     unfolds them, and computes the full metric set."""
-    heights = zero_heights(n_start, count, dps=dps)
+    heights = zero_heights(n_start, count, dps=dps, cache_path=cache_path)
     x = unfold_heights(heights)
     metrics = _metrics_from_unfolded(x, u_max=u_max, n_bins=n_bins)
     metrics.update(

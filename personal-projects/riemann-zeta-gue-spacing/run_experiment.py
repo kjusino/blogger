@@ -35,9 +35,11 @@ HEIGHT_WINDOWS = [
 ]
 
 # Nested prefixes of the n=10000 window, to check whether the residual
-# gap to GUE shrinks at the finite-sample-noise rate as N grows.
+# gap to GUE shrinks at the finite-sample-noise rate as N grows. Each
+# window of `count` zeros yields count-1 spacings, so N_SCALING_VALUES
+# must stay below HEIGHT_WINDOWS[N_SCALING_BASE_INDEX]["count"].
 N_SCALING_BASE_INDEX = 1  # the n=10000 window in HEIGHT_WINDOWS
-N_SCALING_VALUES = [100, 200, 300]
+N_SCALING_VALUES = [100, 200, 299]
 
 
 def write_height_summary_csv(path, results):
@@ -71,11 +73,14 @@ def main():
     os.makedirs(RESULTS_DIR, exist_ok=True)
     os.makedirs(FIGURES_DIR, exist_ok=True)
 
+    cache_dir = os.path.join(RESULTS_DIR, "zero_cache")
+
     print("=== Height sweep: fixed N=300, four windows across ~5 orders of magnitude in T ===")
     height_results = []
     for spec in HEIGHT_WINDOWS:
         t0 = time.time()
-        res = analyze_window(spec["n_start"], spec["count"], label=spec["label"])
+        cache_path = os.path.join(cache_dir, f"zeros_{spec['n_start']}_{spec['count']}.json")
+        res = analyze_window(spec["n_start"], spec["count"], label=spec["label"], cache_path=cache_path)
         dt = time.time() - t0
         height_results.append(res)
         print(
