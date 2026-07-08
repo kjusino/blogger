@@ -35,52 +35,66 @@ def _edge_array(G):
 def generate_graph(family: str, n: int, seed: int):
     """Return (G, edges) for the named family on n nodes.
 
-    Raises ValueError for an unknown family and RuntimeError if the
-    resulting graph is not connected (the allocation process assumes a
-    single connected component).
+    Raises ValueError for an unknown family and RuntimeError if no
+    connected instance could be sampled within a bounded number of
+    attempts (the allocation process assumes a single connected
+    component). Stochastic families (e.g. Erdos-Renyi near its
+    connectivity threshold) can occasionally sample a disconnected graph
+    by chance -- that's resampled with a fresh draw rather than treated
+    as an error.
     """
     if family not in FAMILIES:
         raise ValueError(f"unknown graph family: {family!r}")
 
     rng = np.random.default_rng(seed)
 
-    if family == "complete":
-        G = nx.complete_graph(n)
-    elif family == "regular3":
-        d = 3 if n > 3 else n - 1
-        if (n * d) % 2 == 1:
-            d -= 1
-        G = nx.random_regular_graph(d, n, seed=int(rng.integers(2**31)))
-    elif family == "regular10":
-        d = 10 if n > 10 else n - 1
-        if (n * d) % 2 == 1:
-            d -= 1
-        G = nx.random_regular_graph(d, n, seed=int(rng.integers(2**31)))
-    elif family == "erdos_renyi":
-        p = min(1.0, 2.0 * np.log(n) / n)
-        G = nx.erdos_renyi_graph(n, p, seed=int(rng.integers(2**31)))
-    elif family == "smallworld_low_rewiring":
-        k = 4 if n > 4 else n - 1
-        G = nx.watts_strogatz_graph(n, k, 0.01, seed=int(rng.integers(2**31)))
-    elif family == "smallworld_high_rewiring":
-        k = 4 if n > 4 else n - 1
-        G = nx.watts_strogatz_graph(n, k, 1.0, seed=int(rng.integers(2**31)))
-    elif family == "torus":
-        side = max(2, int(round(np.sqrt(n))))
-        G = nx.grid_2d_graph(side, side, periodic=True)
-        G = nx.convert_node_labels_to_integers(G)
-        # grid_2d_graph(side, side) yields side*side nodes, which may not
-        # equal the requested n exactly; that's fine, callers use G's
-        # actual node count (see experiment.py) rather than assuming n.
-    elif family == "cycle":
-        G = nx.cycle_graph(n)
-    elif family == "path":
-        G = nx.path_graph(n)
+    def _build():
+        if family == "complete":
+            return nx.complete_graph(n)
+        elif family == "regular3":
+            d = 3 if n > 3 else n - 1
+            if (n * d) % 2 == 1:
+                d -= 1
+            return nx.random_regular_graph(d, n, seed=int(rng.integers(2**31)))
+        elif family == "regular10":
+            d = 10 if n > 10 else n - 1
+            if (n * d) % 2 == 1:
+                d -= 1
+            return nx.random_regular_graph(d, n, seed=int(rng.integers(2**31)))
+        elif family == "erdos_renyi":
+            p = min(1.0, 2.0 * np.log(n) / n)
+            return nx.erdos_renyi_graph(n, p, seed=int(rng.integers(2**31)))
+        elif family == "smallworld_low_rewiring":
+            k = 4 if n > 4 else n - 1
+            return nx.watts_strogatz_graph(n, k, 0.01, seed=int(rng.integers(2**31)))
+        elif family == "smallworld_high_rewiring":
+            k = 4 if n > 4 else n - 1
+            return nx.watts_strogatz_graph(n, k, 1.0, seed=int(rng.integers(2**31)))
+        elif family == "torus":
+            side = max(2, int(round(np.sqrt(n))))
+            G = nx.grid_2d_graph(side, side, periodic=True)
+            # grid_2d_graph(side, side) yields side*side nodes, which may
+            # not equal the requested n exactly; that's fine, callers use
+            # G's actual node count (see experiment.py) rather than
+            # assuming it matches the request.
+            return nx.convert_node_labels_to_integers(G)
+        elif family == "cycle":
+            return nx.cycle_graph(n)
+        elif family == "path":
+            return nx.path_graph(n)
 
-    if G.number_of_nodes() < 2:
-        raise RuntimeError(f"{family} graph on n={n} has fewer than 2 nodes")
-    if not nx.is_connected(G):
-        raise RuntimeError(f"{family} graph on n={n} (seed={seed}) is not connected")
+    max_attempts = 20
+    G = None
+    for _ in range(max_attempts):
+        candidate = _build()
+        if candidate.number_of_nodes() >= 2 and nx.is_connected(candidate):
+            G = candidate
+            break
+    if G is None:
+        raise RuntimeError(
+            f"{family} graph on n={n} (seed={seed}): no connected instance "
+            f"in {max_attempts} attempts"
+        )
 
     return G, _edge_array(G)
 
