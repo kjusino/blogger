@@ -11,6 +11,12 @@ from . import allocation, graphs
 DEFAULT_NS = (128, 256, 512, 1024, 2048)
 DEFAULT_TRIALS = 30
 
+# these families are entirely determined by n (generate_graph ignores the
+# seed for them), so their spectral gap is identical across all "trials" --
+# computing it once per (family, n) instead of once per trial avoids 29/30
+# redundant eigendecompositions of the same graph.
+DETERMINISTIC_FAMILIES = frozenset({"complete", "cycle", "path", "torus"})
+
 
 def run_family_trials(family: str, n: int, trials: int, seed: int):
     """Run `trials` independent instances of `family` at size `n`.
@@ -22,14 +28,24 @@ def run_family_trials(family: str, n: int, trials: int, seed: int):
     gaps = []
     spectral_gaps = []
     actual_n = n
+    is_deterministic = family in DETERMINISTIC_FAMILIES
+    cached_graph = None
     for t in range(trials):
         trial_seed = seed + t
-        G, edges = graphs.generate_graph(family, n, seed=trial_seed)
+        if is_deterministic and cached_graph is not None:
+            G, edges = cached_graph
+        else:
+            G, edges = graphs.generate_graph(family, n, seed=trial_seed)
+            if is_deterministic:
+                cached_graph = (G, edges)
         actual_n = G.number_of_nodes()
         rng = np.random.default_rng(trial_seed)
         loads = allocation.simulate_graphical_two_choice(edges, actual_n, actual_n, rng)
         gaps.append(allocation.max_load_gap(loads, actual_n, actual_n))
-        spectral_gaps.append(graphs.spectral_gap(G))
+        if is_deterministic and spectral_gaps:
+            spectral_gaps.append(spectral_gaps[0])
+        else:
+            spectral_gaps.append(graphs.spectral_gap(G))
     return actual_n, float(np.mean(spectral_gaps)), gaps
 
 

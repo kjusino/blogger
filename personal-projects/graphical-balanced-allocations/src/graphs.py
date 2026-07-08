@@ -8,6 +8,7 @@ never has to touch the networkx object in the hot loop).
 
 import networkx as nx
 import numpy as np
+from scipy.sparse.linalg import eigsh as sp_eigsh
 
 FAMILIES = (
     "complete",
@@ -90,7 +91,38 @@ def spectral_gap(G) -> float:
     This is the standard scalar measure of a graph's expansion: values
     bounded away from 0 indicate a good expander, values shrinking with n
     indicate poor expansion (e.g. paths/cycles have gap = Theta(1/n^2)).
+
+    networkx's default Lanczos-based `algebraic_connectivity` can fail to
+    converge (ArpackNoConvergence) on graphs whose normalized-Laplacian
+    spectrum is nearly degenerate near 0 -- this happens in practice for
+    paths and complete graphs, both used here. We use shift-invert ARPACK
+    instead (fast and robust for the sparse random-graph families), with a
+    dense LAPACK fallback (numerically exact, just slower) for whatever
+    shift-invert still can't handle.
     """
-    if G.number_of_nodes() < 3:
+    n = G.number_of_nodes()
+    if n < 3:
         return float("nan")
-    return float(nx.algebraic_connectivity(G, normalized=True, method="lanczos"))
+
+    degrees = [d for _, d in G.degree()]
+    n_edges = G.number_of_edges()
+    if n_edges == n * (n - 1) // 2:
+        # complete graph: exact closed form, and avoids a near-total-fill-in
+        # sparse factorization that shift-invert would otherwise attempt
+        return n / (n - 1)
+    if n_edges == n and all(d == 2 for d in degrees):
+        # cycle: normalized Laplacian eigenvalues are 1 - cos(2*pi*k/n)
+        return 1.0 - np.cos(2.0 * np.pi / n)
+
+    L = nx.normalized_laplacian_matrix(G).astype(np.float64)
+    try:
+        # shift-invert around a point just below the smallest possible
+        # eigenvalue (0): turns "find the smallest eigenvalues" (slow,
+        # ill-conditioned when they're clustered) into "find the largest
+        # eigenvalues of the inverse" (fast, well-separated after the shift).
+        eigvals = sp_eigsh(L, k=2, sigma=-1e-6, which="LM", return_eigenvectors=False)
+        return float(np.sort(eigvals)[1])
+    except Exception:
+        dense = L.toarray()
+        eigvals = np.linalg.eigvalsh(dense)
+        return float(np.sort(eigvals)[1])
