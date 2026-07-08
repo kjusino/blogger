@@ -127,6 +127,56 @@ def plot_hardness_vs_modularity_scatter(rows, out_path, alpha_target=CLASSICAL_T
     return {"alpha_used": alpha_used, "pearson_r": r_value, "pearson_p": p_value, "n": len(subset)}
 
 
+def plot_independence_check(indep_rows, out_path):
+    alphas = [r["alpha"] for r in indep_rows]
+    predicted = [r["predicted_p_sat_whole"] for r in indep_rows]
+    observed = [r["observed_p_sat_mu0"] for r in indep_rows]
+
+    fig, ax = plt.subplots(figsize=(7, 5))
+    ax.plot(alphas, observed, marker="o", markersize=4, label="observed P(SAT), mu=0.0 (main sweep)",
+            color="#c44e52")
+    ax.plot(alphas, predicted, marker="s", markersize=4, linestyle="--",
+            label="independence-model prediction: p_component(alpha)^k", color="black")
+    ax.axvline(CLASSICAL_THRESHOLD, color="gray", linestyle=":", linewidth=1,
+               label=f"classical threshold ({CLASSICAL_THRESHOLD})")
+    ax.set_xlabel("clause/variable ratio (alpha = m/n)")
+    ax.set_ylabel("P(satisfiable)")
+    ax.set_title("Weakest-link check: is mu=0.0 just k independent smaller instances?")
+    ax.legend(fontsize=8)
+    ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+
+
+def plot_decomposition_overhead(decomp_rows, out_path):
+    mono = [r["decisions_monolithic"] for r in decomp_rows]
+    parts = [r["decisions_sum_parts"] for r in decomp_rows]
+    alphas = [r["alpha"] for r in decomp_rows]
+    unique_alphas = sorted(set(alphas))
+    cmap = plt.get_cmap("viridis")
+    colors = [cmap(unique_alphas.index(a) / max(1, len(unique_alphas) - 1)) for a in alphas]
+
+    fig, ax = plt.subplots(figsize=(6.5, 5.5))
+    ax.scatter(parts, mono, c=colors, alpha=0.8, edgecolors="none")
+
+    lo = max(1, min(min(parts), min(mono)))
+    hi = max(max(parts), max(mono))
+    ax.plot([lo, hi], [lo, hi], color="black", linewidth=1, linestyle="--",
+            label="y = x (no overhead)")
+
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlabel("decisions: solving each community independently (sum)")
+    ax.set_ylabel("decisions: solving the whole formula monolithically")
+    ax.set_title("Monolithic DPLL pays overhead for not exploiting\ndisjoint community structure")
+    ax.legend(fontsize=8)
+    ax.grid(alpha=0.3, which="both")
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+
+
 def generate_all_figures(rows, figures_dir):
     plot_satisfiability_transition(rows, f"{figures_dir}/fig1_satisfiability_transition.png")
     plot_hardness_peak(rows, f"{figures_dir}/fig2_hardness_peak.png")

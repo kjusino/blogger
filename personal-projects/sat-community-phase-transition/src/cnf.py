@@ -102,3 +102,40 @@ def community_3sat(n_vars, n_clauses, n_communities, mu, rng=None):
         clauses.append(_random_clause(rng, pool))
 
     return CNF(n_vars, clauses, communities=communities)
+
+
+def decompose_by_community(cnf):
+    """Split a formula whose every clause lies within a single planted
+    community (e.g. a community_3sat instance generated with mu=0.0) into
+    one independent sub-CNF per community, with variables remapped to a
+    contiguous 1..k range.
+
+    Raises ValueError if the formula has no planted communities, or if any
+    clause spans more than one community (the formula is then not a
+    disjoint union and cannot be decomposed this way).
+    """
+    if not cnf.communities:
+        raise ValueError("cnf has no planted communities")
+
+    membership = {}
+    for idx, comm in enumerate(cnf.communities):
+        for v in comm:
+            membership[v] = idx
+
+    clauses_per_community = [[] for _ in cnf.communities]
+    for clause in cnf.clauses:
+        comm_ids = {membership[abs(lit)] for lit in clause}
+        if len(comm_ids) != 1:
+            raise ValueError("clause spans multiple communities; formula is not decomposable")
+        clauses_per_community[next(iter(comm_ids))].append(clause)
+
+    sub_cnfs = []
+    for idx, comm in enumerate(cnf.communities):
+        var_list = sorted(comm)
+        remap = {v: i + 1 for i, v in enumerate(var_list)}
+        remapped_clauses = [
+            tuple(remap[abs(lit)] if lit > 0 else -remap[abs(lit)] for lit in clause)
+            for clause in clauses_per_community[idx]
+        ]
+        sub_cnfs.append(CNF(n_vars=len(var_list), clauses=remapped_clauses))
+    return sub_cnfs

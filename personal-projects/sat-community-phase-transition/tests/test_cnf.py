@@ -4,7 +4,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from src.cnf import CNF, community_3sat, partition_variables, random_3sat
+from src.cnf import CNF, community_3sat, decompose_by_community, partition_variables, random_3sat
 
 
 def test_random_3sat_shape():
@@ -94,3 +94,36 @@ def test_community_3sat_rejects_invalid_mu():
 def test_cnf_alpha_property():
     cnf = CNF(n_vars=10, clauses=[(1, 2, 3)] * 43)
     assert cnf.alpha == 4.3
+
+
+def test_decompose_by_community_recovers_clause_count_and_satisfiability():
+    from src.solver import solve
+
+    cnf = community_3sat(n_vars=40, n_clauses=160, n_communities=4, mu=0.0, rng=random.Random(5))
+    parts = decompose_by_community(cnf)
+
+    assert len(parts) == 4
+    assert sum(p.n_clauses for p in parts) == cnf.n_clauses
+    assert sum(p.n_vars for p in parts) == cnf.n_vars
+
+    whole_result = solve(cnf)
+    parts_satisfiable = all(solve(p).satisfiable for p in parts)
+    assert whole_result.satisfiable == parts_satisfiable
+
+
+def test_decompose_by_community_rejects_missing_communities():
+    cnf = random_3sat(n_vars=10, n_clauses=20, rng=random.Random(0))
+    try:
+        decompose_by_community(cnf)
+        assert False, "expected ValueError"
+    except ValueError:
+        pass
+
+
+def test_decompose_by_community_rejects_cross_community_clauses():
+    cnf = community_3sat(n_vars=40, n_clauses=100, n_communities=4, mu=0.5, rng=random.Random(6))
+    try:
+        decompose_by_community(cnf)
+        assert False, "expected ValueError (mu=0.5 formulas have cross-community clauses)"
+    except ValueError:
+        pass
