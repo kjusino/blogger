@@ -1,0 +1,82 @@
+{
+  "trials": 30,
+  "ns": [
+    128,
+    256,
+    512,
+    1024,
+    2048
+  ],
+  "largest_n": 2048,
+  "spearman_rho_spectral_gap_vs_max_load_gap": -0.6586518488347032,
+  "spearman_p_value": 8.723391713250377e-07,
+  "expander_gaps_at_largest_n": {
+    "complete": 2.0,
+    "regular3": 2.433333333333333,
+    "regular10": 2.066666666666667,
+    "erdos_renyi": 2.033333333333333,
+    "smallworld_high_rewiring": 2.4
+  },
+  "poor_expander_gaps_at_largest_n": {
+    "smallworld_low_rewiring": 2.3,
+    "torus": 2.2333333333333334,
+    "cycle": 2.7333333333333334,
+    "path": 2.7
+  },
+  "one_choice_gap_at_largest_n": 4.833333333333333,
+  "classical_two_choice_gap_at_largest_n": 2.0,
+  "growth_fits": {
+    "complete": {
+      "best_model": "loglog",
+      "log_r2": 0.6805949008498582,
+      "loglog_r2": 0.7372608744269789
+    },
+    "regular3": {
+      "best_model": "log",
+      "log_r2": 0.9723011363636364,
+      "loglog_r2": 0.9665939692578387
+    },
+    "regular10": {
+      "best_model": "loglog",
+      "log_r2": 0.7022292993630577,
+      "loglog_r2": 0.7514580614463338
+    },
+    "erdos_renyi": {
+      "best_model": "loglog",
+      "log_r2": 0.6436170212765941,
+      "loglog_r2": 0.7030284025289426
+    },
+    "smallworld_low_rewiring": {
+      "best_model": "log",
+      "log_r2": 0.7986725663716823,
+      "loglog_r2": 0.765303092321699
+    },
+    "smallworld_high_rewiring": {
+      "best_model": "log",
+      "log_r2": 0.9241877256317689,
+      "loglog_r2": 0.8960465557054029
+    },
+    "torus": {
+      "best_model": "loglog",
+      "log_r2": 0.9494280002643325,
+      "loglog_r2": 0.9744835385170858
+    },
+    "cycle": {
+      "best_model": "log",
+      "log_r2": 0.9256425948592402,
+      "loglog_r2": 0.8935328458673985
+    },
+    "path": {
+      "best_model": "log",
+      "log_r2": 0.9795984455958548,
+      "loglog_r2": 0.9612535332754826
+    }
+  },
+  "criteria": {
+    "spectral_gap_negatively_correlated_with_max_load_gap": true,
+    "majority_of_expanders_fit_loglog_growth": true,
+    "majority_of_poor_expanders_fit_log_growth": true,
+    "expanders_track_classical_two_choice_baseline": true,
+    "poor_expanders_all_exceed_complete_graph": true
+  }
+}
