@@ -85,7 +85,7 @@ def plot_scaling_vs_n(subsample_results, fit, path):
     ax.loglog(x_line, fit_line, "-", color="#c44e52",
               label=f"OLS fit: slope={fit['slope']:.2f}")
 
-    ref = ks[0] * (ns[0] / x_line) ** -0.5
+    ref = ks[0] * (x_line / ns[0]) ** -0.5
     ax.loglog(x_line, ref, "--", color="#55a868", label="reference slope = -1/2")
 
     ax.set_xlabel("N (spacings in window)")
