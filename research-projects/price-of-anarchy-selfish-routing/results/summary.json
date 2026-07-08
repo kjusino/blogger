@@ -1,0 +1,46 @@
+{
+  "degrees": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "n_trials_per_degree": 300,
+  "max_edges": 20,
+  "battery_elapsed_seconds": 6.2609288692474365,
+  "convergence_elapsed_seconds": 3.3855412006378174,
+  "per_degree": {
+    "1": {
+      "theoretical_bound": 1.3333333333333333,
+      "max_empirical_poa": 1.2382079646376491,
+      "mean_empirical_poa": 1.0184403361353043,
+      "n_violations": 0,
+      "worst_case_two_link_peak_poa": 1.328191319964216
+    },
+    "2": {
+      "theoretical_bound": 1.6257523845831854,
+      "max_empirical_poa": 1.4840825656926582,
+      "mean_empirical_poa": 1.0399994283096672,
+      "n_violations": 0,
+      "worst_case_two_link_peak_poa": 1.6192850572618778
+    },
+    "3": {
+      "theoretical_bound": 1.8956282037587904,
+      "max_empirical_poa": 1.451295708834238,
+      "mean_empirical_poa": 1.052747115384409,
+      "n_violations": 0,
+      "worst_case_two_link_peak_poa": 1.8879280451064713
+    },
+    "4": {
+      "theoretical_bound": 2.1505017648768776,
+      "max_empirical_poa": 2.0986797970915627,
+      "mean_empirical_poa": 1.0711911787487534,
+      "n_violations": 0,
+      "worst_case_two_link_peak_poa": 2.141629280732188
+    }
+  },
+  "braess_paradox": {
+    "cost_without_shortcut": 1.5000000000000002,
+    "cost_with_shortcut": 2.0
+  }
+}
