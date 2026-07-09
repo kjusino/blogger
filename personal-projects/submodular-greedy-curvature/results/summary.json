@@ -1,0 +1,32 @@
+{
+  "n_trials": 702,
+  "n_instances": 234,
+  "m1_validity": {
+    "description": "fraction of trials with ratio >= curvature_bound - tol",
+    "validity_rate": 1.0,
+    "n_violations": 0,
+    "pass": true
+  },
+  "m2_informativeness": {
+    "description": "Spearman rho(curvature, 1-ratio), one-sided p < 0.01",
+    "spearman_rho": 0.44794057856350805,
+    "p_value": 6.072712645418627e-36,
+    "pass": true
+  },
+  "m3_superior_predictor": {
+    "description": "mean|min_ratio - curvature_bound| vs mean|min_ratio - worst_case_bound| per instance (lower = tighter characterization of worst-observed case)",
+    "mae_curvature_bound": 0.26967419144454097,
+    "mae_constant_bound": 0.35849578128825754,
+    "pass": true
+  },
+  "m4_tightness_at_extremes": {
+    "description": "mean ratio for curvature<0.05 (near-modular) vs curvature>0.9",
+    "low_curvature_mean_ratio": 1.0,
+    "high_curvature_mean_ratio": 0.9913618769970608,
+    "n_low_curvature_trials": 54,
+    "n_high_curvature_trials": 357,
+    "pass": true
+  },
+  "worst_case_bound": 0.6321205588285577,
+  "overall_pass": true
+}
