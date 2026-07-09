@@ -1,0 +1,10 @@
+{
+  "trend_slope": -7.107325495796737e-05,
+  "trend_intercept": 0.6588250236008908,
+  "trend_r2": 0.2819713822227389,
+  "asymptotic_floor": 0.6321205588285577,
+  "all_means_meet_exact_finite_floor": true,
+  "max_gap_to_exact_floor": 0.01690625000000001,
+  "rom_significantly_better_at_every_n": true,
+  "search_max_improvement": 0.007500000000000062
+}
