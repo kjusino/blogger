@@ -32,9 +32,9 @@
     "p1_single_hash": 0.8333333333333334,
     "p2_single_hash": 0.5,
     "rho_theory": 0.2630344058337938,
-    "rho_fitted": 0.40685913845912813,
-    "fit_r_squared": 0.9805800511936923,
-    "relative_error": 0.5467905697333539,
+    "rho_fitted": 0.4278251885845209,
+    "fit_r_squared": 0.9943877775945963,
+    "relative_error": 0.6264989639980981,
     "n_list": [
       200,
       500,
@@ -43,9 +43,12 @@
       4000,
       8000,
       16000,
-      32000
+      32000,
+      64000,
+      128000,
+      256000
     ],
-    "trials_per_n": 100,
+    "trials_per_n": 60,
     "verdict": "FAIL",
     "verdict_rule": "|rho_fitted - rho_theory| / rho_theory < 0.25 AND R^2 > 0.8"
   },

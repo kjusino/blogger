@@ -5,9 +5,11 @@ import pytest
 
 from src.data import (
     planted_neighbor_dataset,
+    promise_preserving_dataset,
     random_unit_vector,
     random_unit_vectors,
     vector_at_angle,
+    vectors_at_angle_batch,
 )
 
 
@@ -61,6 +63,65 @@ def test_planted_neighbor_dataset_shapes_and_angle():
     )
     theta_actual = math.acos(cos_actual)
     assert theta_actual == pytest.approx(near_theta, abs=1e-6)
+
+
+def test_vectors_at_angle_batch_all_at_exact_angle():
+    rng = np.random.default_rng(13)
+    dim = 20
+    u = random_unit_vector(dim, rng)
+    theta = 0.9
+    V = vectors_at_angle_batch(u, theta, n=100, rng=rng)
+    assert V.shape == (100, dim)
+    norms = np.linalg.norm(V, axis=1)
+    np.testing.assert_allclose(norms, np.ones(100), atol=1e-8)
+    cos_actual = np.clip(V @ u, -1.0, 1.0)
+    theta_actual = np.arccos(cos_actual)
+    np.testing.assert_allclose(theta_actual, np.full(100, theta), atol=1e-6)
+
+
+def test_vectors_at_angle_batch_directions_are_not_identical():
+    """Batch vectors should differ from each other (random orthogonal
+    directions), not just be a single repeated vector."""
+    rng = np.random.default_rng(14)
+    dim = 10
+    u = random_unit_vector(dim, rng)
+    V = vectors_at_angle_batch(u, 0.7, n=20, rng=rng)
+    pairwise_distinct = not np.allclose(V[0], V[1])
+    assert pairwise_distinct
+
+
+def test_promise_preserving_dataset_all_background_at_exact_far_angle():
+    rng = np.random.default_rng(15)
+    dim = 24
+    near_theta, far_theta = 0.3, math.pi / 2
+    query, dataset, planted_idx = promise_preserving_dataset(
+        n_background=30, dim=dim, near_theta=near_theta, far_theta=far_theta, rng=rng
+    )
+    assert dataset.shape == (31, dim)
+    for i in range(dataset.shape[0]):
+        if i == planted_idx:
+            continue
+        cos_actual = np.clip(np.dot(query, dataset[i]), -1.0, 1.0)
+        theta_actual = math.acos(cos_actual)
+        assert theta_actual == pytest.approx(far_theta, abs=1e-6)
+
+
+def test_promise_preserving_dataset_does_not_shrink_min_background_angle_with_n():
+    """The whole point of promise-preservation: unlike i.i.d. background,
+    the minimum angle among background points should stay pinned at
+    far_theta regardless of n (no order-statistics drift)."""
+    rng = np.random.default_rng(16)
+    dim = 24
+    far_theta = math.pi / 2
+    for n in [20, 2000]:
+        query, dataset, planted_idx = promise_preserving_dataset(
+            n_background=n, dim=dim, near_theta=0.3, far_theta=far_theta, rng=rng
+        )
+        mask = np.arange(dataset.shape[0]) != planted_idx
+        cos_vals = np.clip(dataset[mask] @ query, -1.0, 1.0)
+        thetas = np.arccos(cos_vals)
+        assert thetas.min() == pytest.approx(far_theta, abs=1e-6)
+        assert thetas.max() == pytest.approx(far_theta, abs=1e-6)
 
 
 def test_planted_neighbor_is_closer_than_typical_background_in_high_dim():

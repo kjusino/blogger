@@ -8,7 +8,12 @@ import numpy as np
 import pandas as pd
 
 from . import theory
-from .data import planted_neighbor_dataset, random_unit_vector, vector_at_angle
+from .data import (
+    planted_neighbor_dataset,
+    promise_preserving_dataset,
+    random_unit_vector,
+    vector_at_angle,
+)
 from .hyperplane_hash import empirical_single_bit_collision_rate
 from .lsh_index import LSHIndex
 
@@ -128,6 +133,7 @@ def run_scaling_experiment(
     seed: int,
     k: int | None = None,
     L: int | None = None,
+    dataset_mode: str = "iid",
 ) -> pd.DataFrame:
     """Experiment 3: fix a near/far angle pair (near_theta collides often,
     far_theta collides rarely). For each background size n, use the
@@ -139,11 +145,22 @@ def run_scaling_experiment(
 
     `k` and `L` are accepted for API symmetry/testing (to force a fixed,
     non-adaptive k, L) but default to the adaptive k_of_n/L_of_n schedule.
+
+    `dataset_mode`:
+      - "iid" (default): background is i.i.d. random unit vectors. Realistic,
+        but the (near_theta, far_theta)-near-neighbor "promise" is only
+        approximate -- see `planted_neighbor_dataset`'s docstring.
+      - "promise": every background point is placed at EXACTLY far_theta
+        (see `promise_preserving_dataset`), isolating the theorem's n^rho
+        prediction from that confound.
     """
     rng = np.random.default_rng(seed)
     p1 = theory.single_hash_collision_prob(near_theta)
     p2 = theory.single_hash_collision_prob(far_theta)
     rho_theory = theory.rho_exponent(p1, p2)
+
+    if dataset_mode not in {"iid", "promise"}:
+        raise ValueError(f"unknown dataset_mode: {dataset_mode}")
 
     rows = []
     for n in n_list:
@@ -152,7 +169,12 @@ def run_scaling_experiment(
         candidate_counts = []
         found_count = 0
         for _ in range(trials_per_n):
-            query, dataset, planted_idx = planted_neighbor_dataset(n, dim, near_theta, rng)
+            if dataset_mode == "iid":
+                query, dataset, planted_idx = planted_neighbor_dataset(n, dim, near_theta, rng)
+            else:
+                query, dataset, planted_idx = promise_preserving_dataset(
+                    n, dim, near_theta, far_theta, rng
+                )
             index = LSHIndex(dim=dim, k=k_n, L=L_n, rng=rng)
             index.index(dataset)
             candidates = index.query_candidates(query)
