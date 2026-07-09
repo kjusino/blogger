@@ -73,8 +73,8 @@ def plot_and_or_threshold(
     ax.set_xlabel("angle theta (radians)")
     ax.set_ylabel("Pr[collide in >= 1 of L tables]")
     ax.set_title(
-        f"AND-OR LSH S-curve (k={k}, L={L}): theory* theta={theory_threshold:.3f}, "
-        f"empirical theta={empirical_threshold:.3f}"
+        f"AND-OR LSH S-curve (k={k}, L={L})\n"
+        f"theta* theory={theory_threshold:.3f}, empirical={empirical_threshold:.3f}"
     )
     ax.legend()
     fig.tight_layout()
