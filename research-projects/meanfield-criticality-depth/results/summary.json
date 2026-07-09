@@ -1,0 +1,45 @@
+{
+  "n_grid_points": 49,
+  "forward_correlation_chi1": {
+    "median_relative_error": 0.05547822843857866,
+    "pearson_r_theory_vs_empirical": 0.9157342202347721
+  },
+  "backprop_gradient_chi1": {
+    "median_relative_error": 0.010295836132094421,
+    "pearson_r_theory_vs_empirical": 0.9996366735292076
+  },
+  "trainable_depth_vs_correlation_length": {
+    "n_points_used": 49,
+    "pearson_r_log_xi_vs_log_Lstar": 0.6598385958093367,
+    "ordered_phase": {
+      "n_points_used": 28,
+      "pearson_r": 0.8574189948268723
+    },
+    "chaotic_phase": {
+      "n_points_used": 21,
+      "pearson_r": -0.31159436096893306
+    }
+  },
+  "grid": {
+    "sigma_w2": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5
+    ],
+    "sigma_b2": [
+      0.0,
+      0.0833,
+      0.1667,
+      0.25,
+      0.3333,
+      0.4167,
+      0.5
+    ],
+    "seed": 0,
+    "elapsed_seconds": 311.33949160575867
+  }
+}
