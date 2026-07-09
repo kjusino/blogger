@@ -1,0 +1,53 @@
+{
+  "experiment_1_single_hash": {
+    "description": "Empirical Pr[random hyperplane agrees] vs theory 1 - theta/pi",
+    "n_points": 36,
+    "dims_tested": [
+      8,
+      64,
+      512
+    ],
+    "num_trials_per_point": 20000,
+    "max_abs_error": 0.005758131707518599,
+    "max_z_score": 2.0290619483223273,
+    "verdict": "PASS",
+    "verdict_rule": "max |empirical - theory| / stderr < 5.0 across all (theta, dim) points"
+  },
+  "experiment_2_and_or_threshold": {
+    "description": "Empirical AND-OR (k, L) LSH recall S-curve vs theory 1-(1-p^k)^L",
+    "k": 8,
+    "L": 20,
+    "num_trials_per_point": 2000,
+    "theory_threshold_theta": 1.0824506200374882,
+    "empirical_threshold_theta": 1.080201342281879,
+    "threshold_abs_error_radians": 0.002249277755609125,
+    "max_curve_abs_error": 0.021321672818190085,
+    "verdict": "PASS",
+    "verdict_rule": "threshold error < 0.08 rad AND max curve abs error < 0.08"
+  },
+  "experiment_3_scaling": {
+    "description": "Fitted exponent of mean LSH candidate-set size vs n, compared to Indyk-Motwani rho = ln(1/p1)/ln(1/p2)",
+    "near_theta": 0.5235987755982988,
+    "far_theta": 1.5707963267948966,
+    "p1_single_hash": 0.8333333333333334,
+    "p2_single_hash": 0.5,
+    "rho_theory": 0.2630344058337938,
+    "rho_fitted": 0.40685913845912813,
+    "fit_r_squared": 0.9805800511936923,
+    "relative_error": 0.5467905697333539,
+    "n_list": [
+      200,
+      500,
+      1000,
+      2000,
+      4000,
+      8000,
+      16000,
+      32000
+    ],
+    "trials_per_n": 100,
+    "verdict": "FAIL",
+    "verdict_rule": "|rho_fitted - rho_theory| / rho_theory < 0.25 AND R^2 > 0.8"
+  },
+  "overall_verdict": "PARTIAL/FAIL"
+}
