@@ -1,0 +1,90 @@
+{
+  "majority_total_influence_exponent": 0.49727012869587184,
+  "majority_total_influence_exponent_ci95": [
+    0.49634518549165957,
+    0.4981950719000841
+  ],
+  "majority_theory_exponent": 0.5,
+  "majority_fit_r_squared": 0.9999504693047978,
+  "tribes_max_influence_loglog_exponent": -0.8445238317130089,
+  "tribes_ratio_vs_n_slope": 0.000807079468257242,
+  "noise_sensitivity_small_delta_exponents": {
+    "majority": {
+      "exponent": 0.9005963802348699,
+      "exponent_stderr": 0.03180332449247059,
+      "r_squared": 0.9962727873677613
+    },
+    "parity": {
+      "exponent": 0.735076700871039,
+      "exponent_stderr": 0.06301366603601755,
+      "r_squared": 0.9784297546511429
+    },
+    "random_dnf": {
+      "exponent": 0.9967544694442213,
+      "exponent_stderr": 0.015589885731282187,
+      "r_squared": 0.9992666485957673
+    },
+    "tribes": {
+      "exponent": 0.9656118721558009,
+      "exponent_stderr": 0.009512060488491335,
+      "r_squared": 0.9997089692647531
+    }
+  },
+  "noise_sensitivity_small_delta_caveat": "At fixed n, NS_delta(f) ~ delta * I(f) / 2 as delta -> 0 for ANY Boolean function (first-order Taylor expansion of noise stability), so this small-delta exponent fit converges to ~1 for every family and does NOT distinguish Majority's asymptotic sqrt(delta) law from Tribes' Theta(delta) law -- see noise_sensitivity_vs_n_fixed_delta below for the regime that does.",
+  "noise_sensitivity_vs_n_fixed_delta": 0.2,
+  "majority_converges_toward_sheppard_limit": true,
+  "majority_sheppard_limit_value": 0.20483276469913342,
+  "tribes_stays_below_sheppard_limit": true,
+  "kkl_min_ratio_observed": 0.5008309266841102,
+  "kkl_bound_ever_violated": false,
+  "random_dnf_total_influence_by_k": [
+    {
+      "k": 1,
+      "m": 1,
+      "total_influence": 1.0,
+      "variance": 0.9999992488888889,
+      "ns_exponent": 0.9776041084601772,
+      "ns_r_squared": 0.9942223881961604
+    },
+    {
+      "k": 2,
+      "m": 3,
+      "total_influence": 1.2462666666666666,
+      "variance": 0.93436156,
+      "ns_exponent": 0.9338003726870129,
+      "ns_r_squared": 0.9845142407718858
+    },
+    {
+      "k": 3,
+      "m": 6,
+      "total_influence": 2.1920333333333333,
+      "variance": 0.9948925155555556,
+      "ns_exponent": 0.9494190786868065,
+      "ns_r_squared": 0.9998982951621171
+    },
+    {
+      "k": 4,
+      "m": 11,
+      "total_influence": 2.8610333333333333,
+      "variance": 0.9985661155555555,
+      "ns_exponent": 0.9773792048242717,
+      "ns_r_squared": 0.9981479353170446
+    },
+    {
+      "k": 5,
+      "m": 22,
+      "total_influence": 3.3861,
+      "variance": 0.9995533822222222,
+      "ns_exponent": 0.994990067439173,
+      "ns_r_squared": 0.9990260774211255
+    },
+    {
+      "k": 6,
+      "m": 44,
+      "total_influence": 4.079033333333333,
+      "variance": 0.99995376,
+      "ns_exponent": 0.9539348608399245,
+      "ns_r_squared": 0.9991794047608565
+    }
+  ]
+}
