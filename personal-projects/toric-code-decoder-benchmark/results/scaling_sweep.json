@@ -1,0 +1,98 @@
+[
+  {
+    "L": 5,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.00010388515333033866
+  },
+  {
+    "L": 5,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.0001423837066613487
+  },
+  {
+    "L": 9,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.0004691781200017431
+  },
+  {
+    "L": 9,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.0007012875400081005
+  },
+  {
+    "L": 13,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.0015400269733239233
+  },
+  {
+    "L": 13,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.0010189681866677347
+  },
+  {
+    "L": 17,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.004027409753334723
+  },
+  {
+    "L": 17,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.001846088813337398
+  },
+  {
+    "L": 21,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.010634608133335253
+  },
+  {
+    "L": 21,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.0032780258466664236
+  },
+  {
+    "L": 25,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.023686299353321373
+  },
+  {
+    "L": 25,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.005428238193342925
+  },
+  {
+    "L": 29,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.043225157973326225
+  },
+  {
+    "L": 29,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.009271639406670147
+  },
+  {
+    "L": 33,
+    "decoder": "mwpm",
+    "shots": 150,
+    "mean_decode_seconds": 0.0960984469133488
+  },
+  {
+    "L": 33,
+    "decoder": "union_find",
+    "shots": 150,
+    "mean_decode_seconds": 0.012518551539995619
+  }
+]
