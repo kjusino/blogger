@@ -2,6 +2,7 @@ import { Tags } from '../resources/enums/Tags';
 import { ArticleProps } from '../resources/interfaces/ArticleProps';
 const phdData: ArticleProps = {
     route: '/phd',
+    hidden: true,
     title: 'Quantum Computation',
     pics: ['quantumCircuit.png', 'quantumGap.png', 'quantumStack.png'],
     tags: [Tags.Math, Tags.Computation, Tags.Physics],

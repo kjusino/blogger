@@ -76,16 +76,6 @@ const NODES: GraphNode[] = [
 
     // Blog post leaf nodes
     {
-        id: 'phd',
-        label: 'Quantum Computation',
-        type: 'post',
-        route: '/phd',
-        r: 11,
-        color: THEME_COLORS.math,
-        theme: 'math',
-        themes: ['math', 'physics'],
-    },
-    {
         id: 'rust',
         label: 'Getting Rusty',
         type: 'post',
@@ -122,15 +112,6 @@ const NODES: GraphNode[] = [
         color: THEME_COLORS.culture,
         theme: 'culture',
     },
-    {
-        id: 'pa',
-        label: 'Happy Fathers Day, Papi!',
-        type: 'post',
-        route: 'pa',
-        r: 11,
-        color: THEME_COLORS.culture,
-        theme: 'culture',
-    },
 ];
 
 const RAW_LINKS: RawLink[] = [
@@ -138,14 +119,11 @@ const RAW_LINKS: RawLink[] = [
     { source: 'kenneth', target: 'cs' },
     { source: 'kenneth', target: 'physics' },
     { source: 'kenneth', target: 'culture' },
-    { source: 'math', target: 'phd' },
-    { source: 'physics', target: 'phd' },
     { source: 'cs', target: 'rust' },
     { source: 'cs', target: 'ai_engineering' },
     { source: 'cs', target: 'lean_grad' },
     { source: 'math', target: 'lean_grad' },
     { source: 'culture', target: 'about' },
-    { source: 'culture', target: 'pa' },
 ];
 
 // ── Component ────────────────────────────────────────────────────────────────

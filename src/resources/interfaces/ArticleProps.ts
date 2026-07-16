@@ -13,4 +13,5 @@ export interface ArticleProps {
     createdDate?: string;
     audioSrc?: string;
     videoSrc?: string;
+    hidden?: boolean;
 }
