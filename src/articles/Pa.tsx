@@ -1,6 +1,7 @@
 import { ArticleProps } from '../resources/interfaces/ArticleProps';
 const data: ArticleProps = {
     route: 'pa',
+    hidden: true,
     title: 'Happy Fathers Day, Papi!',
     abstract: 'The Man, The Myth, The Legend',
     pics: ['pa.png', 'pa2.png'],

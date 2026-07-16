@@ -56,7 +56,7 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             I will begin a Computer Science (CS) PhD program this fall at{' '}
             <a href="https://www.khoury.northeastern.edu/" target="_blank">
-                Northeastern University's Khoury College for Computer Science
+                Northeastern University's Khoury College of Computer Sciences
             </a>{' '}
             as part of the Formal Methods Group. My research is supported by the
             National Science Foundation (NSF) CSGrad4US Fellowship.
@@ -79,11 +79,11 @@ const LeanInToGradSchool: ArticleProps = {
             incredibly talented people there, but the most important lesson was
             this: the absolute necessity of thoroughly testing software for the
             enormous range of scenarios that real usage brings. The larger and
-            wider you cast the scenario-net, the better chance of finding bugs
+            wider you cast the scenario-net, the better the chance of finding bugs
             and fixing them before software reaches production.
         </p>,
         <blockquote style={pullQuoteStyle}>
-            But the absence of bugs does not imply that bugs are absent.
+            But the absence of detected bugs does not imply that bugs are absent.
         </blockquote>,
         <p>
             No matter how big your scenario-net, there could still be bugs
@@ -101,7 +101,7 @@ const LeanInToGradSchool: ArticleProps = {
             Medicine (FMI) as a Software Engineer.
         </p>,
         <p>
-            FMI sells Software as Medical Device products regulated by the Food
+            FMI sells Software as a Medical Device (SaMD) products regulated by the Food
             and Drug Administration (FDA), and must adhere to all regulatory
             standards when releasing new software to patients. Every team deploying to our globally-distributed production
             environments had to follow a strict Software Development Life Cycle
@@ -144,7 +144,7 @@ const LeanInToGradSchool: ArticleProps = {
             And Lean's creator Leonardo de Moura agrees.
         </p>,
         <p>
-            He and a world-renowned group of computer scientists and
+            De Moura and a world-renowned group of computer scientists and
             mathematicians around the globe have been building tools to{' '}
             <strong>prove</strong> software correctness, not just test for it,
             but <em>mathematically guarantee</em> it. I want to join this global
@@ -177,7 +177,7 @@ const LeanInToGradSchool: ArticleProps = {
             academics researching them.
         </p>,
         <p>
-            Leonardo changed this. Designed with a software verification-first
+            De Moura changed this. Designed with a software verification-first
             mindset, Lean reduces the barrier to entry for ITPs and makes it
             practical for engineers to prove the correctness of software built in
             the Lean programming language using the Lean theorem prover. One
@@ -209,8 +209,9 @@ const LeanInToGradSchool: ArticleProps = {
             <strong>
                 1. Software development has undergone a phase transition
             </strong>
-            , like when humans went from vacuum tubes to punch cards, punch cards
-            to machine code, machine code to programming languages.
+            , like when humans went from machine code to assembly,
+            assembly to high-level languages, high-level languages to
+            frameworks and abstractions.
             LLM-augmented engineering is the future, and there's nothing anyone
             can do about it.
         </p>,
@@ -259,7 +260,7 @@ const LeanInToGradSchool: ArticleProps = {
             generations to leverage as a library of truth. Instead of letting
             models randomly predict the next token, we endow them with the
             ability to reason mathematically, and therefore learn new domains
-            correctly, potentially discovering solutions to earth's biggest
+            correctly, potentially discovering solutions to Earth's biggest
             challenges that no single person could achieve alone.
         </p>,
         <p>

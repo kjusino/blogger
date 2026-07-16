@@ -8,7 +8,7 @@ const Articles = () => {
     const tagForThisPage = queryParams.get('tag') ?? '';
     const filteredArticles = allData
         .filter((article) => {
-            return article.tags?.toLocaleString().includes(tagForThisPage);
+            return !article.hidden && article.tags?.toLocaleString().includes(tagForThisPage);
         })
         .reverse();
 
