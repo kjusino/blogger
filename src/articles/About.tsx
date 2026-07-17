@@ -74,11 +74,11 @@ const data: ArticleProps = {
             undergraduate curriculum (for better or for worse).
         </p>,
         <p>
-            My interests lied at the intersection of math, computer science, and
-            physics. I wanted my coursework to reflect that and for classes from
-            the neighboring disciplines to illuminate new paths between each, so
-            as to purposefully build bridges between my mental model. After all,
-            there is only one Nature.
+            My interests have always been at the intersection of math, computer
+            science, and physics. I wanted my coursework to reflect that and for
+            classes from the neighboring disciplines to illuminate new paths
+            between each, so as to purposefully build bridges between my mental
+            model. After all, there is only one Nature.
         </p>,
     ],
 };
