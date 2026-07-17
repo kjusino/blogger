@@ -10,7 +10,8 @@
 import { getAccessToken } from '../server/integrations/msTokens';
 
 const GRAPH = 'https://graph.microsoft.com/v1.0';
-const WORKBOOK_PATH = '/PersonalApps/blog-analytics.xlsx';
+const WORKBOOK_PATH =
+    process.env.ANALYTICS_WORKBOOK_PATH || '/PersonalApps/blog-analytics.xlsx';
 const TABLE = 'Events';
 const HEADERS = [
     'timestamp',
@@ -20,7 +21,9 @@ const HEADERS = [
     'referrer',
     'device',
     'read_seconds',
+    'ip_hash',
 ];
+const END_COL = String.fromCharCode('A'.charCodeAt(0) + HEADERS.length - 1); // 8 cols -> 'H'
 const XLSX_MIME =
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
 
@@ -72,17 +75,18 @@ async function tableExists(): Promise<boolean> {
 }
 
 async function createEventsTable(sheet: string): Promise<void> {
-    console.log(`• writing headers to ${sheet}!A1:G1…`);
+    const range = `A1:${END_COL}1`;
+    console.log(`• writing headers to ${sheet}!${range}…`);
     const hdr = await g(
-        `${wb(WORKBOOK_PATH)}/worksheets('${sheet}')/range(address='A1:G1')`,
+        `${wb(WORKBOOK_PATH)}/worksheets('${sheet}')/range(address='${range}')`,
         { method: 'PATCH', body: JSON.stringify({ values: [HEADERS] }) }
     );
     if (!hdr.ok) throw new Error(`header write failed: ${hdr.status} ${await hdr.text()}`);
 
-    console.log('• adding table over A1:G1…');
+    console.log(`• adding table over ${range}…`);
     const add = await g(`${wb(WORKBOOK_PATH)}/tables/add`, {
         method: 'POST',
-        body: JSON.stringify({ address: `${sheet}!A1:G1`, hasHeaders: true }),
+        body: JSON.stringify({ address: `${sheet}!${range}`, hasHeaders: true }),
     });
     if (!add.ok) throw new Error(`table add failed: ${add.status} ${await add.text()}`);
     const created = (await add.json()) as { name: string };
@@ -97,20 +101,45 @@ async function createEventsTable(sheet: string): Promise<void> {
     }
 }
 
-async function verify(): Promise<void> {
+async function currentColumns(): Promise<string[]> {
     const res = await g(`${wb(WORKBOOK_PATH)}/tables('${TABLE}')/columns`);
-    if (!res.ok) throw new Error(`verify failed: ${res.status} ${await res.text()}`);
+    if (!res.ok) throw new Error(`columns read failed: ${res.status} ${await res.text()}`);
     const json = (await res.json()) as { value: { name: string }[] };
-    const names = json.value.map((c) => c.name);
+    return json.value.map((c) => c.name);
+}
+
+// Non-destructive migration: append any HEADERS the table is missing (in order),
+// leaving existing rows and data untouched. New columns get blank cells.
+async function reconcileColumns(): Promise<void> {
+    const existing = await currentColumns();
+    const missing = HEADERS.filter((h) => !existing.includes(h));
+    if (missing.length === 0) {
+        console.log('• columns already up to date');
+        return;
+    }
+    for (const name of missing) {
+        console.log(`• adding missing column '${name}'…`);
+        const res = await g(`${wb(WORKBOOK_PATH)}/tables('${TABLE}')/columns`, {
+            method: 'POST',
+            body: JSON.stringify({ name }),
+        });
+        if (!res.ok) throw new Error(`add column '${name}' failed: ${res.status} ${await res.text()}`);
+    }
+}
+
+async function verify(): Promise<void> {
+    const names = await currentColumns();
     const ok = JSON.stringify(names) === JSON.stringify(HEADERS);
     console.log('• verify columns:', names, ok ? '✅ match' : '❌ MISMATCH');
     if (!ok) throw new Error('column headers do not match EventRow');
 }
 
 async function main() {
+    console.log(`• workbook: ${WORKBOOK_PATH}`);
     await ensureWorkbookFile();
     if (await tableExists()) {
-        console.log('• Events table already exists — verifying only');
+        console.log('• Events table exists — reconciling columns');
+        await reconcileColumns();
     } else {
         const sheet = await firstSheetName();
         await createEventsTable(sheet);
