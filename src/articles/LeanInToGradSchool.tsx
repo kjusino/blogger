@@ -59,31 +59,41 @@ const LeanInToGradSchool: ArticleProps = {
                 Northeastern University's Khoury College of Computer Sciences
             </a>{' '}
             as part of the Formal Methods Group. My research is supported by the
-            National Science Foundation (NSF) CSGrad4US Fellowship.
+            U.S. governments' National Science Foundation's (NSF){' '}
+            <a
+                href="https://www.nsf.gov/funding/opportunities/dcl-computer-information-science-engineering-graduate"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                CSGrad4US Fellowship.
+            </a>
         </p>,
         <p>
             I want to work at the frontier of four distinct but overlapping
             sub-disciplines, conducting research experiments that accelerate
             (flywheel) progress in all four simultaneously. My research will be
-            grounded in a powerful technology developed recently:{' '}
+            grounded in a powerful technology recently developed:{' '}
             <a href="https://lean-lang.org/" target="_blank">
                 <strong>Lean</strong>
             </a>
             .
         </p>,
         <hr />,
-        <h2>Why? My Time in Software Engineering</h2>,
+        <h2>
+            Why? <i>My Time in Software Engineering</i>
+        </h2>,
         <p>
             I began my career as a Software Developer in Test at IBM's NextGen
             Cloud in Littleton, Massachusetts. I learned so much from the
             incredibly talented people there, but the most important lesson was
             this: the absolute necessity of thoroughly testing software for the
             enormous range of scenarios that real usage brings. The larger and
-            wider you cast the scenario-net, the better the chance of finding bugs
-            and fixing them before software reaches production.
+            wider you cast the scenario-net, the better the chance of finding
+            bugs and fixing them before software reaches production.
         </p>,
         <blockquote style={pullQuoteStyle}>
-            But the absence of detected bugs does not imply that bugs are absent.
+            But the absence of detected bugs does not imply that bugs are
+            absent.
         </blockquote>,
         <p>
             No matter how big your scenario-net, there could still be bugs
@@ -92,33 +102,34 @@ const LeanInToGradSchool: ArticleProps = {
             failures.
         </p>,
         <p>
-            Having just graduated with my Bachelor's in Mathematics, I strived to
-            be as thorough with my software testing at IBM as I had been solving
-            partial differential equations and calculating Fourier transforms by
-            pen and paper: <em>very</em>. I always thought about how to find edge
-            cases and 99th-percentile scenarios, and I took this testing mindset
-            with me when I joined the Quality Engineering group at Foundation
-            Medicine (FMI) as a Software Engineer.
+            Having just graduated with my Bachelor's in Mathematics, I strived
+            to be as thorough with my software testing at IBM as I had been
+            solving partial differential equations and calculating Fourier
+            transforms by pen and paper: <em>very</em>. I always thought about
+            how to find edge cases and 99th-percentile scenarios, and I took
+            this testing mindset with me when I joined the Quality Engineering
+            group at Foundation Medicine (FMI) as a Software Engineer.
         </p>,
         <p>
-            FMI sells Software as a Medical Device (SaMD) products regulated by the Food
-            and Drug Administration (FDA), and must adhere to all regulatory
-            standards when releasing new software to patients. Every team deploying to our globally-distributed production
-            environments had to follow a strict Software Development Life Cycle
-            (SDLC) process to prove to
-            auditors that we adhered to all standards during development.
+            FMI sells Software as a Medical Device (SaMD) products regulated by
+            the Food and Drug Administration (FDA), and must adhere to all
+            regulatory standards when releasing new software to patients. Every
+            team deploying to our globally-distributed production environments
+            had to follow a strict Software Development Life Cycle (SDLC)
+            process to prove to auditors that we adhered to all standards during
+            development.
         </p>,
         <p>
             I led the Compliance Engineering team, where we built automated
             systems to formally verify regulatory adherence by other software
             teams promoting products from dev → qa → stage → prod. Our "release
-            manager" system generates a software verification report that proves,
-            to FMI and to auditors, that products were installed successfully
-            and are behaving as expected. It pulls live data across all
-            environments and synthesizes a current model of the release. If the
-            release passes a comprehensive swath of verification checks, the
-            system verifies the release, the report is sent for signatures, and
-            the product goes live.
+            manager" system generates a software verification report that
+            proves, to FMI and to auditors, that products were installed
+            successfully and are behaving as expected. It pulls live data across
+            all environments and synthesizes a current-state model of the
+            release. If the model passes a comprehensive swath of verification
+            checks, the release manager verifies the package, the report is sent
+            for signatures, and the product goes live.
         </p>,
         <blockquote style={pullQuoteStyle}>
             But process correctness does not guarantee product correctness.
@@ -127,12 +138,14 @@ const LeanInToGradSchool: ArticleProps = {
             A compliant software system can still contain bugs unknown to all.
             And this <em>really</em> bothers me. As a student of mathematics, I
             have been trained in the most extreme of mindsets: things are either
-            100% correct or 0% correct. No in between. Correctness is binary, and
-            software engineering is a discipline destined to cause me agony, or
-            so it seemed.
+            100% correct or 0% correct. No in between. Correctness is binary,
+            and software engineering is a discipline destined to cause me agony,
+            or so it seemed.
         </p>,
         <hr />,
-        <h2>What's Changed? Lean 4</h2>,
+        <h2>
+            What's Changed? <i>Lean 4</i>
+        </h2>,
         <p>
             You might be thinking: "So no matter how wide we cast the testing
             net, how many verification checks we perform on a release candidate,
@@ -140,18 +153,21 @@ const LeanInToGradSchool: ArticleProps = {
         </p>,
         <p>
             <strong>No.</strong> À la the renowned mathematician David Hilbert:{' '}
-            <em>"We must not, we will not!"</em> allow bugs to exist in software.
-            And Lean's creator Leonardo de Moura agrees.
+            <em>"We must not, we will not!"</em> allow bugs to exist in
+            software. And Lean's creator{' '}
+            <a href="https://leodemoura.github.io/" target="_blank">
+                Leonardo de Moura
+            </a>{' '}
+            agrees.
         </p>,
         <p>
-            De Moura and a world-renowned group of computer scientists and
-            mathematicians around the globe have been building tools to{' '}
-            <strong>prove</strong> software correctness, not just test for it,
-            but <em>mathematically guarantee</em> it. I want to join this global
-            movement to build safer software that accelerates scientific
-            discoveries in medicine, mathematics, physics, and computer science
-            by constructing provably correct systems that will power tomorrow's
-            world today.
+            De Moura and a group of computer scientists and mathematicians from
+            around the globe have been building tools to <strong>prove</strong>{' '}
+            software correctness is <em>mathematically guaranteed</em>. I want
+            to join this global movement to build safer software that
+            accelerates scientific discoveries in the fields of medicine,
+            mathematics, physics, and computer science by constructing provably
+            correct systems that will power tomorrow's world <b>today.</b>
         </p>,
         <p>
             So what is Lean? Lean is both a programming language{' '}
@@ -171,49 +187,61 @@ const LeanInToGradSchool: ArticleProps = {
             >
                 Dependent Type Theory
             </a>
-            , deep theoretical CS that I'm excited to study at Northeastern.
-            Computer scientists have researched ITPs for decades, but the
-            barrier to entry was so high that they were used solely by the
-            academics researching them.
+            , deep theoretical CS that I'm excited to learn about at
+            Northeastern. Computer scientists have researched ITPs for decades,
+            but the barrier to entry was so high that ITP's were used solely by
+            the academics researching them.
         </p>,
         <p>
-            De Moura changed this. Designed with a software verification-first
-            mindset, Lean reduces the barrier to entry for ITPs and makes it
-            practical for engineers to prove the correctness of software built in
-            the Lean programming language using the Lean theorem prover. One
+            De Moura changed this. Designed with software verification first and
+            foremost, Lean reduces the barrier to entry for ITPs and makes it
+            practical for engineers to prove the correctness of software built
+            in the Lean programming language using the Lean theorem prover. One
             language, one syntax, one stack.
         </p>,
         <p>
-            What could humans achieve if we did our most ambitious software
-            engineering yet, backed by a mathematical guarantee of correctness?
-            This is the future I plan to contribute to as a computer scientist
-            and mathematician, building provably safe, secure, and correct
-            software systems for the betterment of humanity.
+            Imagine what humans could achieve if we did our most ambitious
+            software engineering yet, backed by a mathematical guarantee of
+            correctness? This is the future I plan to contribute to as a
+            computer scientist and applied mathematician, building provably
+            safe, secure, and correct software systems for the betterment of
+            humanity.
         </p>,
         <p>
-            And this guarantee has never been more urgent, because of
-            Artificial Intelligence (AI).
+            And this guarantee of correctness has never been more urgently
+            needed than today due to the advancement of Artificial Intelligence
+            (AI).
         </p>,
         <hr />,
-        <h2>When? Right Now.</h2>,
+        <h2>
+            When? <i>Right Now!</i>
+        </h2>,
         <p>
-            In January 2026, tools like Anthropic's Claude Code and OpenAI's
-            Codex changed software engineering forever, right in front of our
-            eyes. These were not the autocomplete Large Language Models (LLMs)
-            that engineers rightly ignored between 2022 and 2025. The early LLMs
-            hallucinated broken
-            code constantly. But the 2026 generation completely convinced me of
-            two things:
+            Everything changed January 2026, when I first tried Anthropic's{' '}
+            <a href="https://github.com/anthropics/claude-code" target="_blank">
+                Claude Code
+            </a>{' '}
+            coding agent (colloquially known as a "harness" for LLMs). After 7
+            years of writing software professionally by hand, my jaw dropped
+            when the coding agent accomplished <b>in a single prompt</b> what
+            would have taken me a few days of dedicated effort to do, right from
+            within my terminal window. This was not the autocomplete chatbots
+            that developers mostly ignored between 2022 and 2025. The early LLMs
+            hallucinated broken code constantly. This new coding agent did not
+            hallucinate, it <i>iterated</i>. LLM's running in data centers
+            controlled my computer remotely and wrote code that eventually
+            compiled, passed unit tests, and fulfilled the acceptance criteria
+            of the ticket I was working on. This experience convinced me of two
+            things:
         </p>,
         <p>
             <strong>
                 1. Software development has undergone a phase transition
             </strong>
-            , like when humans went from machine code to assembly,
-            assembly to high-level languages, high-level languages to
-            frameworks and abstractions.
-            LLM-augmented engineering is the future, and there's nothing anyone
-            can do about it.
+            , like when humans went from machine code to assembly, assembly to
+            high-level programming languages, programming languages to standard
+            frameworks and patterned abstractions. LLM-augmented engineering{' '}
+            <i>is</i> the future, and there's nothing anyone can do to stop it.
         </p>,
         <p>
             <strong>
@@ -227,11 +255,11 @@ const LeanInToGradSchool: ArticleProps = {
             mathematicians have been perfecting guess-and-check for centuries.
         </p>,
         <p>
-            The systems of the future should behave like mathematicians iterating
-            on ideas until correctness is proven through logic. Stochastic
-            generation, constrained by deterministic verification. This feedback
-            loop accelerates into a flywheel, and humans must be at the helm as
-            we navigate the transition.
+            The systems of the future should behave like mathematicians
+            iterating on ideas until correctness is proven through logic.
+            Stochastic generation, constrained by deterministic verification.
+            This feedback loop accelerates into a flywheel, and humans must be
+            at the helm as we navigate the transition.
         </p>,
         <p>
             One important caveat worth acknowledging: Lean proves correctness{' '}
@@ -241,12 +269,14 @@ const LeanInToGradSchool: ArticleProps = {
             space faster than ever before.
         </p>,
         <hr />,
-        <h2>How? AI × Math × Lean = Correct Software</h2>,
+        <h2>
+            How? <i>AI × Math × Lean → Automatically Correct Software</i>
+        </h2>,
         <p>
             If AI × Lean makes verifying correctness easier, how do we make the
-            AI better at building correct code in the first place?
+            AI better at building correct code in the first place?{' '}
+            <i>We bake mathematics into the large language models.</i>
         </p>,
-        <p>We bake mathematics into the models.</p>,
         <p>
             Lean's official mathematics library,{' '}
             <a
@@ -256,12 +286,11 @@ const LeanInToGradSchool: ArticleProps = {
                 <strong>Mathlib</strong>
             </a>
             , is where mathematical facts are being formalized and codified for
-            future
-            generations to leverage as a library of truth. Instead of letting
-            models randomly predict the next token, we endow them with the
-            ability to reason mathematically, and therefore learn new domains
-            correctly, potentially discovering solutions to Earth's biggest
-            challenges that no single person could achieve alone.
+            future generations to leverage as a library of truth. Instead of
+            letting models randomly predict the next token, we endow them with
+            the ability to reason mathematically, and therefore learn new
+            domains correctly, potentially discovering solutions to Earth's
+            biggest challenges that no single person could achieve alone.
         </p>,
         <p>
             With Mathlib, anyone in the world using Lean can leverage formalized
@@ -275,7 +304,7 @@ const LeanInToGradSchool: ArticleProps = {
             </a>
             .
         </p>,
-        <p>Don't take my word for it, let me show you:</p>,
+        <p>Let me show you how programs are equivalent to proofs:</p>,
         <SyntaxHighlighter
             language="lean"
             style={vscDarkPlus}
@@ -287,24 +316,19 @@ const LeanInToGradSchool: ArticleProps = {
         <p>
             Same syntax. Same logic. The function <em>is</em> the proof.
         </p>,
-        <hr />,
-        <h2>
-            Conclusion: Future Software Engineering = Verifying Mathematical
-            Proofs
-        </h2>,
         <p>
             The Curry-Howard Correspondence is a fundamental result in computer
-            science and mathematics: there is an equivalence between mathematical
-            proofs and computer programs. A theorem is a type. A proof is a
-            program. A program's computational logic <em>is</em> a proof's
-            deduction logic. At the deepest level, math proofs and computer
-            programs are the same thing, and we can create one-to-one
+            science and mathematics: there is an equivalence between
+            mathematical proofs and computer programs. A theorem is a type. A
+            proof is a program. A program's computational logic <em>is</em> a
+            proof's deduction logic. At the deepest level, math proofs and
+            computer programs are the same thing, and we can create one-to-one
             correspondences between them to guarantee the correctness of
             software.
         </p>,
         <p>
-            And this scales. Function composition, the backbone of all
-            software,{' '}
+            And this can scale in ways natural language requirements in Jira
+            cannot. Function composition, the backbone of all software,{' '}
             <em>is</em> logical transitivity:
         </p>,
         <SyntaxHighlighter
@@ -317,10 +341,14 @@ const LeanInToGradSchool: ArticleProps = {
         </SyntaxHighlighter>,
         <p>
             The <code>→</code> symbol means "function" and "implies"
-            simultaneously. These aren't analogies, they are the same thing.
-            And that's why the future of software engineering is verifying
-            mathematical proofs.
+            simultaneously. They are literally the same thing. And that's why
+            the future of software engineering is verifying mathematical proofs.
         </p>,
+        <hr />,
+        <h2>
+            Conclusion:{' '}
+            <i>Future Software Engineering ⇔ Verifying Mathematical Proofs</i>
+        </h2>,
         <p>
             The futures of AI, Mathematics, and Computer Science are intricately
             intertwined, and those who sit at the intersections will bridge the
@@ -331,9 +359,17 @@ const LeanInToGradSchool: ArticleProps = {
             about the next scientific renaissance.
         </p>,
         <p>
-            I plan to use my research to contribute to efforts like Mathlib, and
-            help build better tools for software engineering and mathematical
-            research at places like{' '}
+            I plan to use my research to contribute to open-source formalization
+            efforts like Mathlib,{' '}
+            <a href="https://www.cslib.io/" target="_blank">
+                CSLib
+            </a>
+            , and{' '}
+            <a href="https://physlib.io/" target="_blank">
+                Physlib
+            </a>
+            , with the intention of building better tools for software
+            engineering and mathematical research at places like{' '}
             <a href="https://axiommath.ai/" target="_blank">
                 Axiom
             </a>
@@ -372,10 +408,12 @@ const LeanInToGradSchool: ArticleProps = {
         </p>,
         <p>
             <strong>
-                If you are interested in working together or are looking for
-                graduate student interns for summer 2027, please reach out.
+                If you are interested in collaborating on research, working
+                together on projects, or are looking for graduate student
+                interns for summer 2027, please reach out!
             </strong>{' '}
-            There has never been a better time to be a builder.
+            There has quite literally never been a better time to be a builder.
+            I'm so excited for the future of humanity!
         </p>,
     ],
 };
