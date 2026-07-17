@@ -8,9 +8,13 @@ export type EventRow = {
     referrer: string;
     device: string;
     read_seconds: number;
+    ip_hash: string;
 };
 
-const WORKBOOK_PATH = '/PersonalApps/blog-analytics.xlsx';
+// Overridable so local/CI can target a throwaway workbook and never touch
+// the real analytics data. Defaults to the production workbook.
+const WORKBOOK_PATH =
+    process.env.ANALYTICS_WORKBOOK_PATH || '/PersonalApps/blog-analytics.xlsx';
 const TABLE = 'Events';
 const GRAPH = 'https://graph.microsoft.com/v1.0';
 
@@ -36,6 +40,7 @@ const COLS: (keyof EventRow)[] = [
     'referrer',
     'device',
     'read_seconds',
+    'ip_hash',
 ];
 
 function escapeFormula(v: unknown): unknown {
@@ -85,6 +90,7 @@ export async function readAllEvents(): Promise<EventRow[]> {
                 referrer: unescape(v[4]),
                 device: unescape(v[5]),
                 read_seconds: Number(v[6] ?? 0),
+                ip_hash: unescape(v[7]),
             });
         }
         next = json['@odata.nextLink'] ?? null;

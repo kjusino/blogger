@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { enqueue } from '../analytics/buffer';
 import { getAnalyticsSummary, bustAnalyticsCache } from '../analytics/cache';
 import type { EventRow } from '../analytics/excel';
+import { hashIp } from '../analytics/identity';
+import { env } from '../env';
 
 const EventSchema = z.object({
     event: z.enum(['view', 'audio_play', 'audio_complete', 'video_play', 'video_complete']),
@@ -61,6 +63,7 @@ analyticsPublicRouter.post('/event', (req: Request, res: Response) => {
         referrer: parsed.data.referrer,
         device: parsed.data.device,
         read_seconds: parsed.data.read_seconds,
+        ip_hash: hashIp(req.ip ?? 'unknown', env.SESSION_SECRET),
     };
 
     enqueue(row);
