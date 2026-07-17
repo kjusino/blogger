@@ -37,6 +37,30 @@ check('IPv4-mapped IPv6 unwraps to the IPv4', () => {
     assert.strictEqual(networkKey('::ffff:24.1.62.66'), '24.1.62.66');
 });
 
+// The prod bug: Azure XFF is "IP:port" and the port rotates every connection.
+check('IPv4:port strips the port (same IP, diff ports -> same key)', () => {
+    assert.strictEqual(networkKey('24.1.62.66:54321'), '24.1.62.66');
+    assert.strictEqual(networkKey('24.1.62.66:54321'), networkKey('24.1.62.66:12345'));
+});
+
+check('[IPv6]:port strips brackets+port and still /64-collapses', () => {
+    assert.strictEqual(
+        networkKey('[2601:240:c600:e880:1116:4052:6074:b27b]:5555'),
+        '2601:240:c600:e880::/64'
+    );
+    assert.strictEqual(
+        networkKey('[2601:240:c600:e880:aaaa:bbbb:cccc:dddd]:9999'),
+        networkKey('[2601:240:c600:e880:1116:4052:6074:b27b]:5555')
+    );
+});
+
+check('bare IPv6 still works (colons not mistaken for a port)', () => {
+    assert.strictEqual(
+        networkKey('2601:240:c600:e880:1116:4052:6074:b27b'),
+        '2601:240:c600:e880::/64'
+    );
+});
+
 console.log('\nhashIp:');
 
 check('same network -> same hash (rotating IPv6 = one user)', () => {

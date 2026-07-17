@@ -1,6 +1,24 @@
 import { createHmac } from 'crypto';
 
 /**
+ * Strip a trailing port (and IPv6 brackets) from an address.
+ *
+ * Azure App Service writes the client's `IP:port` into X-Forwarded-For, and
+ * Express's req.ip passes that through verbatim. The ephemeral port changes on
+ * every TCP connection, so leaving it in would make each request look like a
+ * new visitor. Handles `IPv4:port` and `[IPv6]:port`; bare IPv4/IPv6 pass
+ * through untouched (an IPv6 address's own colons are never mistaken for a port
+ * because that form is only matched inside brackets).
+ */
+function stripPort(ip: string): string {
+    const bracketed = /^\[([^\]]+)\](?::\d+)?$/.exec(ip); // [IPv6]:port
+    if (bracketed) return bracketed[1];
+    const v4port = /^(\d{1,3}(?:\.\d{1,3}){3}):\d+$/.exec(ip); // IPv4:port
+    if (v4port) return v4port[1];
+    return ip;
+}
+
+/**
  * Reduce a client IP to a stable per-subscriber network key before hashing.
  *
  * IPv4: kept whole — one address ≈ one household/NAT ≈ one "user".
@@ -11,7 +29,9 @@ import { createHmac } from 'crypto';
  *   this keeps one person as one user across their rotating addresses.
  * IPv4-mapped IPv6 (::ffff:a.b.c.d): unwrapped to the underlying IPv4.
  */
-export function networkKey(ip: string): string {
+export function networkKey(rawIp: string): string {
+    const ip = stripPort(rawIp);
+
     const mapped = /^::ffff:(\d+\.\d+\.\d+\.\d+)$/i.exec(ip);
     if (mapped) return mapped[1];
 
