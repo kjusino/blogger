@@ -199,7 +199,7 @@ const resume: ArticleProps = {
                         mathematics, and provably correct software engineering
                     </b>
                     . I am drawn to the challenge of making mechanically
-                    verified reasoning practical at scale — through AI-assisted
+                    verified reasoning practical at scale through AI-assisted
                     theorem proving, neurosymbolic methods, and constrained LLM
                     decoding that produces outputs checkable by proof
                     assistants.
