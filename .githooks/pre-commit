@@ -1,0 +1,83 @@
+#!/bin/bash
+# .githooks/pre-commit
+#
+# Runs the full Playwright E2E suite before every commit.
+# Blocks the commit (exit 1) if any test fails.
+# Starts the dev server if not already running, and always cleans it up.
+#
+# Tracked in-repo and wired up via `git config core.hooksPath .githooks`
+# (done automatically by the npm `prepare` script on install).
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo ""
+echo "▶ Pre-commit: running Playwright tests..."
+
+# ── 0. Skip cleanly if there's no Playwright suite to run ─────────────────────
+# Without this guard, `playwright test` exits non-zero with "No tests found"
+# and blocks every commit until a suite exists.
+if ! npx playwright test --list >/dev/null 2>&1; then
+  echo "  → No Playwright tests found — skipping E2E and allowing commit."
+  echo ""
+  exit 0
+fi
+
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+server_status() {
+  curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 2>/dev/null || echo "000"
+}
+
+# ── 1. Start dev server if needed ─────────────────────────────────────────────
+
+SERVER_PID=""
+SERVER_STARTED=0
+
+if [ "$(server_status)" = "200" ]; then
+  echo "  → Dev server already running on :3000 — reusing."
+else
+  echo "  → Starting dev server..."
+  BROWSER=none npm start > /tmp/blogger-dev-server.log 2>&1 &
+  SERVER_PID="$!"
+  SERVER_STARTED=1
+
+  ready=0
+  for i in $(seq 1 60); do
+    [ "$(server_status)" = "200" ] && ready=1 && break
+    sleep 2
+  done
+
+  if [ "$ready" -eq 0 ]; then
+    echo "  ✖ Dev server did not respond after 120s — aborting commit."
+    kill "$SERVER_PID" 2>/dev/null || true
+    exit 1
+  fi
+  echo "  → Dev server ready."
+fi
+
+# ── 2. Always stop the server we started on exit ──────────────────────────────
+
+cleanup() {
+  if [ "$SERVER_STARTED" -eq 1 ]; then
+    echo ""
+    echo "  → Stopping dev server (PID $SERVER_PID)..."
+    kill "$SERVER_PID" 2>/dev/null || true
+    lsof -ti:3000 2>/dev/null | xargs kill -9 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT
+
+# ── 3. Run Playwright (list reporter: terse terminal output, no HTML file) ────
+
+echo ""
+PLAYWRIGHT_NO_SERVER=1 npx playwright test --reporter=list
+TEST_EXIT=$?
+
+echo ""
+if [ "$TEST_EXIT" -eq 0 ]; then
+  echo "  ✔ All Playwright tests passed — proceeding with commit."
+else
+  echo "  ✖ Playwright tests failed — commit blocked."
+fi
+
+exit $TEST_EXIT

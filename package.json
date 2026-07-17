@@ -28,6 +28,7 @@
     "zod": "^4.4.3"
   },
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks || true",
     "start": "react-scripts start",
     "build": "react-scripts build && tsx scripts/generate-og-data.ts",
     "test": "react-scripts test",
