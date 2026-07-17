@@ -3,17 +3,9 @@ import { Tags } from '../resources/enums/Tags';
 import ThemeBadge from './ThemeBadge';
 import AudioPlayer from './AudioPlayer';
 import VideoPlayer from './VideoPlayer';
+import RelatedReading from './RelatedReading';
 import usePageTracking from '../analytics/usePageTracking';
-
-function formatDate(dateStr: string): string {
-    const [year, month, day] = dateStr.split('-').map(Number);
-    const date = new Date(year, month - 1, day);
-    return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    });
-}
+import { formatDate } from '../resources/formatDate';
 
 function Blog({
     route,
@@ -88,6 +80,7 @@ function Blog({
                     <img src={img2} className="App-logo" />
                 </figure>
             )}
+            {isBlogPost && <RelatedReading route={route} />}
         </div>
     );
 }

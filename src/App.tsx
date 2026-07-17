@@ -23,8 +23,8 @@ import Depth from './personal/depth/Depth';
 import Cadence from './personal/cadence/Cadence';
 import Leak from './personal/leak/Leak';
 import Nerve from './personal/nerve/Nerve';
-
-const NON_BLOG_ROUTES = new Set(['/', '/cv', '/personal']);
+import ScrollToTop from './components/ScrollToTop';
+import { NON_BLOG_ROUTES } from './resources/routes';
 
 function App() {
     let routes = [];
@@ -53,6 +53,7 @@ function App() {
     return (
         <header className="App-header">
             <BrowserRouter>
+                <ScrollToTop />
                 <NavBar />
                 <Routes>
                     {routes}
