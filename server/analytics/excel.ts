@@ -65,18 +65,36 @@ export async function appendEvents(rows: EventRow[]): Promise<void> {
     }
 }
 
+const PAGE = 500;
+
 export async function readAllEvents(): Promise<EventRow[]> {
     const out: EventRow[] = [];
-    let next: string | null = `${tableUrl()}/rows?$top=500`;
-    while (next) {
-        const res = await graphFetch(next);
+
+    // The workbook table `rows` endpoint does NOT return `@odata.nextLink`: a
+    // single request is silently capped at $top rows, so a nextLink loop stops
+    // after the first page and drops every row beyond it (the NEWEST events).
+    // Page explicitly with $skip against the true row count instead.
+    const countRes = await graphFetch(
+        `${tableUrl()}/dataBodyRange?$select=rowCount`,
+    );
+    if (!countRes.ok) {
+        throw new Error(
+            `Analytics row count failed: ${countRes.status} ${await countRes.text()}`,
+        );
+    }
+    const total = Number(
+        ((await countRes.json()) as { rowCount?: number }).rowCount ?? 0,
+    );
+
+    for (let skip = 0; skip < total; skip += PAGE) {
+        const res = await graphFetch(
+            `${tableUrl()}/rows?$top=${PAGE}&$skip=${skip}`,
+        );
         if (!res.ok) {
             throw new Error(`Analytics read failed: ${res.status} ${await res.text()}`);
         }
-        const json = (await res.json()) as {
-            value: { values: unknown[][] }[];
-            '@odata.nextLink'?: string;
-        };
+        const json = (await res.json()) as { value: { values: unknown[][] }[] };
+        if (!json.value?.length) break; // safety: never loop past the data
         for (const row of json.value) {
             const v = row.values?.[0];
             if (!v) continue;
@@ -93,7 +111,6 @@ export async function readAllEvents(): Promise<EventRow[]> {
                 ip_hash: unescape(v[7]),
             });
         }
-        next = json['@odata.nextLink'] ?? null;
     }
     return out;
 }
