@@ -27,7 +27,7 @@ const meta = { color: 'var(--text-dim)', fontSize: 14 };
 const resume: ArticleProps = {
     route: '/cv',
     title: 'Kenneth Jusino',
-    pics: ['profilepic.png'],
+    pics: ['profilepic.jpg'],
     caption: 'CS PhD Candidate · NSF CSGrad4US Fellow · AI × Formal Methods',
     content: [
         <div
