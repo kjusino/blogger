@@ -17,6 +17,14 @@ const PROJECTS: Project[] = [
         displayUrl: 'leanlingo.org',
         image: 'https://leanlingo.org/og.png',
     },
+    {
+        name: 'Lean Design Patterns',
+        description:
+            'The 23 Gang of Four design patterns, rebuilt in Lean 4. Each one starts from a real industry case and comes with a spec, an implementation and a machine-checked proof. In development.',
+        url: 'https://kjusino.github.io/lean-design-patterns/',
+        displayUrl: 'kjusino.github.io/lean-design-patterns',
+        image: 'https://kjusino.github.io/lean-design-patterns/og.png',
+    },
 ];
 
 const Projects = () => (
